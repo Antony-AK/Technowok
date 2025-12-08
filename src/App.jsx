@@ -8,7 +8,7 @@ import Footer from "./Components/Footer";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ServicePage from "./Pages/ServicePage";
 import PageTransition from "./AnimationObjects/PageTransition";
-import ContactPage from "./Pages/Contact";
+import ContactPage from "./Pages/Contact.jsx";
 import DigitalPage from "./Pages/DigitalPage";
 import WhatWeBuild from "./Pages/WhatWeBuild";
 import CaseStudy from "./Components/CaseStudy";
