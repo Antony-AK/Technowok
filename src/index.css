@@ -1,0 +1,127 @@
+/* Import Tailwind */
+@import "tailwindcss";
+
+/* Import Poppins (All weights for flexibility) */
+@layer base {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Set global font */
+    font-family: 'Poppins', sans-serif;
+  }
+
+
+.split-letter {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+
+
+  /* Improve headings — perfect for agency websites */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    /* Bold + Clean headings */
+    letter-spacing: -0.5px;
+  }
+
+  /* Softer, readable paragraphs */
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #E4E4E4;
+    /* Modern soft white */
+  }
+
+  /* Global background for black/red theme */
+  body {
+    background-color: #000000;
+    /* Deep black */
+    color: #ffffff;
+    /* White text */
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation: slide 22s linear infinite;
+}
+
+
+.perspective {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+
+@keyframes floatBounce {
+  0%, 100% {
+    transform: translateY(-8px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-track {
+  display: flex;
+  width: 800%; /* 4 images × 2 loops */
+  animation: slide 50s linear infinite;
+}
+
+
+@keyframes slide1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-400%); /* scroll exactly 4 images width */
+  }
+}
