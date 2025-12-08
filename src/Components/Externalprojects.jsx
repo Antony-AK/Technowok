@@ -14,7 +14,7 @@ import thangam from "../assets/Thangam1.png"
 import acme from "../assets/Acme1.png"
 import marigan from "../assets/marigan1.png"
 import hungry from "../assets/hungry1.png"
-import tamil from "../assets/tamil1.png"
+import tamil from "../assets/Tamil1.png"
 import china from "../assets/china1.png"
 import donate from "../assets/donate1.png"
 
