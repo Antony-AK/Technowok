@@ -25,7 +25,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full bg-black text-white  py-24 flex items-center justify-center">
+    <section className="relative min-h-screen w-full bg-black text-white  py-24 flex flex-col items-center justify-center">
 
       {/* Light trails BG */}
 
@@ -184,6 +184,27 @@ export default function ContactPage() {
         </motion.div>
 
       </div>
+
+      {/* 🌍 GOOGLE MAP EMBED */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={start ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="w-full mt-20"
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.919246153202!2d78.11086167477772!3d8.793657391258575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b03ef33b993a337%3A0x2094ecdd0fda3e57!2sTecnowok%20Solution!5e0!3m2!1sen!2sin!4v1765258667795!5m2!1sen!2sin"
+          className="w-full h-[350px] "
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.1px] pointer-events-none"></div>
+
+      </motion.div>
+
+
     </section>
   );
 }
