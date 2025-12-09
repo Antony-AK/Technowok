@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import tanuvas1 from "../assets/Tanuvas1.png"
 import nba from "../assets/Nba1.png"
@@ -140,94 +140,85 @@ export const EXTERNAL_PROJECTS = [
 ];
 
 export default function ExternalProjects() {
-    return (
-        <div className="w-full bg-black text-white py-24 px-6 mt-10 md:px-16">
+  return (
+    <div className="w-full bg-black text-white py-24 px-6 mt-10 md:px-16">
+      <h1 className="text-center text-4xl md:text-5xl font-bold mb-16">
+        Our <span className="text-red-500">External Projects</span>
+      </h1>
 
-            {/* HEADER */}
-            <h1 className="text-center text-4xl md:text-5xl font-bold mb-16">
-                Our <span className="text-red-500">External Projects</span>
-            </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
+        {EXTERNAL_PROJECTS.map((project, i) => (
+          <CardFlip key={i} project={project} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-            {/* GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
-                {EXTERNAL_PROJECTS.map((project, i) => (
-                    <motion.div
-                        whileHover={{ scale: 1.04 }}
-                        transition={{ duration: 0.3 }}
-                        className="
-        group perspective 
-        w-full h-[280px] 
-        relative cursor-pointer
-      "
-                    >
-                        {/* CARD INNER (FLIP EFFECT) */}
-                        <div
-                            className="
-          relative w-full h-full 
-          transition-transform duration-700 
-          group-hover:rotate-y-180 
+/* ============================
+   CARD COMPONENT (hover + tap)
+=============================== */
+function CardFlip({ project }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile SAFELY (no SSR crash)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  function handleClick() {
+    if (isMobile) {
+      setIsFlipped((prev) => !prev); // toggle for mobile
+    }
+  }
+
+  return (
+    <motion.div
+      whileHover={!isMobile ? { scale: 1.04 } : {}} // desktop hover
+      transition={{ duration: 0.3 }}
+      onClick={handleClick}
+      className="group perspective w-full h-[280px] relative cursor-pointer"
+    >
+      <div
+        className={`
+          relative w-full h-full
+          transition-transform duration-700
           preserve-3d
-        "
-                        >
-
-                            {/* FRONT SIDE */}
-                            <div
-                                className="
-            absolute inset-0 
-            rounded-3xl overflow-hidden 
-            shadow-[0_0_25px_rgba(255,0,0,0.4)]
-            backface-hidden
-          "
-                            >
-                                <img
-                                    src={project.heroImage}
-                                    className="w-full h-full object-cover brightness-75"
-                                    alt=""
-                                />
-
-                                {/* TITLE OVERLAY */}
-                                <div className="
-              absolute inset-0 flex items-center justify-center
-              bg-black/20
-              text-2xl font-bold tracking-wide 
-            ">
-                                    {project.title}
-                                </div>
-                            </div>
-
-                            {/* BACK SIDE */}
-                            <div
-                                className="
-            absolute inset-0 
-            rounded-3xl p-6 
-            bg-gradient-to-br from-red-600 to-red-700 
-            rotate-y-180 backface-hidden
-            opacity-100
-            flex flex-col justify-between
-            shadow-[0_0_35px_rgba(255,0,0,0.5)]
-          "
-                            >
-                                <p className="text-gray-200 text-sm leading-relaxed">
-                                    {project.description}
-                                </p>
-
-                                <a
-                                    href={project.url}
-                                    target="_blank"
-                                    className="
-              mt-4 px-5 py-2 
-              bg-black/70 text-white rounded-full 
-              text-center text-sm 
-              hover:bg-black/90 transition
-            "
-                                >
-                                    Visit Project →
-                                </a>
-                            </div>
-
-                        </div>
-                    </motion.div>))}
-            </div>
+          ${isFlipped ? "rotate-y-180" : ""}
+          ${!isMobile ? "group-hover:rotate-y-180" : ""} 
+        `}
+      >
+        {/* FRONT */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden backface-hidden shadow-[0_0_25px_rgba(255,0,0,0.4)]">
+          <img
+            src={project.heroImage}
+            className="w-full h-full object-cover brightness-75"
+            alt=""
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 text-2xl font-bold tracking-wide">
+            {project.title}
+          </div>
         </div>
-    );
+
+        {/* BACK */}
+        <div className="absolute inset-0 rounded-3xl p-6 bg-gradient-to-br from-red-600 to-red-700 rotate-y-180 backface-hidden shadow-[0_0_35px_rgba(255,0,0,0.5)] flex flex-col justify-between">
+          <p className="text-gray-200 text-sm leading-relaxed">
+            {project.description}
+          </p>
+
+          <a
+            href={project.url}
+            target="_blank"
+            className="mt-4 px-5 py-2 bg-black/70 text-white rounded-full text-center text-sm hover:bg-black/90 transition"
+          >
+            Visit Project →
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
 }

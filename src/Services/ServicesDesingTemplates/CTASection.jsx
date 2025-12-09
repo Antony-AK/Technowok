@@ -40,7 +40,7 @@ export default function CtaSection({ data }) {
   className="text-center text-3xl md:text-5xl font-bold mb-6"
 >
   {data.heading.split(" ").map((word, i) => {
-    const highlightWords = ["Android", "iOS", "Hybrid", "Windows", "Native", "Ionic", "Process", "CMS"];
+    const highlightWords = ["Android", "iOS", "Hybrid", "Windows", "Native", "Ionic", "Process", "CMS", "Ecommerce", "Digital"];
     
     const cleanWord = word.replace(/[^a-zA-Z0-9]/g, "");
     const isHighlighted = highlightWords.includes(cleanWord);
@@ -76,7 +76,7 @@ export default function CtaSection({ data }) {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex justify-center"
+        className="flex justify-center items-center w-60 mx-auto"
       >
         <Link href={data.ctaLink}>
           <motion.button
@@ -87,7 +87,7 @@ export default function CtaSection({ data }) {
             }}
             whileTap={{ scale: 0.97 }}
             className="
-              px-12 py-5 md:text-xl font-semibold uppercase tracking-wider
+              px-8 py-5 text-sm md:text-xl font-semibold uppercase tracking-wider
               bg-red-600 rounded-full shadow-[0_0_25px_rgba(255,0,0,0.4)]
               hover:shadow-[0_0_45px_rgba(255,0,0,0.6)]
               transition-all duration-300

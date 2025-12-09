@@ -50,7 +50,7 @@ export default function ProcessSection({ data }) {
       scrub: true,
       onUpdate: (self) => {
         const progress = self.progress;
-        const lineLength = (total - 1) * 900;
+        const lineLength = (total - 1) * (window.innerWidth < 768 ? 300 : 900);
         gsap.to(lineBallRef.current, {
           x: lineLength * progress,
           ease: "none"
@@ -62,22 +62,21 @@ export default function ProcessSection({ data }) {
   }, []);
 
   /* SLIDES */
-  /* SLIDES */
   const slides = data.steps.map((item, i) => (
     <div
       key={i}
       ref={(el) => (slideRefs.current[i] = el)}
-      className="w-[800px] h-[350px] shrink-0 flex flex-col justify-center items-center p-10 md:p-16"
+      className="w-[800px] h-[350px] shrink-0 flex flex-col justify-center items-center p-5 md:p-16"
     >
       <h2 className="text-4xl md:text-7xl font-black font-sans text-red-600">
         {item.step}
       </h2>
 
-      <h3 className="text-xl md:text-3xl font-semibold mt-3 md:mt-4">
+      <h3 className="text-2xl md:text-3xl font-semibold mt-3 md:mt-4">
         {item.title}
       </h3>
 
-      <p className="text-white/60 mt-3 md:mt-4 max-w-xl text-sm md:text-lg text-center">
+      <p className="text-white/60 mt-3 md:mt-4 max-w-xl text-base md:text-lg text-center">
         {item.text}
       </p>
     </div>
@@ -124,13 +123,15 @@ export default function ProcessSection({ data }) {
         style={{ height: "100vh", whiteSpace: "nowrap" }}
       >
         {/* LINE UNDER SLIDES */}
-        <div className="absolute left-0 right-0 bottom-[30%] h-[3px] bg-red-500/40">
+        <div className="absolute left-0 right-0 bottom-[30%]
+ h-[3px] bg-red-500/40">
           {/* MOVING BALL */}
           <div
             ref={lineBallRef}
             className="
-              absolute top-1/2 -translate-y-1/2 left-[410px]
-              w-6 h-6 bg-red-600 rounded-full
+              absolute top-1/2 -translate-y-1/2 left-[150px]  md:left-[410px]
+             w-6 h-6
+ bg-red-600 rounded-full
               shadow-[0_0_20px_rgba(255,0,0,0.9)]
             "
           />

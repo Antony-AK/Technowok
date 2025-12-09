@@ -35,6 +35,9 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   const [pulse, setPulse] = useState(0);
   const imgRef = useRef();
   const navigate = useNavigate();
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
+  
 
 
   /* Auto-slide */
@@ -46,41 +49,36 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   }, []);
 
   /* Parallax */
-  useEffect(() => {
-    const el = imgRef.current;
-    if (!el) return;
+ useEffect(() => {
+  if (isMobile) return; // ❌ no parallax on mobile
 
-    const setX = gsap.quickSetter(el, "x", "px");
-    const setY = gsap.quickSetter(el, "y", "px");
+  const el = imgRef.current;
+  if (!el) return;
 
-    function onMove(e) {
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
-      const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
+  const setX = gsap.quickSetter(el, "x", "px");
+  const setY = gsap.quickSetter(el, "y", "px");
 
-      gsap.to({}, {
-        duration: 0.6,
-        onUpdate: () => {
-          setX(dx * 12);
-          setY(dy * 10);
-        }
-      });
-    }
+  function onMove(e) {
+    const rect = el.getBoundingClientRect();
+    const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+    const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
 
-    function onLeave() {
-      if (!el) return;
-      gsap.to(el, { x: 0, y: 0, duration: 0.6 });
-    }
+    setX(dx * 12);
+    setY(dy * 10);
+  }
 
-    window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerleave", onLeave);
+  function onLeave() {
+    gsap.to(el, { x: 0, y: 0, duration: 0.6 });
+  }
 
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerleave", onLeave);
-    };
-  }, []);
+  window.addEventListener("pointermove", onMove);
+  window.addEventListener("pointerleave", onLeave);
+
+  return () => {
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerleave", onLeave);
+  };
+}, [isMobile]);
 
   /* 🎬 Main Hero Animation */
   useEffect(() => {

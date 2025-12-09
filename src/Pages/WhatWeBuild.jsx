@@ -223,7 +223,7 @@ export default function WhatWeBuild() {
                 <MiniCarousel />
 
                 {/* TEXT */}
-                <h1 className="hero-line text-3xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                <h1 className="hero-line text-3xl mt-5 sm:text-5xl md:text-6xl font-bold leading-tight">
                     We Build
                 </h1>
                 <h1 className="hero-line text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-red-600">
