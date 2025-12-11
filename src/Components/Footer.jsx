@@ -125,7 +125,8 @@ export default function Footer() {
             <div className="flex gap-4 mb-4 text-gray-300">
               <a href="#" className="hover:text-white"><FaLinkedin size={22} /></a>
               <a href="#" className="hover:text-white"><FaInstagram size={22} /></a>
-              <a href="#" className="hover:text-white"><FaWhatsapp size={22} /></a>
+              <a href="https://wa.me/918939787678"
+                target="_blank" className="hover:text-white"><FaWhatsapp size={22} /></a>
             </div>
 
             <form

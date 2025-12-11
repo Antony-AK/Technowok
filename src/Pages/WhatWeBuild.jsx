@@ -263,21 +263,21 @@ export default function WhatWeBuild() {
                 <MiniCarousel />
 
                 {/* TEXT */}
-                <h1 className="hero-line text-3xl mt-5 sm:text-5xl md:text-6xl font-bold leading-tight">
+                <h1 className=" text-3xl mt-10 sm:text-5xl md:text-6xl font-bold leading-tight">
                     We Build
                 </h1>
-                <h1 className="hero-line text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-red-600">
+                <h1 className=" text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-red-600">
                     The Future of Digital
                 </h1>
 
-                <p className="hero-line text-gray-400 mt-6 text-lg max-w-xl">
+                <p className=" text-gray-400 mt-6 text-lg max-w-xl">
                     A new era of apps, websites, AI, cloud & engineering excellence.
                 </p>
 
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={() => navigate("/whatwebuild/externalprojects")}
-                    className="mt-24 sm:mt-20 z-10 px-8 sm:px-12 py-3 sm:py-4 mb-20 rounded-full bg-red-600 shadow-[0_0_25px_rgba(255,0,0,0.6)]"
+                    className="mt-24 sm:mt-28 z-10 px-8 sm:px-12 py-3 sm:py-4 mb-20 rounded-full bg-red-600 shadow-[0_0_25px_rgba(255,0,0,0.6)]"
                 >
                     Explore What We Build
                 </motion.button>

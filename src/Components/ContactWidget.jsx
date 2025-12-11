@@ -64,32 +64,34 @@ export default function ContactWidget() {
               </div>
 
               <h3 className="text-xl font-bold text-red-500 mb-2">
-                Let's Connect 
+                Let's Connect
               </h3>
               <p className="text-gray-300 text-sm mb-6">
-                Have an idea? Need a quote?  
+                Have an idea? Need a quote?
                 We’re here to help you build something amazing.
               </p>
 
               {/* WhatsApp Button */}
               <a
-                href="https://wa.me/91XXXXXXXXXX"
+                href="https://wa.me/918939787678"
                 target="_blank"
                 className="
-                  w-full block text-center py-3 mt-2
-                  bg-green-600 hover:bg-green-700
-                  rounded-xl font-semibold
-                  shadow-[0_0_15px_rgba(0,255,0,0.4)]
-                "
+    w-full block text-center py-3 mt-2
+    bg-green-600 hover:bg-green-700
+    rounded-xl font-semibold
+    shadow-[0_0_15px_rgba(0,255,0,0.4)]
+  "
               >
                 Chat on WhatsApp
               </a>
 
+
               {/* Secondary Button */}
               <motion.button
-              onClick={()=> {navigate("/contact")
-                setOpen(false)
-              }}
+                onClick={() => {
+                  navigate("/contact")
+                  setOpen(false)
+                }}
                 whileHover={{ scale: 1.05 }}
                 className="
                   w-full py-3 mt-4

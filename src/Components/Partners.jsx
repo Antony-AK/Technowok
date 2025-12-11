@@ -82,12 +82,12 @@ export default function Partners() {
       <div className="relative mx-auto max-w-5xl mb-40">
         <h2 className="text-3xl md:text-4xl font-semibold mb-12">Cloud Partners</h2>
 
-        <div className="relative flex justify-center gap-24 md:gap-40 pt-10">
+        <div className="relative flex flex-col md:flex-row items-center justify-center gap-24 md:gap-40 pt-10">
           {cloudPartners.map((c, i) => (
             <div
               key={i}
               ref={(el) => (floatRefs.current[i] = el)}
-              className="relative w-32 h-32 flex items-center justify-center
+              className="relative w-32 h-32 flex  items-center justify-center
                 bg-[#0d0d0f] rounded-2xl border border-white/10
                 shadow-[0_0_40px_rgba(255,0,0,0.25)] backdrop-blur-xl"
             >

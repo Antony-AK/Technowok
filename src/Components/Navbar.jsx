@@ -9,7 +9,9 @@ export default function Navbar({ setTransitionTrigger }) {
   const navRef = useRef(null);
   const megaRef = useRef(null);
   const digitalRef = useRef(null);
+  const talentRef = useRef(null);
 
+  const [showTalent, setShowTalent] = useState(false);
   const [showServices, setShowServices] = useState(false);
   const [showDigital, setShowDigital] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,24 +91,24 @@ export default function Navbar({ setTransitionTrigger }) {
   ];
 
   const ROUTE_MAP = {
-  "Who We Are": "/whoweare",
-  "Courses": "/courses",
-  "Careers": "/careers",
-  "Partners": "/partners",
-  "Our Team": "/ourteam",
-};
+    "Who We Are": "/whoweare",
+    "Courses": "/courses",
+    "Careers": "/careers",
+    "Partners": "/partners",
+    "Our Team": "/ourteam",
+  };
 
 
-const handleNavigate = (path) => {
-  setShowServices(false);
-  setShowDigital(false);
-  setDesktopMenuOpen(false);
-  setMobileMenuOpen(false);
+  const handleNavigate = (path) => {
+    setShowServices(false);
+    setShowDigital(false);
+    setDesktopMenuOpen(false);
+    setMobileMenuOpen(false);
 
-  setTransitionTrigger({
-    onMid: () => navigate(path),
-  });
-};
+    setTransitionTrigger({
+      onMid: () => navigate(path),
+    });
+  };
 
 
 
@@ -134,6 +136,18 @@ const handleNavigate = (path) => {
       pointerEvents: showDigital ? "auto" : "none",
     });
   }, [showDigital]);
+
+  useEffect(() => {
+    if (!talentRef.current) return;
+
+    gsap.to(talentRef.current, {
+      opacity: showTalent ? 1 : 0,
+      y: showTalent ? 0 : 20,
+      duration: 0.3,
+      pointerEvents: showTalent ? "auto" : "none",
+    });
+  }, [showTalent]);
+
 
 
   return (
@@ -163,6 +177,7 @@ const handleNavigate = (path) => {
             onMouseLeave={() => {
               setShowServices(false);
               setShowDigital(false);
+               setShowTalent(false);
             }}
           >
             <nav className="ms-5">
@@ -176,19 +191,28 @@ const handleNavigate = (path) => {
                         if (item === "Services") {
                           setShowServices(true);
                           setShowDigital(false);
+                          setShowTalent(false);
+
                         } else if (item === "Digital") {
                           setShowDigital(true);
                           setShowServices(false);
+                          setShowTalent(false);
+
+                        } else if (item === "TalentWok") {
+                          setShowTalent(true);
+                          setShowServices(false);
+                          setShowDigital(false);
                         } else {
                           setShowServices(false);
                           setShowDigital(false);
+                          setShowTalent(false);
                         }
                       }}
                       onClick={() => {
                         if (item === "What we've built") {
                           setTransitionTrigger({ onMid: () => navigate("/whatwebuild") });
                         }
-                          if (item === "Insights") {
+                        if (item === "Insights") {
                           setTransitionTrigger({ onMid: () => navigate("/insights") });
                         }
                         if (item === "TalentWok") {
@@ -295,6 +319,51 @@ const handleNavigate = (path) => {
               </div>
             </div>
 
+            {/* TALENTWOK MENU */}
+            <div
+              ref={talentRef}
+              onClick={() => {
+                setShowTalent(false);
+                setTransitionTrigger({
+                  onMid: () => navigate("/talentwok"),
+                });
+              }}
+              className="absolute left-110 top-full w-full max-w-md 
+             bg-[#111] shadow-2xl border border-white/10 
+             rounded-2xl py-5  text-white 
+             z-[9999] opacity-0 pointer-events-none cursor-pointer"
+            >
+              <div className="flex flex-col items-center gap-10">
+
+                {/* BIG LOGO */}
+                <div className="w-[200px] h-[200px] absolute top-0">
+                  <img
+                    src="img/Talentwok.png"
+                    alt="TalentWok Logo"
+                    className="w-full h-full object-contain drop-shadow-[0_0_25px_rgb(255,0,0,0.4)]"
+                  />
+                </div>
+
+                {/* DESCRIPTION + BUTTON */}
+                <div className="flex flex-col items-center mt-40 justify-center">
+
+<p className="text-sm max-w-xs text-center mb-6 leading-relaxed text-gray-300">
+  A modern <span className="text-red-500 font-medium">talent ecosystem</span> connecting 
+  <span className="text-white font-medium"> companies</span>, 
+  <span className="text-white font-medium"> campuses</span>, and 
+  <span className="text-white font-medium"> candidates</span>
+  through <span className="text-red-500 font-medium">real projects</span>, 
+  <span className="text-red-500 font-medium"> industry-backed learning</span>, 
+  and <span className="text-white font-medium">ready-to-deploy talent pods</span>.
+</p>
+
+
+
+                </div>
+              </div>
+            </div>
+
+
           </div>
           <div className="flex items-center gap-4 md:gap-6 cursor-pointer">
 
@@ -347,7 +416,7 @@ const handleNavigate = (path) => {
 
             <div className="mt-20 space-y-8 border-t border-red-600 pt-5">
               {[
-               "Who We Are", 
+                "Who We Are",
                 "Careers",
                 "Partners",
                 "Courses",
@@ -356,7 +425,7 @@ const handleNavigate = (path) => {
                 <p
                   key={idx}
                   className="text-xl cursor-pointer hover:text-red-600 transition"
-                   onClick={() => handleNavigate(ROUTE_MAP[item])}
+                  onClick={() => handleNavigate(ROUTE_MAP[item])}
                 >
                   {item}
                 </p>
@@ -523,7 +592,7 @@ const handleNavigate = (path) => {
             <div className=" space-y-4 md:hidden py-4">
 
               {[
-               "Who We Are", 
+                "Who We Are",
                 "Careers",
                 "Partners",
                 "Courses",
@@ -534,7 +603,7 @@ const handleNavigate = (path) => {
                   className="text-lg font-medium cursor-pointer py-2  border-b  border-white/10"
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    // add routing later if required
+                    handleNavigate(ROUTE_MAP[item])
                   }}
                 >
                   {item}

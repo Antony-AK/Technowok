@@ -2,10 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Careers() {
+    const navigate = useNavigate();
     const heroRef = useRef(null);
     const cardRefs = useRef([]);
     const whyRefs = useRef([]);
@@ -136,10 +138,10 @@ export default function Careers() {
       shadow-[0_0_25px_rgba(255,0,0,0.4)] hover:shadow-[0_0_35px_rgba(255,0,0,0.6)]
       transition-all
     ">
-                        Start Your Journey 🚀
+                        Start Your Journey 
                     </button>
 
-                    <button className="
+                    <button onClick={()=> navigate("/courses")} className="
       px-8 py-4 bg-transparent border border-red-600/60 hover:border-red-600 
       rounded-xl text-lg font-semibold text-red-400 hover:text-red-600
       backdrop-blur-xl transition-all

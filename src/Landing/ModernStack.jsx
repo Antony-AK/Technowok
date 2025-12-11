@@ -143,14 +143,15 @@ export default function ModernStack() {
               h-40 w-full 
             ">
               {activeData.icons.map((Icon, i) => {
-                const positions = [
-                  { x: -80, y: -20 },
-                  { x: -20, y: -10 },
-                  { x: 30, y: 10 },
-                  { x: -40, y: 40 },
-                  { x: 20, y: 50 },
-                  { x: -10, y: 5 },
-                ];
+       const positions = [
+  { x: -140, y: -40 },   // top-left wide
+  { x: -40,  y: -60 },   // top-mid
+  { x: 80,   y: -20 },   // top-right
+  { x: -120, y: 60 },    // bottom-left wide
+  { x: 40,   y: 80 },    // bottom-mid
+  { x: 120,  y: 30 },    // bottom-right  
+];
+
 
                 const pos = positions[i % positions.length];
                 return (
@@ -160,7 +161,7 @@ export default function ModernStack() {
                     style={{
                       transform: `translate(${pos.x}px, ${pos.y}px)`,
                       color: ["#ff7b7b", "#ffc95e", "#7fd1ff", "#69ffda"][i % 4],
-                      animation: "floatDiagonal 4s ease-in-out infinite, spinSlow 12s linear infinite",
+                      // animation: "floatDiagonal 4s ease-in-out infinite, spinSlow 12s linear infinite",
                     }}
                   >
                     {Icon}
