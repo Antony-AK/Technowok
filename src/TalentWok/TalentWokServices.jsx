@@ -22,7 +22,7 @@ export default function TalentWokServices() {
       gsap.fromTo(
         card,
         {
-          opacity: 0,
+          opacity: 1,
           y: 60,
           scale: 0.9,
           filter: "blur(8px)",

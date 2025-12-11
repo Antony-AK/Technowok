@@ -24,7 +24,45 @@ import selvi1 from "../assets/selvi1.png"
 import selvi2 from "../assets/selvi2.png"
 import selvi3 from "../assets/selvi3.png"
 
+import c9 from "../assets/achman.jpg"
+import c12 from "../assets/dbgt.jpg"
+import c7 from "../assets/gn.png"
+import c14 from "../assets/benz.png"
+import c15 from "../assets/c4.png"
+import c10 from "../assets/inkspot.jpg"
+import c8 from "../assets/pest.png"
+import c11 from "../assets/skymax.jpg"
+import c6 from "../assets/TuticorinTerminal.jpg"
+import c13 from "../assets/blackstone.png"
+import c3 from "../assets/c1.png"
+import c1 from "../assets/c2.png"
+import c2 from "../assets/c3.png"
+import c4 from "../assets/c4.png"
+import c5 from "../assets/c5.png"
+import c16 from "../assets/c6.png"
+import c17 from "../assets/c7.png"
+import c18 from "../assets/c8.png"
+import c19 from "../assets/c9.png"
+import c20 from "../assets/c10.png"
+import c21 from "../assets/c11.png"
+import c22 from "../assets/c12.png"
 
+
+
+
+
+
+const CLIENT_LOGOS = [
+    c1, c2, c3, c4, c5,
+    c6, c7, c8, c9, c10,
+    c11, c12, c13, c14, c15,
+    c16, c17, c18, c19, c20,
+    c21, c22,
+];
+
+const ROW_1 = CLIENT_LOGOS.slice( 0, 7);
+const ROW_2 = CLIENT_LOGOS.slice(7, 14);
+const ROW_3 = CLIENT_LOGOS.slice(15, 22);
 
 
 export const PROJECTS = [
@@ -211,6 +249,8 @@ export default function WhatWeBuild() {
         });
     }, []);
 
+    
+
     return (
         <div className="w-full bg-black text-white overflow-x-hidden">
 
@@ -237,7 +277,7 @@ export default function WhatWeBuild() {
                 <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={() => navigate("/whatwebuild/externalprojects")}
-className="mt-24 sm:mt-20 z-10 px-8 sm:px-12 py-3 sm:py-4 mb-20 rounded-full bg-red-600 shadow-[0_0_25px_rgba(255,0,0,0.6)]"
+                    className="mt-24 sm:mt-20 z-10 px-8 sm:px-12 py-3 sm:py-4 mb-20 rounded-full bg-red-600 shadow-[0_0_25px_rgba(255,0,0,0.6)]"
                 >
                     Explore What We Build
                 </motion.button>
@@ -259,6 +299,8 @@ className="mt-24 sm:mt-20 z-10 px-8 sm:px-12 py-3 sm:py-4 mb-20 rounded-full bg-
 
                 <div className="w-full  flex justify-center items-center"><button onClick={() => navigate("/whatwebuild/externalprojects")} className="text-xl px-6 py-3 cursor-pointer text-center w-[300px] rounded-full flex justify-center items-center bg-red-600  hover:scale-90 duration-200 ease-linear transition-transform">View More Projects</button></div>
 
+
+                <ClientLogos />
 
             </section>
 
@@ -424,3 +466,108 @@ function MiniCarousel() {
     );
 }
 
+function LogoMarqueeRow({ logos, reverse = false, size = "normal", speed = 60 }) {
+    const trackRef = useRef(null);
+
+    useEffect(() => {
+  const track = trackRef.current;
+  const totalWidth = track.scrollWidth / 2;
+
+  const ctx = gsap.context(() => {
+    gsap.to(track, {
+      x: reverse ? totalWidth : -totalWidth,
+      duration: speed,
+      ease: "none",
+      repeat: -1,
+      modifiers: {
+        x: (x) => {
+          const val = parseFloat(x);
+
+          // ✅ KEY FIX
+          if (reverse) {
+            return `${((val % totalWidth) + totalWidth) % totalWidth}px`;
+          }
+
+          return `${val % totalWidth}px`;
+        },
+      },
+    });
+  });
+
+  return () => ctx.revert();
+}, [reverse, speed]);
+
+
+    return (
+        <div className="relative overflow-hidden">
+            <div
+                ref={trackRef}
+                className="flex w-max gap-20 px-10"
+            >
+                {[...logos, ...logos].map((logo, i) => (
+                    <div
+                        key={i}
+                        className={`
+              flex items-center justify-center
+              ${size === "big" ? "w-[240px] h-[120px]" : "w-[190px] h-[95px]"}
+              transition-all duration-300
+              hover:-translate-y-2
+              hover:scale-110
+              hover:drop-shadow-[0_0_30px_rgba(255,0,0,0.55)]
+            `}
+                    >
+                        <img
+                            src={logo}
+                            alt="client"
+                            className="max-h-full max-w-full object-contain"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+
+function ClientLogos() {
+    return (
+        <section className="relative py-36 overflow-hidden bg-black">
+
+            {/* Ambient background glow */}
+            <div className="absolute inset-0">
+                <div className="absolute left-1/2 top-1/2 w-[700px] h-[700px] 
+          bg-red-600/10 blur-[180px] rounded-full 
+          -translate-x-1/2 -translate-y-1/2" />
+            </div>
+
+            {/* Heading */}
+            <div className="relative z-10 text-center mb-20">
+                <h2 className="text-4xl md:text-6xl font-bold">
+                    Trusted by <span className="text-red-600">Our Clients</span>
+                </h2>
+                <p className="text-gray-400 mt-4 text-lg max-w-2xl mx-auto">
+                    From government institutions to startups & enterprises worldwide.
+                </p>
+            </div>
+
+            {/* ROW 1 */}
+            <LogoMarqueeRow logos={ROW_1} speed={50} />
+
+            <div className="h-20" />
+
+            {/* ROW 2 (reverse) */}
+            <LogoMarqueeRow logos={ROW_2} reverse speed={50} />
+
+            <div className="h-20" />
+
+            {/* ROW 3 (bigger, slower) */}
+            <LogoMarqueeRow logos={ROW_3} size="big" speed={75} />
+
+
+            {/* Disclaimer */}
+            <p className="text-center text-gray-500 text-sm mt-20">
+                Logos shown represent organizations we’ve worked with through projects & deployments.
+            </p>
+        </section>
+    );
+}

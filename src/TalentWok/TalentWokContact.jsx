@@ -119,8 +119,8 @@ export default function TalentWokContact() {
           </div>
 
           <div className="space-y-2 text-gray-300 text-base md:text-lg">
-            <p className="hover:text-white transition cursor-pointer">📞 63823 03056</p>
-            <p className="hover:text-white transition cursor-pointer">📞 89397 87678</p>
+            <p className="hover:text-white transition cursor-pointer">📞 +91-63823 03056</p>
+            <p className="hover:text-white transition cursor-pointer">📞 +91-89397 87678</p>
           </div>
 
           <div className="space-y-2 text-gray-300 text-base md:text-lg">

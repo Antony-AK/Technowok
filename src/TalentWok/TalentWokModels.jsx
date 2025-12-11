@@ -28,7 +28,7 @@ export default function TalentWokModels() {
     circlesRef.current.forEach((circle, i) => {
       gsap.fromTo(
         circle,
-        { scale: 0.3, opacity: 0 },
+        { scale: 0.3, opacity: 1 },
         {
           scale: 1,
           opacity: 1,

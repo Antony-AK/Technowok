@@ -1,11 +1,50 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+
 
 import DottedGlobe from "../AnimationObjects/DottedGlobe";
 
 export default function ContactPage() {
   const [start, setStart] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("https://tecnowok-backend.onrender.com/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully 🎉");
+        setFormData({ name: "", email: "", message: "" }); 
+      } else {
+        toast.error("Mail sending failed ❌");
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Mail sending failed ❌");
+    }
+
+    setLoading(false);
+  };
+
 
   useEffect(() => {
     function handleDone() {
@@ -77,12 +116,14 @@ export default function ContactPage() {
             Drop us a message and our team will get back to you within hours.
           </p>
 
-          <form className="space-y-7">
+          <form className="space-y-7 " onSubmit={handleSubmit}>
 
             {/* Name */}
             <div className="relative">
               <input
                 type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="
                 peer w-full p-4 
                 bg-black border border-white/20 
@@ -107,6 +148,8 @@ export default function ContactPage() {
             <div className="relative">
               <input
                 type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="
                 peer w-full p-4 
                 bg-black border border-white/20 
@@ -131,6 +174,8 @@ export default function ContactPage() {
             <div className="relative">
               <textarea
                 rows="4"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="
                 peer w-full p-4 
                 bg-black border border-white/20 
@@ -154,6 +199,8 @@ export default function ContactPage() {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,0,0,0.7)" }}
               whileTap={{ scale: 0.97 }}
+              disabled={loading}
+
               className="
               px-10 py-4 
               bg-red-600 rounded-full 
@@ -162,8 +209,15 @@ export default function ContactPage() {
               w-full text-lg
             "
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </motion.button>
+
+            {success && (
+              <p className="text-green-500 text-center mt-4">
+                Message sent successfully! 🎉
+              </p>
+            )}
+
           </form>
         </motion.div>
 
@@ -200,7 +254,7 @@ export default function ContactPage() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.1px] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.1px] pointer-events-none"></div>
 
       </motion.div>
 

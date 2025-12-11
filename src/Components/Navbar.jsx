@@ -15,6 +15,8 @@ export default function Navbar({ setTransitionTrigger }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileDigitalOpen, setMobileDigitalOpen] = useState(false);
+  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
+
 
   const [selectedCategory, setSelectedCategory] = useState("Mobile App Development");
 
@@ -85,6 +87,28 @@ export default function Navbar({ setTransitionTrigger }) {
     { title: "Search Engine Optimization (SEO)", desc: "Rank higher with on-page & off-page SEO." },
     { title: "Search Engine Copywriting", desc: "Conversion-focused SEO copywriting." },
   ];
+
+  const ROUTE_MAP = {
+  "Who We Are": "/whoweare",
+  "Courses": "/courses",
+  "Careers": "/careers",
+  "Partners": "/partners",
+  "Our Team": "/ourteam",
+};
+
+
+const handleNavigate = (path) => {
+  setShowServices(false);
+  setShowDigital(false);
+  setDesktopMenuOpen(false);
+  setMobileMenuOpen(false);
+
+  setTransitionTrigger({
+    onMid: () => navigate(path),
+  });
+};
+
+
 
   const makeSlug = (str) =>
     str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -163,6 +187,9 @@ export default function Navbar({ setTransitionTrigger }) {
                       onClick={() => {
                         if (item === "What we've built") {
                           setTransitionTrigger({ onMid: () => navigate("/whatwebuild") });
+                        }
+                          if (item === "Insights") {
+                          setTransitionTrigger({ onMid: () => navigate("/insights") });
                         }
                         if (item === "TalentWok") {
                           setTransitionTrigger({ onMid: () => navigate("/talentwok") });
@@ -269,9 +296,21 @@ export default function Navbar({ setTransitionTrigger }) {
             </div>
 
           </div>
+          <div className="flex items-center gap-4 md:gap-6 cursor-pointer">
+
+            {/* Desktop HAMBURGER BUTTON */}
+            <button
+              className="hidden md:block p-2 cursor-pointer"
+              onClick={() => setDesktopMenuOpen(true)}
+
+            >
+              <img src={hamburgerIcon} alt="menu" className="w-7" />
+            </button>
+
+          </div>
 
           {/* ========= RIGHT ICONS + HAMBURGER ========= */}
-          <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-4 md:gap-6 ">
 
             {/* MOBILE HAMBURGER BUTTON */}
             <button
@@ -283,8 +322,50 @@ export default function Navbar({ setTransitionTrigger }) {
 
           </div>
 
+
+
         </div>
       </header>
+
+      {/* ===================== DESKTOP RIGHT-SIDE MENU ===================== */}
+      <AnimatePresence>
+        {desktopMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: "75%" }} // panel width is 25%
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed top-0 right-0 h-full cursor-pointer w-full bg-black/80 backdrop-blur-xl text-white z-[999999] p-8 md:block"
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setDesktopMenuOpen(false)}
+              className="absolute border-b border-red-600 text-red-600 top-6 left-72 text-2xl font-light bg-white/10 rounded-full w-10 h-10 flex items-center justify-center hover:bg-transparent hover:text-white transition"
+            >
+              ✕
+            </button>
+
+            <div className="mt-20 space-y-8 border-t border-red-600 pt-5">
+              {[
+               "Who We Are", 
+                "Careers",
+                "Partners",
+                "Courses",
+                "Our Team",
+              ].map((item, idx) => (
+                <p
+                  key={idx}
+                  className="text-xl cursor-pointer hover:text-red-600 transition"
+                   onClick={() => handleNavigate(ROUTE_MAP[item])}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
 
 
       {/* ===================== MOBILE MENU ===================== */}
@@ -431,8 +512,40 @@ export default function Navbar({ setTransitionTrigger }) {
                   </>
                 )}
 
+
+
               </div>
+
+
             ))}
+
+            {/* EXTRA ITEMS (Mobile Only) */}
+            <div className=" space-y-4 md:hidden py-4">
+
+              {[
+               "Who We Are", 
+                "Careers",
+                "Partners",
+                "Courses",
+                "Our Team",
+              ].map((item, idx) => (
+                <p
+                  key={idx}
+                  className="text-lg font-medium cursor-pointer py-2  border-b  border-white/10"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    // add routing later if required
+                  }}
+                >
+                  {item}
+                </p>
+              ))}
+
+            </div>
+
+
+
+
           </motion.div>
         )}
       </AnimatePresence>

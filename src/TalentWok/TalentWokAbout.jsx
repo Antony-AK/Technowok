@@ -20,7 +20,7 @@ export default function TalentWokAbout() {
       // ================================
       gsap.from(".tw-about-title", {
         y: 40,
-        opacity: 0,
+        opacity: 1,
         duration: 0.9,
         ease: "power3.out",
         scrollTrigger: {
@@ -31,7 +31,7 @@ export default function TalentWokAbout() {
 
       gsap.from(".tw-about-text", {
         y: 30,
-        opacity: 0,
+        opacity: 1,
         duration: 0.8,
         delay: 0.1,
         scrollTrigger: {
@@ -42,7 +42,7 @@ export default function TalentWokAbout() {
 
       gsap.from(".tw-about-card", {
         y: 40,
-        opacity: 0,
+        opacity: 1,
         duration: 0.8,
         stagger: 0.18,
         ease: "power3.out",

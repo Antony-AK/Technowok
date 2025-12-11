@@ -16,6 +16,14 @@ import ExternalProjects from "./Components/Externalprojects";
 import ScrollToTop from "./Components/ScrollToTop";
 import TalentWok from "./Pages/TelentWok";
 import ContactWidget from "./Components/ContactWidget";
+import WhoWeAre from "./Components/WhoWeAre.jsx";
+import Courses from "./Components/Courses.jsx";
+import Careers from "./Components/Careers.jsx";
+import Partners from "./Components/Partners.jsx";
+import OurTeam from "./Components/OurTeam.jsx";
+import "./TalentWok/talentwokhero.css"
+import Insights from "./Pages/Insights.jsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const location = useLocation();
@@ -54,6 +62,7 @@ function App() {
       )}
 
       <PageTransition trigger={transitionTrigger} />
+      <Toaster position="top-right" />
 
       {revealDone && (
         <>
@@ -79,9 +88,21 @@ function App() {
             <Route path="/whatwebuild/casestudy/:projectId" element={<CaseStudy />} />
             <Route path="/whatwebuild/externalprojects" element={<ExternalProjects />} />
 
+            <Route path="/insights" element={<Insights />} />
+
             <Route path="/talentwok" element={<TalentWok />} />
 
             <Route path="/contact" element={<ContactPage />} />
+
+            <Route path="/whoweare" element={<WhoWeAre />} />
+
+            <Route path="/courses" element={<Courses />} />
+
+            <Route path="/careers" element={<Careers />} />
+
+            <Route path="/partners" element={<Partners /> } />
+
+            <Route path="/ourteam" element={<OurTeam /> } />
 
 
           </Routes>
