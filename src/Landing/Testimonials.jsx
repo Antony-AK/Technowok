@@ -19,17 +19,20 @@ const testimonials = [
 
 const CardVertical = ({ img, text, name }) => (
     <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+    
         transition={{ duration: 0.25, ease: "easeOut" }}
         whileHover={{ y: -10, scale: 1.03 }}
         className="
             w-[180px] h-[260px]         /* mobile */
             md:w-[240px] md:h-[330px]   /* desktop */
-            bg-black rounded-3xl overflow-hidden shadow-xl cursor-pointer
+            bg-black rounded-3xl overflow-hidden shadow-xl cursor-pointer will-change-transform
         "
     >
-        <img src={img} className="w-full h-[55%] md:h-[60%] object-cover" />
+        <img
+            src={img}
+            loading="lazy"
+            className="w-full h-[55%] md:h-[60%] object-cover opacity-0 transition-opacity duration-700"
+            onLoad={(e) => (e.target.style.opacity = 1)} />
         <div className="bg-red-600 h-[45%] md:h-[40%] p-3 md:p-4 text-white text-xs md:text-sm flex flex-col justify-between">
             <p>{text}</p>
             <span className="text-[11px] md:text-[13px] opacity-80">– {name}</span>
@@ -39,17 +42,20 @@ const CardVertical = ({ img, text, name }) => (
 
 const CardHorizontal = ({ img, text, name }) => (
     <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+    
         transition={{ duration: 0.25, ease: "easeOut" }}
         whileHover={{ y: -10, scale: 1.03 }}
         className="
             w-[280px] h-[150px]         /* mobile */
             md:w-[360px] md:h-[180px]   /* desktop */
-            bg-black rounded-3xl overflow-hidden shadow-xl flex cursor-pointer
+            bg-black rounded-3xl overflow-hidden shadow-xl flex cursor-pointer will-change-transform
         "
     >
-        <img src={img} className="w-[45%] h-full object-cover" />
+        <img
+            src={img}
+            loading="lazy"
+            className="w-[45%] h-full object-cover opacity-0 transition-opacity duration-700"
+            onLoad={(e) => (e.target.style.opacity = 1)} />
         <div className="bg-red-600 w-[55%] p-3 md:p-4 text-white text-xs md:text-sm flex flex-col justify-between">
             <p>{text}</p>
             <span className="text-[11px] md:text-[13px] opacity-80">– {name}</span>
@@ -69,42 +75,25 @@ export default function Testimonials() {
                     <h2 className="text-white text-4xl font-semibold">Thought Leaders</h2>
                 </div>
 
-                   <div className="hidden md:block absolute top-66 left-[38%] text-center  z-10">
+                <div className="hidden md:block absolute top-72 left-[38%] text-center  z-10">
                     <p className="text-red-500 text-sm">Trusted By</p>
                     <h2 className="text-white text-4xl font-semibold">Thought Leaders</h2>
                 </div>
 
                 {/* ⭐ DESKTOP / LAPTOP VERSION (unchanged) */}
                 <div className="hidden md:block">
-                    {/* TOP ROW */}
-                    <div className="relative h-[360px] mb-18">
-                        <div className="absolute left-20 top-10">
-                            <CardVertical {...testimonials[0]} />
-                        </div>
-
-                        <div className="absolute left-1/2 -translate-x-1/2 top-0">
-                            <CardHorizontal {...testimonials[1]} />
-                        </div>
-
-                        <div className="absolute right-20 top-10">
-                            <CardVertical {...testimonials[2]} />
-                        </div>
+                    <div className="grid grid-cols-3 place-items-center gap-10 mb-20">
+                        <CardVertical {...testimonials[0]} />
+                        <CardHorizontal {...testimonials[1]} />
+                        <CardVertical {...testimonials[2]} />
                     </div>
 
-                    {/* BOTTOM ROW */}
-                    <div className="relative h-[360px]">
-                        <div className="absolute left-0 top-10">
-                            <CardHorizontal {...testimonials[3]} />
-                        </div>
-
-                        <div className="absolute left-1/2 -translate-x-1/2 top-0">
-                            <CardVertical {...testimonials[4]} />
-                        </div>
-
-                        <div className="absolute right-0 top-10">
-                            <CardHorizontal {...testimonials[5]} />
-                        </div>
+                    <div className="grid grid-cols-3 place-items-center gap-10">
+                        <CardHorizontal {...testimonials[3]} />
+                        <CardVertical {...testimonials[4]} />
+                        <CardHorizontal {...testimonials[5]} />
                     </div>
+
                 </div>
 
                 {/* ⭐ MOBILE VERSION (Brand-new clean stacked layout) */}

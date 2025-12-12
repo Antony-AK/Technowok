@@ -253,10 +253,6 @@ function ResultsSection() {
 }
 
 
-/* ============================= */
-/*            CTA                */
-/* ============================= */
-
 function BackCTA() {
   return (
     <div className="text-center pb-20">

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"
+
 
 const FAQ_DATA = [
   {
@@ -36,6 +38,8 @@ const fadeUp = (delay = 0) => ({
 
 export default function FAQSection() {
   const [open, setOpen] = useState(null);
+    const navigate = useNavigate();
+  
 
   return (
     <section className="w-full bg-black text-white py-24 px-10 flex justify-center">
@@ -61,6 +65,7 @@ export default function FAQSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
+             onClick={() => navigate("/contact")}
             className="mt-6 bg-red-600 px-6 py-3 rounded-md flex items-center gap-2 hover:bg-red-700 transition"
           >
             Talk to us

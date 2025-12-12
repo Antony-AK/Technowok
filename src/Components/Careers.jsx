@@ -57,31 +57,7 @@ export default function Careers() {
         });
     }, []);
 
-    const benefits = [
-        "Resume Building",
-        "LinkedIn Optimization",
-        "HR Mock Interviews",
-        "Placement Assistance",
-        "Internships",
-        "Career Mentorship",
-        "Company Tie-ups",
-    ];
 
-    const whyUs = [
-        "Mentors from Bangalore/Chennai tech hubs",
-        "Tamil-friendly training sessions",
-        "Real-time project based learning",
-        "Affordable fee structure",
-        "Support until first job",
-        "Trusted by 1000+ learners",
-    ];
-
-    const timeline = [
-        { title: "Training", desc: "Master skills with guided real-time mentorship." },
-        { title: "Internship", desc: "Work on real clients and real industry tasks." },
-        { title: "Placement", desc: "Resume, LinkedIn, HR mocks, job connections." },
-        { title: "Career Growth", desc: "We support even after you get the job." },
-    ];
 
     return (
         <section className="w-full min-h-screen bg-black text-white py-24 px-6 md:px-20 relative overflow-hidden">
@@ -138,10 +114,10 @@ export default function Careers() {
       shadow-[0_0_25px_rgba(255,0,0,0.4)] hover:shadow-[0_0_35px_rgba(255,0,0,0.6)]
       transition-all
     ">
-                        Start Your Journey 
+                        Start Your Journey
                     </button>
 
-                    <button onClick={()=> navigate("/courses")} className="
+                    <button onClick={() => navigate("/courses")} className="
       px-8 py-4 bg-transparent border border-red-600/60 hover:border-red-600 
       rounded-xl text-lg font-semibold text-red-400 hover:text-red-600
       backdrop-blur-xl transition-all
@@ -154,48 +130,48 @@ export default function Careers() {
             </div>
 
 
-            {/* ABOUT PROGRAM */}
-            <div className="max-w-7xl mx-auto  grid md:grid-cols-2 gap-16 items-center mb-40 relative z-20">
+            {/* ===================== ABOUT WORKING WITH US ===================== */}
+
+            <div className="max-w-6xl mx-auto mt-32 mb-28 relative z-20 grid md:grid-cols-2 gap-14">
 
                 {/* LEFT CONTENT */}
                 <div>
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                        A Complete
-                        <span className="text-red-600"> Career Accelerator</span>
+                        Grow Your Career
+                        <span className="text-red-600"> With Us</span>
                     </h2>
 
                     <p className="text-gray-400 text-lg leading-relaxed">
-                        Designed by engineers from Chennai, Bangalore & global tech hubs,
-                        our training system prepares you with modern tech stack, mentorship,
-                        industry projects, internships & placement support — everything you need
-                        to transform into a high-paying developer.
+                        At TecnoWok, you don’t just work — you grow, innovate, and help shape the
+                        future of technology.
+                        Our environment encourages curiosity, continuous learning, and hands-on experience
+                        with modern tools and real client projects.
+                    </p>
+
+                    <p className="text-gray-400 text-lg mt-4 leading-relaxed">
+                        Whether you're building solutions for global brands or experimenting with
+                        emerging technologies, you’ll always be supported by mentors, a passionate
+                        team, and a culture that values creativity, ownership, and skill mastery.
                     </p>
 
                     <ul className="mt-8 space-y-3 text-gray-300 text-lg">
-                        <li>✔ Real-time Industry Projects</li>
-                        <li>✔ 1:1 Mentor Guidance</li>
-                        <li>✔ Internship Opportunities</li>
-                        <li>✔ Placement + Career Roadmap</li>
+                        <li>✔ Challenging & meaningful projects</li>
+                        <li>✔ Continuous learning & skill development</li>
+                        <li>✔ Supportive, growth-focused team culture</li>
+                        <li>✔ Work with modern stacks & real clients</li>
                     </ul>
                 </div>
 
-                {/* RIGHT HIGHLIGHT CARD */}
-                <div className="bg-[#111]/70 rounded-2xl backdrop-blur-xl border border-red-600/20 shadow-[0_0_40px_rgba(255,0,0,0.3)] p-8 relative overflow-hidden">
+                {/* RIGHT GLASS CARD */}
+                <div className="p-8 rounded-2xl bg-[#0d0d0f]/70 border border-white/10 backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
+                    <h3 className="text-2xl font-semibold text-red-500 mb-4">Why Join Us?</h3>
 
-                    {/* glow background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent blur-2xl"></div>
-
-                    <h3 className="text-2xl font-semibold mb-4 text-red-500 relative">
-                        Program Highlights
-                    </h3>
-
-                    <p className="text-gray-300 text-lg relative">
-                        • 100% Practical Training
-                        • Portfolio-ready Projects
-                        • Tech Interview Training
-                        • LinkedIn + Resume Optimization
-                        • Mock HR + Technical Rounds
-                        • Company Referral Network
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                        • Exposure to Fortune-level clients
+                        • Work on high-impact applications
+                        • Modern DevOps, Frontend & Mobile workflows
+                        • Opportunity to lead, own, and innovate
+                        • Healthy, positive, career-driven workplace
                     </p>
                 </div>
 
@@ -204,98 +180,132 @@ export default function Careers() {
 
 
 
+            {/* ===================== CURRENT OPENINGS ===================== */}
 
-
-            {/* BENEFITS CARDS */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto mb-32">
-                {benefits.map((b, i) => (
-                    <div
-                        key={i}
-                        ref={(el) => (cardRefs.current[i] = el)}
-                        className="p-6 bg-[#0d0d0f]/70 backdrop-blur-xl rounded-xl 
-            border border-white/10 hover:border-red-600 transition-all 
-            shadow-[0_0_25px_rgba(255,0,0,0.25)]
-            hover:shadow-[0_0_40px_rgba(255,0,0,0.45)]
-            transform hover:-translate-y-2 duration-300"
-                    >
-                        <h2 className="text-xl font-semibold text-red-500">{b}</h2>
-                    </div>
-                ))}
-            </div>
-
-            {/* TOOLS & TECH */}
-            <div className="max-w-5xl mx-auto text-center mb-32">
-                <h2 className="text-4xl font-semibold mb-8">
-                    Tools & <span className="text-red-600">Technologies</span> You Learn
+            <div className="max-w-5xl mx-auto mb-32">
+                <h2 className="text-center text-4xl font-bold mb-14">
+                    Current <span className="text-red-600">Openings</span>
                 </h2>
 
-                <p className="text-gray-400 mb-10">
-                    Modern stack used by companies like Google, Zoho, TCS, Infosys & Startups.
-                </p>
+                <div className="space-y-20">
 
-                <div className="flex flex-wrap justify-center gap-5 text-gray-300 text-lg">
                     {[
-                        "HTML5", "CSS3", "Bootstrap", "Tailwind",
-                        "JavaScript", "React.js", "Node.js",
-                        "MongoDB", "SQL", "Git & GitHub",
-                        "Figma", "Firebase", "API Integration"
-                    ].map((tech, i) => (
-                        <span
-                            key={i}
-                            className="px-4 py-2 bg-[#111]/70 border border-white/10 rounded-lg"
-                        >
-                            {tech}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-
-
-
-            {/* WHY US */}
-            <div className="max-w-6xl mx-auto flex flex-col  justify-center items-center text-center my-48">
-                <h2 className="text-4xl font-semibold mb-12">
-                    Why <span className="text-red-600">Choose</span> Us?
-                </h2>
-
-                <div className="grid md:grid-cols-2 gap-8 text-center ms-30 justify-center items-center">
-                    {whyUs.map((w, i) => (
-                        <p
-                            key={i}
-                            ref={(el) => (whyRefs.current[i] = el)}
-                            className="text-gray-300 text-lg flex items-start gap-10"
-                        >
-                            <span className="text-red-600 text-2xl">•</span> {w}
-                        </p>
-                    ))}
-                </div>
-            </div>
-
-            {/* TIMELINE */}
-            <div className="max-w-6xl mx-auto">
-                <h2 className="text-center text-4xl font-bold mb-16">
-                    Your Career Pathway
-                </h2>
-
-                <div className="relative border-l border-red-600/40 ml-10">
-
-                    {timeline.map((t, i) => (
+                        {
+                            role: "PHP / Web Backend Developer",
+                            vacancy: "3 Positions",
+                            exp: "1 – 4 Years",
+                            skills: "Core PHP, MySQL, JavaScript, Framework basics"
+                        },
+                        {
+                            role: "Digital Marketer",
+                            vacancy: "2 Positions",
+                            exp: "1 – 3 Years",
+                            skills: "SEO, Ads Management, Content Strategy, Communication"
+                        },
+                        {
+                            role: "Android Developer",
+                            vacancy: "2 Positions",
+                            exp: "1 – 3 Years",
+                            skills: "Native Android, Kotlin/Java, API Integration, React Native"
+                        },
+                        {
+                            role: "WordPress Developer",
+                            vacancy: "2 Positions",
+                            exp: "1 – 3 Years",
+                            skills: "Theme customization, Backend + Frontend development"
+                        },
+                        {
+                            role: "Web Developer",
+                            vacancy: "3 Positions",
+                            exp: "1 – 4 Years",
+                            skills: "Frontend + Backend, API Integration"
+                        },
+                        {
+                            role: "Angular Developer",
+                            vacancy: "1 Position",
+                            exp: "1 – 4 Years",
+                            skills: "Angular components, services, state management"
+                        },
+                    ].map((job, idx) => (
                         <div
-                            key={i}
-                            ref={(el) => (timelineRefs.current[i] = el)}
-                            className="mb-16 relative pl-10"
+                            key={idx}
+                            className="relative p-6 rounded-2xl bg-[#0d0d0f]/60 border border-white/10 backdrop-blur-xl
+        shadow-[0_0_25px_rgba(255,0,0,0.25)] hover:shadow-[0_0_35px_rgba(255,0,0,0.45)]
+        transition-all duration-300 hover:-translate-y-1 group"
                         >
-                            {/* Dot */}
-                            <div className="absolute -left-3 top-1 w-5 h-5 rounded-full bg-red-600 shadow-[0_0_15px_rgba(255,0,0,0.5)]"></div>
+                            {/* Red Accent Strip */}
+                            <div className="absolute left-0 top-0 h-full w-[4px] bg-red-600 rounded-r-xl shadow-[0_0_12px_rgba(255,0,0,0.6)]" />
 
-                            <h3 className="text-2xl font-semibold">{t.title}</h3>
-                            <p className="text-gray-400 mt-1">{t.desc}</p>
+                            <div className="ml-4">
+                                <h3 className="text-2xl font-semibold text-white group-hover:text-red-500 transition">
+                                    {job.role}
+                                </h3>
+
+                                <div className="mt-3 text-gray-300 space-y-1 text-base">
+                                    <p><span className="text-red-400 font-medium">Vacancy:</span> {job.vacancy}</p>
+                                    <p><span className="text-red-400 font-medium">Experience:</span> {job.exp}</p>
+                                    <p><span className="text-red-400 font-medium">Skills:</span> {job.skills}</p>
+                                </div>
+
+                                {/* APPLY BUTTON */}
+                                <button
+                                    onClick={() => window.location.href = "mailto:hr@seekneo.com"}
+                                    className="mt-5 px-5 py-2 rounded-lg bg-red-600 text-white text-sm font-medium
+            hover:bg-red-700 transition shadow-[0_0_15px_rgba(255,0,0,0.35)]"
+                                >
+                                    Apply Now
+                                </button>
+                            </div>
                         </div>
                     ))}
 
                 </div>
             </div>
+
+
+
+
+            {/* ===================== APPLY NOW ===================== */}
+            <div className="max-w-4xl mx-auto text-center py-20 bg-[#111]/60 border border-white/10 
+rounded-3xl backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
+
+                <h2 className="text-4xl font-bold mb-6">
+                    Ready To <span className="text-red-600">Join Tecnowok?</span>
+                </h2>
+
+                <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-10">
+                    We’re always looking for passionate creators, smart problem-solvers, and
+                    people who love building meaningful digital products.
+                    Share your profile with us - our HR team will reach out soon.
+                </p>
+
+                <div className="space-y-3 text-gray-300 text-lg">
+
+                    <p>
+                        <span className="text-red-400 font-medium">Email:</span> info@tecnowok.com
+                    </p>
+
+                    <p>
+                        <span className="text-red-400 font-medium">Business Contact:</span> +91 89397 87678
+                    </p>
+
+                    <p>
+                        <span className="text-red-400 font-medium">Location:</span> Tuticorin · Chennai · Bangalore · Global
+                    </p>
+
+                </div>
+
+                <button
+                    onClick={() => window.location.href = "mailto:info@tecnowok.com"}
+                    className="mt-10 px-10 py-4 bg-red-600 hover:bg-red-700 rounded-xl text-lg font-semibold
+    shadow-[0_0_25px_rgba(255,0,0,0.4)] hover:shadow-[0_0_35px_rgba(255,0,0,0.6)]
+    transition-all"
+                >
+                    Apply Now →
+                </button>
+            </div>
+
+
 
         </section>
     );

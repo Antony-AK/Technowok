@@ -1,6 +1,38 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const benefits = [
+  "Resume Building",
+  "LinkedIn Optimization",
+  "HR Mock Interviews",
+  "Placement Assistance",
+  "Internships",
+  "Career Mentorship",
+  "Company Tie-ups",
+];
+
+const whyUs = [
+  "Mentors from Bangalore/Chennai tech hubs",
+  "Tamil-friendly training sessions",
+  "Real-time project-based learning",
+  "Affordable fee structure",
+  "Support until first job",
+  "Trusted by 1000+ learners",
+];
+
+const timeline = [
+  { title: "Training", desc: "Master skills with guided real-time mentorship." },
+  { title: "Internship", desc: "Work on real clients and real industry tasks." },
+  { title: "Placement", desc: "Resume, LinkedIn, HR mocks, job connections." },
+  { title: "Career Growth", desc: "We support even after you get the job." },
+];
+
 
 const courseList = [
   {
@@ -44,16 +76,50 @@ const courseList = [
 export default function Courses() {
   const [hovered, setHovered] = useState(null);
 
-  return (
-    <section className="relative w-full min-h-screen bg-black text-white py-24 pt-36 px-6 md:px-16 overflow-hidden">
+  const heroRef = useRef(null);
+  const cardRefs = useRef([]);
+  const whyRefs = useRef([]);
+  const timelineRefs = useRef([]);
 
-      {/* --- Animated Background Grid --- */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="w-full h-full bg-[linear-gradient(90deg,#111_1px,transparent_1px),linear-gradient(0deg,#111_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+  const navigate = useNavigate();
+
+ 
+  useEffect(() => {
+    gsap.from(heroRef.current, { opacity: 0, y: 40, duration: 1 });
+
+    gsap.from(cardRefs.current, {
+      opacity: 1,
+      y: 40,
+      stagger: 0.15,
+      scrollTrigger: { trigger: cardRefs.current[0], start: "top 85%" },
+    });
+
+    gsap.from(whyRefs.current, {
+      opacity: 1,
+      x: -40,
+      stagger: 0.15,
+      scrollTrigger: { trigger: whyRefs.current[0], start: "top 85%" },
+    });
+
+    gsap.from(timelineRefs.current, {
+      opacity: 1,
+      scale: 0.9,
+      stagger: 0.2,
+      scrollTrigger: { trigger: timelineRefs.current[0], start: "top 85%" },
+    });
+  }, []);
+
+  return (
+    <section className="relative w-full min-h-screen bg-black text-white py-24 px-6 md:px-16 overflow-hidden">
+
+      {/* BG GRID */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="w-full h-full bg-[linear-gradient(90deg,#111_1px,transparent_10px),linear-gradient(0deg,#111_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       </div>
 
-      {/* --- HERO HEADER --- */}
+
       <motion.div
+        ref={heroRef}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -63,15 +129,15 @@ export default function Courses() {
           <span className="bg-gradient-to-r from-red-600 to-red-300 bg-clip-text text-transparent">
             Learn & Build
           </span>{" "}
-          With Us
+          Your IT Career
         </h1>
         <p className="text-gray-400 mt-4 text-lg max-w-3xl mx-auto">
-          Industry-powered training programs designed to turn students into skilled developers & creators.
+          Industry-powered courses with training, mentorship, internships & complete job assistance.
         </p>
       </motion.div>
 
-      {/* --- COURSE GRID --- */}
-      <div className="relative z-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+   
+      <div className="relative z-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto mb-40">
         {courseList.map((course, idx) => (
           <motion.div
             key={idx}
@@ -82,17 +148,12 @@ export default function Courses() {
             onMouseEnter={() => setHovered(idx)}
             onMouseLeave={() => setHovered(null)}
             className="relative p-8 rounded-2xl bg-[#0d0d0f]/80 border border-white/10
-            backdrop-blur-xl cursor-pointer
-            transition-all duration-300 group overflow-hidden"
+            backdrop-blur-xl cursor-pointer hover:-translate-y-2 duration-300
+            group overflow-hidden shadow-[0_0_20px_rgba(255,0,0,0.1)]"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent 
+              opacity-0 group-hover:opacity-100 transition-all duration-300" />
 
-            {/* Spotlight Hover Effect */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent 
-              opacity-0 group-hover:opacity-100 transition-all duration-300`}
-            />
-
-            {/* Glow Border */}
             {hovered === idx && (
               <motion.div
                 layoutId="glow"
@@ -118,13 +179,128 @@ export default function Courses() {
             <p className="mt-4 text-gray-300 text-sm">
               <span className="text-red-400 font-semibold">Outcome:</span> {course.outcome}
             </p>
-
           </motion.div>
         ))}
       </div>
 
-      {/* FLOATING GRADIENT ORB */}
-      <div className="absolute bottom-10 left-10 w-64 h-64 bg-red-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+      {/* ABOUT PROGRAM */}
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center mb-40 relative z-20">
+        <div>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            A Complete
+            <span className="text-red-600"> Career Accelerator</span>
+          </h2>
+
+          <p className="text-gray-400 text-lg leading-relaxed">
+            Designed by engineers from Chennai, Bangalore & global tech hubs,
+            our system prepares you with modern stack, mentorship, industry
+            projects, internships & placement support.
+          </p>
+
+          <ul className="mt-8 space-y-3 text-gray-300 text-lg">
+            <li>✔ Real-time Industry Projects</li>
+            <li>✔ 1:1 Mentor Guidance</li>
+            <li>✔ Internship Opportunities</li>
+            <li>✔ Placement Support Until First Job</li>
+          </ul>
+        </div>
+
+        <div className="bg-[#111]/70 rounded-2xl backdrop-blur-xl border border-red-600/20 shadow-[0_0_40px_rgba(255,0,0,0.3)] p-8 relative overflow-hidden">
+          <h3 className="text-2xl font-semibold mb-4 text-red-500 relative">
+            Program Highlights
+          </h3>
+
+          <p className="text-gray-300 text-lg relative leading-relaxed">
+            • 100% Practical Training  
+            • Portfolio-ready Projects  
+            • Tech Interview Training  
+            • Resume + LinkedIn Optimization  
+            • Mock HR + Technical Rounds  
+            • Company Referral Network  
+          </p>
+        </div>
+      </div>
+
+      {/* BENEFITS */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto mb-32">
+        {benefits.map((b, i) => (
+          <div
+            key={i}
+            ref={(el) => (cardRefs.current[i] = el)}
+            className="p-6 bg-[#0d0d0f]/70 backdrop-blur-xl rounded-xl 
+            border border-white/10 hover:border-red-600 transition-all 
+            shadow-[0_0_25px_rgba(255,0,0,0.25)]
+            hover:shadow-[0_0_40px_rgba(255,0,0,0.45)]
+            transform hover:-translate-y-2 duration-300"
+          >
+            <h2 className="text-xl font-semibold text-red-500">{b}</h2>
+          </div>
+        ))}
+      </div>
+
+      {/* TOOLS & TECH */}
+      <div className="max-w-5xl mx-auto text-center mb-32">
+        <h2 className="text-4xl font-semibold mb-8">
+          Tools & <span className="text-red-600">Technologies</span> You Learn
+        </h2>
+
+        <p className="text-gray-400 mb-10">
+          Modern stack used by companies like Google, Zoho, Infosys & Startups.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-5 text-gray-300 text-lg">
+          {[
+            "HTML5", "CSS3", "Bootstrap", "Tailwind",
+            "JavaScript", "React.js", "Node.js",
+            "MongoDB", "SQL", "Git & GitHub",
+            "Figma", "Firebase", "API Integration",
+          ].map((tech, i) => (
+            <span key={i} className="px-4 py-2 bg-[#111]/70 border border-white/10 rounded-lg">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* WHY US */}
+      <div className="max-w-6xl mx-auto flex flex-col items-center text-center my-48">
+        <h2 className="text-4xl font-semibold mb-12">
+          Why <span className="text-red-600">Choose</span> Us?
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {whyUs.map((w, i) => (
+            <p
+              key={i}
+              ref={(el) => (whyRefs.current[i] = el)}
+              className="text-gray-300 text-lg flex items-start gap-4"
+            >
+              <span className="text-red-600 text-2xl">•</span> {w}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      {/* TIMELINE */}
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-center text-4xl font-bold mb-16">Your Career Pathway</h2>
+
+        <div className="relative border-l border-red-600/40 ml-10">
+          {timeline.map((t, i) => (
+            <div
+              key={i}
+              ref={(el) => (timelineRefs.current[i] = el)}
+              className="mb-16 relative pl-10"
+            >
+              <div className="absolute -left-3 top-1 w-5 h-5 rounded-full bg-red-600 shadow-[0_0_15px_rgba(255,0,0,0.5)]"></div>
+
+              <h3 className="text-2xl font-semibold">{t.title}</h3>
+              <p className="text-gray-400 mt-1">{t.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
     </section>
   );

@@ -46,7 +46,7 @@ const HorizontalScroll = () => {
       {/* Left Text Block */}
       <div className="mb-6">
         <h2 className="text-4xl font-bold text-red-600">{item.title}</h2>
-        <p className="text-gray-300 mt-3 max-w-lg">{item.text}</p>
+        <p className="text-gray-300 mt-3  max-w-lg">{item.text}</p>
       </div>
 
       {/* Right Image */}
@@ -55,7 +55,7 @@ const HorizontalScroll = () => {
           src={`img/img${i + 1}.jpg`}
           alt=""
           className="w-full h-full object-cover rounded-xl 
-            shadow-[0_0_25px_5px_rgba(255,0,0,0.6)]
+shadow-[5px_5px_rgba(139,0,0,0.4),10px_10px_rgba(139,0,0,0.3),15px_15px_rgba(139,0,0,0.2),20px_20px_rgba(139,0,0,0.1),25px_25px_rgba(139,0,0,0.05)]
             transition-all duration-300"
         />
       </div>

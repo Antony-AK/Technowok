@@ -2,14 +2,18 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 import image1 from "../assets/no1.jpg";
 import image2 from "../assets/no2.jpg";
+
+import { useNavigate } from "react-router-dom"
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ImpactSection() {
   const sectionRef = useRef(null);
   const numbersRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const sectionEl = sectionRef.current;
@@ -102,7 +106,7 @@ export default function ImpactSection() {
               enterprises, Associates and the society to rise
             </p>
 
-            <button className="mt-6 w-fit bg-red-600 px-6 py-2 text-sm rounded-sm hover:bg-red-700 transition">
+            <button onClick={() => navigate("/contact")} className="mt-6 w-fit bg-red-600 px-6 py-2 text-sm rounded-sm hover:bg-red-700 transition">
               Request Quote !
             </button>
           </div>
@@ -130,9 +134,17 @@ export default function ImpactSection() {
           </div>
 
           {/* ROW 1 — COL 2 IMAGE */}
-          <div className="h-[280px] overflow-hidden">
-            <img src={image1} className="w-full h-full object-cover" />
+          <div className="h-[280px] overflow-hidden relative">
+            <img
+              src={image1}
+              loading="lazy"
+              className="w-full h-full object-cover transition-opacity duration-700 opacity-0"
+              onLoad={(e) => (e.target.style.opacity = 1)}
+            />
+
+            <div className="absolute inset-0 bg-black/20 blur-xl"></div>
           </div>
+
 
           {/* ROW 1 — COL 3 SMALL RED BOX */}
           <div className="bg-red-600 h-[280px] p-8 flex flex-col justify-between">
@@ -171,9 +183,17 @@ export default function ImpactSection() {
           </div>
 
           {/* ROW 2 — COL 3 IMAGE */}
-          <div className="h-[280px] overflow-hidden">
-            <img src={image2} className="w-full h-full object-cover" />
+          <div className="h-[280px] overflow-hidden relative">
+            <img
+              src={image2}
+              loading="lazy"
+              className="w-full h-full object-cover transition-opacity duration-700 opacity-0"
+              onLoad={(e) => (e.target.style.opacity = 1)}
+            />
+
+            <div className="absolute inset-0 bg-black/20 blur-xl"></div>
           </div>
+
 
         </div>
       </div>

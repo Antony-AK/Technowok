@@ -347,7 +347,7 @@ export default function Navbar({ setTransitionTrigger }) {
                 {/* DESCRIPTION + BUTTON */}
                 <div className="flex flex-col items-center mt-40 justify-center">
 
-<p className="text-sm max-w-xs text-center mb-6 leading-relaxed text-gray-300">
+<p className="text-lg max-w-sm text-center mb-6 leading-relaxed text-gray-300">
   A modern <span className="text-red-500 font-medium">talent ecosystem</span> connecting 
   <span className="text-white font-medium"> companies</span>, 
   <span className="text-white font-medium"> campuses</span>, and 

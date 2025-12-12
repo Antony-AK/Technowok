@@ -21,9 +21,6 @@ export default function HeroSection({ data, slug }) {
             sessionStorage.setItem("service-refreshed", "yes");
 
             // refresh after tiny delay
-            setTimeout(() => {
-                window.location.reload();
-            }, 50);
             return;
         }
 

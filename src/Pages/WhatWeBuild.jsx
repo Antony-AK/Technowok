@@ -75,8 +75,8 @@ export const PROJECTS = [
         image4: tanuvas4,
         image5: tanuvas5,
         subtitle: "Feed & Mineral Mixture Accounting Software",
-        duration: "2 Years",
-        teamSize: 3,
+        duration: "2 Months",
+        teamSize: 5,
         role: "Coding, Development & Implementation",
         skills: ["Core PHP", "MySQL", "AngularJS", "Ajax", "Dompdf"],
         features: [
@@ -123,8 +123,8 @@ export const PROJECTS = [
         image1: tamil1,
         image2: tamil2,
         subtitle: "Complete ERP for Educational Institutions",
-        duration: "5 Months",
-        teamSize: 2,
+        duration: "2 Months",
+        teamSize: 5,
         role: "Coding, Development & Implementation",
         skills: ["PHP", "MySQL", "JavaScript", "jQuery", "Ajax"],
         features: [
@@ -152,7 +152,7 @@ export const PROJECTS = [
         image4: textile4,
         subtitle: "Manufacturing & Inventory Automation",
         duration: "1.5 Years",
-        teamSize: 4,
+        teamSize: 5,
         role: "Coding, Development & Implementation",
         skills: ["Core PHP", "MySQL", "AngularJS", "Ajax", "Dompdf"],
         features: [
@@ -191,8 +191,8 @@ export const PROJECTS = [
         image2: selvi2,
         image3: selvi3,
         subtitle: "Hospital ERP for Patient & Staff Operations",
-        duration: "5 Months",
-        teamSize: 4,
+        duration: "2 Months",
+        teamSize: 5,
         role: "Coding, Development & Implementation",
         skills: ["PHP", "MySQL", "AngularJS", "Ajax", "Dompdf"],
         features: [
