@@ -33,9 +33,7 @@ export default function CaseStudy() {
 }
 
 
-/* ============================= */
-/*        HERO SECTION           */
-/* ============================= */
+
 
 function HeroSection({ data }) {
   return (

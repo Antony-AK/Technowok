@@ -8,61 +8,64 @@ import service3 from "../assets/service3.png";
 import service4 from "../assets/service4.png";
 import service5 from "../assets/service5.webp";
 import service2 from "../assets/service6.webp";
+import {useNavigate} from "react-router-dom"
 
 const SERVICES = [
   {
     id: 0,
-    title: "01",
-    heading: "IT & Automation",
-    desc: "Develop high-performance web & mobile apps, integrate AI solutions, and optimize cloud infrastructure for scalability and efficiency.",
+    title: "IT & Automation",
+    heading: "Build smarter, faster, scalable systems.",
+    desc: "From custom software to automation workflows, we power your business with tech that saves time and accelerates growth.",
     img: service1,
     tag: "IT & Automation",
   },
   {
     id: 1,
-    title: "02",
-    heading: "Enterprise & E-commerce Solutions",
-    desc: "Streamline operations with ERP, LMS, POS, and store management systems designed to improve productivity, automation, and sales performance.",
+    title: "Enterprise & E-commerce",
+    heading: "Everything you need to run and scale your business.",
+    desc: "ERP, POS, LMS, and full-stack e-commerce solutions designed to streamline operations and unlock revenue.",
     img: service2,
     tag: "Enterprise & E-commerce",
   },
   {
     id: 2,
-    title: "03",
-    heading: "Digital Marketing",
-    desc: "Boost traffic, conversions, and brand visibility with SEO, SEM, social media marketing, paid campaigns, and influencer collaborations.",
+    title: "Digital Marketing",
+    heading: "Visibility that converts. Growth that sustains.",
+    desc: "We help your brand attract the right audience with ads, social media, SEO, and performance-driven digital strategies.",
     img: service3,
     tag: "Digital Marketing",
   },
   {
     id: 3,
-    title: "04",
-    heading: "Creative Branding & Content",
-    desc: "Strengthen your brand with graphic design, video editing, motion graphics, and content strategies that increase engagement and identity.",
+    title: "Branding & Content",
+    heading: "Create content that people love and remember.",
+    desc: "From designs to videos, motion graphics to brand storytelling, we craft visuals that boost engagement and identity.",
     img: service4,
     tag: "Branding & Content",
   },
   {
     id: 4,
-    title: "05",
-    heading: "IT Outsourcing",
-    desc: "Reduce operational costs and increase efficiency by outsourcing software development, IT operations, and maintenance to our expert team.",
+    title: "IT Outsourcing",
+    heading: "Your extended tech team on demand.",
+    desc: "Hire expert developers, designers, and IT specialists who deliver quality, speed, and consistent support.",
     img: service5,
     tag: "IT Outsourcing",
   },
   {
     id: 5,
-    title: "06",
-    heading: "IT Support",
-    desc: "Ensure smooth business operations with troubleshooting, system maintenance, security updates, and 24/7 technical support.",
+    title: "IT Support",
+    heading: "Tech issues solved before they become a problem.",
+    desc: "24/7 monitoring, troubleshooting, and maintenance to keep your business running smoothly.",
     img: service6,
     tag: "IT Support",
   },
 ];
 
+
 export default function OurServices() {
   const [active, setActive] = useState(0);
   const [isFading, setIsFading] = useState(false);
+  const navigate = useNavigate();
 
   const indicatorRef = useRef(null);
   const buttonsRef = useRef([]);
@@ -132,20 +135,20 @@ export default function OurServices() {
               className={`max-w-lg transition-all duration-500 text-center md:text-left
                 ${isFading ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}
             >
-              <h3 className="text-5xl text-red-600 font-extrabold">
+              <h3 className="text-2xl text-red-600 font-bold">
                 {SERVICES[active].title}
               </h3>
 
-              <h4 className="text-2xl mt-4 font-semibold text-white">
+              <h4 className="text-xl mt-4 font-medium text-white">
                 {SERVICES[active].heading}
               </h4>
 
-              <p className="mt-4 text-white/90 leading-relaxed text-base md:text-lg">
+              <p className="mt-4 text-white/60 leading-relaxed text-base md:text-lg">
                 {SERVICES[active].desc}
               </p>
 
-              <button className="mt-8  py-2 rounded-xl bg-primary text-red-600 font-semibold hover:bg-white transition">
-                Learn More →
+              <button onClick={()=> navigate("/contact")} className="mt-8  py-2 rounded-xl bg-primary text-red-600 font-semibold hover:scale-90 transition">
+                Get Quote →
               </button>
             </div>
 

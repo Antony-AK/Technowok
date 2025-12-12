@@ -15,10 +15,10 @@
   }
 
 
-.split-letter {
-  display: inline-block;
-  will-change: transform, opacity;
-}
+  .split-letter {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
 
 
 
@@ -57,6 +57,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -81,9 +82,12 @@
 
 
 @keyframes floatBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(-8px);
   }
+
   50% {
     transform: translateY(8px);
   }
@@ -93,6 +97,7 @@
   0% {
     rotate: 0deg;
   }
+
   100% {
     rotate: 360deg;
   }
@@ -111,7 +116,8 @@
 
 .carousel-track {
   display: flex;
-  width: 800%; /* 4 images × 2 loops */
+  width: 800%;
+  /* 4 images × 2 loops */
   animation: slide 50s linear infinite;
 }
 
@@ -122,7 +128,8 @@
   }
 
   100% {
-    transform: translateX(-400%); /* scroll exactly 4 images width */
+    transform: translateX(-400%);
+    /* scroll exactly 4 images width */
   }
 }
 
@@ -133,14 +140,12 @@
   backdrop-filter: blur(6px);
   border-radius: 16px;
   border: 1.5px solid rgba(255, 70, 70, 0.4);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 80, 80, 0.08),
-    rgba(255, 0, 0, 0.02)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 80, 80, 0.08),
+      rgba(255, 0, 0, 0.02));
   animation: modernFloat 4s ease-in-out infinite alternate,
-             pulseGlow 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 18px rgba(255,0,0,0.35));
+    pulseGlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px rgba(255, 0, 0, 0.35));
   box-shadow:
     inset 0 0 20px rgba(255, 0, 0, 0.2),
     0 0 25px rgba(255, 0, 0, 0.15);
@@ -148,34 +153,94 @@
 
 /* Shape 01 */
 .shape1 {
-  width: 80px; height: 80px;
-  top: 15px; right: 40px;
+  width: 80px;
+  height: 80px;
+  top: 15px;
+  right: 40px;
   animation-delay: 0.2s;
 }
 
 /* Shape 02 */
 .shape2 {
-  width: 55px; height: 55px;
-  top: 160px; right: 5px;
+  width: 55px;
+  height: 55px;
+  top: 160px;
+  right: 5px;
   border-radius: 50%;
   animation-delay: 1.2s;
 }
 
 /* Shape 03 */
 .shape3 {
-  width: 95px; height: 95px;
-  bottom: 30px; right: 70px;
+  width: 95px;
+  height: 95px;
+  bottom: 30px;
+  right: 70px;
   animation-delay: 0.8s;
 }
+
+/* Shape 04 — Diamond */
+.shape4 {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 120px;
+  left: 40px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 70, 70, 0.35);
+  background: linear-gradient(135deg,
+      rgba(255, 60, 60, 0.1),
+      rgba(255, 0, 0, 0.03));
+  transform: rotate(45deg);
+  animation: modernFloat 5s ease-in-out infinite alternate,
+    pulseGlow 4s ease-in-out infinite;
+}
+
+/* Shape 05 — Soft Triangle */
+.shape5 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+  border-bottom: 95px solid rgba(255, 60, 60, 0.18);
+  top: 200px;
+  right: 0px;
+  border-radius: 12px;
+  animation: modernFloat 5s ease-in-out infinite alternate,
+    pulseGlow 4s ease-in-out infinite;
+}
+
+/* Shape 06 — Pentagon */
+.shape6 {
+  position: absolute;
+  top: 280px;
+  left: 80px;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 40, 40, 0.15);
+  clip-path: polygon(50% 0%,
+      100% 38%,
+      82% 100%,
+      18% 100%,
+      0% 38%);
+  border: 1.5px solid rgba(255, 70, 70, 0.35);
+  backdrop-filter: blur(6px);
+  animation: modernFloat 7s ease-in-out infinite alternate,
+    pulseGlow 5s ease-in-out infinite;
+}
+
 
 /* Floating animation (enhanced) */
 @keyframes modernFloat {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg) scale(1);
   }
+
   50% {
     transform: translateY(-18px) translateX(6px) rotate(8deg) scale(1.05);
   }
+
   100% {
     transform: translateY(-30px) translateX(-4px) rotate(14deg) scale(1.08);
   }
@@ -183,12 +248,15 @@
 
 /* Glow breathing effect */
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.85;
     box-shadow:
       inset 0 0 20px rgba(255, 0, 0, 0.18),
       0 0 30px rgba(255, 0, 0, 0.25);
   }
+
   50% {
     opacity: 1;
     box-shadow:
@@ -206,7 +274,8 @@
 }
 
 .team-strip-wrapper {
-  transform: translateY(0); /* Prevent layout shift */
+  transform: translateY(0);
+  /* Prevent layout shift */
   transition: 0.3s ease;
 }
 
@@ -223,7 +292,8 @@
 }
 
 .team-strip-inner {
-  transform: skewY(8deg); /* Cancels outer skew */
+  transform: skewY(8deg);
+  /* Cancels outer skew */
   overflow: hidden;
 }
 
@@ -277,24 +347,21 @@
   width: 240%;
   left: -70%;
   transform-origin: bottom center;
-background-image:
-  linear-gradient(
-    to right,
-    rgba(37, 99, 235, 0.35) 1px,   /* blue-600 */
-    transparent 1px
-  ),
-  linear-gradient(
-    to top,
-    rgba(37, 99, 235, 0.35) 1px,
-    transparent 1px
-  );
+  background-image:
+    linear-gradient(to right,
+      rgba(37, 99, 235, 0.35) 1px,
+      /* blue-600 */
+      transparent 1px),
+    linear-gradient(to top,
+      rgba(37, 99, 235, 0.35) 1px,
+      transparent 1px);
 
 
   background-size: 88px 88px;
   background-position: 0 0;
   opacity: 0.95;
   will-change: transform, background-position;
-    transform: rotateX(60deg) translateZ(0);
+  transform: rotateX(60deg) translateZ(0);
   backface-visibility: hidden;
 }
 
@@ -308,20 +375,22 @@ background-image:
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
+
   100% {
     transform: translateY(0);
   }
 }
 
 .floating-logo {
-  filter: drop-shadow(0 0 25px rgba(220,38,38,0.35));
+  filter: drop-shadow(0 0 25px rgba(220, 38, 38, 0.35));
 }
 
 .hero-vignette {
-  box-shadow: inset 0 0 120px rgba(0,0,0,0.9);
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.9);
 }
 
 
@@ -329,6 +398,7 @@ background-image:
   cursor: pointer;
   transition: color 0.25s ease;
 }
+
 .footer-link:hover {
   color: white;
 }
@@ -351,12 +421,12 @@ article img {
 
 /* small responsive tweaks */
 @media (min-width: 1024px) {
-  .hero-line { font-size: clamp(2.1rem, 4.8vw, 3.6rem); }
+  .hero-line {
+    font-size: clamp(2.1rem, 4.8vw, 3.6rem);
+  }
 }
 
-/* ============================================
-   UNIVERSAL GLOW BOX FOR TECHNO-WOK
-   ============================================ */
+
 
 .glow-box {
   position: relative;
@@ -373,11 +443,9 @@ article img {
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(255, 0, 0, 0.28),
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 0%,
+      rgba(255, 0, 0, 0.28),
+      transparent 70%);
   filter: blur(18px);
   opacity: 0.45;
   transition: .4s ease;
@@ -390,11 +458,9 @@ article img {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 80, 80, 0.06),
-    rgba(255, 0, 0, 0.02)
-  );
+  background: linear-gradient(45deg,
+      rgba(255, 80, 80, 0.06),
+      rgba(255, 0, 0, 0.02));
   opacity: 0.35;
   transition: .4s ease;
   pointer-events: none;
@@ -430,11 +496,9 @@ article img {
   position: absolute;
   inset: -3px;
   border-radius: inherit;
-  background: radial-gradient(
-    circle at 50% 0%,
-    rgba(255, 0, 0, 0.18),
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 0%,
+      rgba(255, 0, 0, 0.18),
+      transparent 70%);
   filter: blur(18px);
   opacity: 0.3;
   transition: .4s ease;
@@ -452,9 +516,17 @@ article img {
 
 /* Smooth pulsing animation for hero boxes */
 @keyframes pulseGlow {
-  0% { box-shadow: 0 0 16px rgba(255, 0, 0, 0.12); }
-  50% { box-shadow: 0 0 28px rgba(255, 0, 0, 0.32); }
-  100% { box-shadow: 0 0 16px rgba(255, 0, 0, 0.12); }
+  0% {
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 28px rgba(255, 0, 0, 0.32);
+  }
+
+  100% {
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.12);
+  }
 }
 
 .glow-pulse {

@@ -1,26 +1,25 @@
 import React from "react";
 
 const partners = [
-    "Microsoft",
-    "Google",
-    "Amazon",
-    "Netflix",
-    "IBM",
-    "Oracle",
-    "Meta",
-    "Adobe",
-    "Salesforce",
-    "Spotify"
+  "Microsoft",
+  "Google",
+  "Amazon",
+  "AWS",
+  "Contobo",
+  "Oracle",
+  "Meta",
+  "Adobe",
+  "Salesforce",
 ];
 
 export default function PartnersCarousel() {
-    const loop = [...partners, ...partners];
+  const loop = [...partners, ...partners];
 
-    return (
-        <div className="relative w-full bg-black py-10 mt-24 mb-10 overflow-hidden">
+  return (
+    <div className="relative w-full bg-black py-10 mt-24 mb-10 overflow-hidden">
 
-            {/* 🌈 Glowing background strip */}
-            <div className="
+      {/* 🌈 Glowing background strip */}
+      <div className="
         absolute inset-0 
         mx-auto 
         w-[110%]
@@ -37,31 +36,31 @@ export default function PartnersCarousel() {
 
 
       {/* ⭐ Top Glow Line */}
-<div
-  className="
+      <div
+        className="
     absolute top-0 left-0 w-full h-[2px]
     bg-red-600/70
     shadow-[0_0_12px_2px_rgba(255,0,0,0.6)]
   "
-/>
+      />
 
-{/* ⭐ Bottom Glow Line */}
-<div
-  className="
+      {/* ⭐ Bottom Glow Line */}
+      <div
+        className="
     absolute bottom-0 left-0 w-full h-[2px]
     bg-red-600/70
     shadow-[0_0_12px_2px_rgba(255,0,0,0.6)]
   "
-/>
+      />
 
 
-            {/* CAROUSEL */}
-            <div className="relative flex items-center">
-                <div className="animate-slide flex gap-20 whitespace-nowrap">
-                    {loop.map((name, i) => (
-                        <span
-                            key={i}
-                            className="
+      {/* CAROUSEL */}
+      <div className="relative flex items-center">
+        <div className="animate-slide flex gap-20 whitespace-nowrap">
+          {loop.map((name, i) => (
+            <span
+              key={i}
+              className="
                 text-2xl 
                 font-semibold
                 tracking-wide
@@ -83,12 +82,12 @@ export default function PartnersCarousel() {
                 
                 drop-shadow-[0_0_6px_rgba(255,0,0,0.45)]
               "
-                        >
-                            {name}
-                        </span>
-                    ))}
-                </div>
-            </div>
+            >
+              {name}
+            </span>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 }

@@ -85,64 +85,15 @@ export default function Careers() {
                 {/* Left Accent Line */}
                 <div className="hidden md:block absolute left-0 top-10 h-[120px] w-[4px] bg-red-600 rounded-full shadow-[0_0_20px_red]"></div>
 
-                {/* Headline + Highlight */}
-                <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] text-center md:text-left">
-                    Build The
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-300">
-                        Future You Want
-                    </span>
-                </h1>
-
-                {/* Animated underline strip */}
-                <div className="mt-2 h-[4px] w-40 bg-gradient-to-r from-red-600 to-transparent rounded-full animate-pulse"></div>
-
-                {/* Glass Subtext */}
-                <div className="mt-10 bg-white/5 backdrop-blur-xl border border-white/10 
-    p-6 rounded-2xl max-w-xl shadow-[0_0_30px_rgba(255,0,0,0.25)]">
-                    <p className="text-gray-300 text-lg leading-relaxed text-center md:text-left">
-                        You bring the passion.
-                        We bring the training, mentorship, internships, and job guidance
-                        to launch you into the IT industry.
-                    </p>
-                </div>
-
-                {/* CTA Buttons */}
-                <div className="mt-10 flex gap-4 flex-wrap justify-center md:justify-start">
-
-                    <button className="
-      px-8 py-4 bg-red-600 hover:bg-red-700 rounded-xl text-lg font-semibold
-      shadow-[0_0_25px_rgba(255,0,0,0.4)] hover:shadow-[0_0_35px_rgba(255,0,0,0.6)]
-      transition-all
-    ">
-                        Start Your Journey
-                    </button>
-
-                    <button onClick={() => navigate("/courses")} className="
-      px-8 py-4 bg-transparent border border-red-600/60 hover:border-red-600 
-      rounded-xl text-lg font-semibold text-red-400 hover:text-red-600
-      backdrop-blur-xl transition-all
-    ">
-                        View Courses →
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            {/* ===================== ABOUT WORKING WITH US ===================== */}
-
-            <div className="max-w-6xl mx-auto mt-32 mb-28 relative z-20 grid md:grid-cols-2 gap-14">
-
                 {/* LEFT CONTENT */}
-                <div>
+                <div className="w-[60%]">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
                         Grow Your Career
                         <span className="text-red-600"> With Us</span>
                     </h2>
 
                     <p className="text-gray-400 text-lg leading-relaxed">
-                        At TecnoWok, you don’t just work — you grow, innovate, and help shape the
+                        At TecnoWok, you don’t just work - you grow, innovate, and help shape the
                         future of technology.
                         Our environment encourages curiosity, continuous learning, and hands-on experience
                         with modern tools and real client projects.
@@ -162,18 +113,49 @@ export default function Careers() {
                     </ul>
                 </div>
 
-                {/* RIGHT GLASS CARD */}
-                <div className="p-8 rounded-2xl bg-[#0d0d0f]/70 border border-white/10 backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
-                    <h3 className="text-2xl font-semibold text-red-500 mb-4">Why Join Us?</h3>
+            </div>
 
-                    <p className="text-gray-300 text-lg leading-relaxed">
-                        • Exposure to Fortune-level clients
-                        • Work on high-impact applications
-                        • Modern DevOps, Frontend & Mobile workflows
-                        • Opportunity to lead, own, and innovate
-                        • Healthy, positive, career-driven workplace
-                    </p>
+
+            {/* ===================== ABOUT WORKING WITH US ===================== */}
+
+            <div className="max-w-6xl mx-auto mt-32 mb-28 relative z-20 flex justify-center items-center ">
+
+
+
+                {/* RIGHT GLASS CARD */}
+                <div className="p-8 rounded-2xl w-[800px] mx-auto flex flex-col items-center bg-[#0d0d0f]/70 border border-white/10 backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
+                    <h3 className="text-2xl font-semibold text-red-500 mb-6">
+                        Why Join Us?
+                    </h3>
+
+                    <ul className="space-y-4 text-gray-300 text-lg">
+                        <li className="flex items-start gap-3">
+                            <span className="text-red-500 text-xl">•</span>
+                            <span>Exposure to Fortune-level clients</span>
+                        </li>
+
+                        <li className="flex items-start gap-3">
+                            <span className="text-red-500 text-xl">•</span>
+                            <span>Work on high-impact applications</span>
+                        </li>
+
+                        <li className="flex items-start gap-3">
+                            <span className="text-red-500 text-xl">•</span>
+                            <span>Modern DevOps, Frontend & Mobile workflows</span>
+                        </li>
+
+                        <li className="flex items-start gap-3">
+                            <span className="text-red-500 text-xl">•</span>
+                            <span>Opportunity to lead, own, and innovate</span>
+                        </li>
+
+                        <li className="flex items-start gap-3">
+                            <span className="text-red-500 text-xl">•</span>
+                            <span>Healthy, positive, career-driven workplace</span>
+                        </li>
+                    </ul>
                 </div>
+
 
             </div>
 
@@ -247,14 +229,7 @@ export default function Careers() {
                                     <p><span className="text-red-400 font-medium">Skills:</span> {job.skills}</p>
                                 </div>
 
-                                {/* APPLY BUTTON */}
-                                <button
-                                    onClick={() => window.location.href = "mailto:hr@seekneo.com"}
-                                    className="mt-5 px-5 py-2 rounded-lg bg-red-600 text-white text-sm font-medium
-            hover:bg-red-700 transition shadow-[0_0_15px_rgba(255,0,0,0.35)]"
-                                >
-                                    Apply Now
-                                </button>
+                             
                             </div>
                         </div>
                     ))}
