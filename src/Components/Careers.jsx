@@ -257,7 +257,7 @@ rounded-3xl backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
                 <div className="space-y-3 text-gray-300 text-lg">
 
                     <p>
-                        <span className="text-red-400 font-medium">Email:</span> info@tecnowok.com
+                        <span className="text-red-400 font-medium">Email:</span> career@tecnowok.com
                     </p>
 
                     <p>

@@ -226,7 +226,7 @@ export default function Courses() {
         <div className="hidden lg:block absolute -left-10 -top-4 w-40 h-40 pointer-events-none">
           <div className="accent-diag diag-1" />
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16  ">
           {courseList.map((course, idx) => (
             <motion.div
               key={idx}
@@ -237,7 +237,7 @@ export default function Courses() {
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(null)}
               ref={(el) => (cardRefs.current[idx] = el)}
-              className="relative p-6 rounded-2xl bg-[#0d0d0f]/75 border border-white/8
+              className="relative p-6 rounded-2xl bg-[#0d0d0f]/75 mt-10 border border-white/8
                 backdrop-blur-xl cursor-pointer hover:-translate-y-2 duration-300 group overflow-hidden shadow-[0_0_22px_rgba(255,0,0,0.06)]"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-red-600/6 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl" />
@@ -317,7 +317,7 @@ export default function Courses() {
             "HTML5", "CSS3", "Bootstrap", "Tailwind",
             "JavaScript", "React.js", "Node.js",
             "MongoDB", "SQL", "Git & GitHub",
-            "Figma", "Firebase", "API Integration", "PHP", "Linux", "Express", "Apache"
+            "Figma", "Firebase", "API Integration", "PHP", "Linux", "Express", "Apache", "Postman", "Jira", "Slack"
           ].map((tech, i) => (
             <span key={i} className="px-3 py-2 bg-[#111]/60 border border-white/6 rounded-md">
               {tech}
@@ -411,43 +411,61 @@ export default function Courses() {
 
         <h4 className="text-3xl font-semibold mb-6 text-center">Contact Details</h4>
 
-        <div className="flex gap-10 flex-wrap justify-center items-start mb-16">
-          <div className="bg-[#0d0d0f]/70 border border-white/10 backdrop-blur-xl mx-auto rounded-2xl p-8 shadow-[0_0_35px_rgba(255,0,0,0.12)] relative overflow-hidden">
-            <div className="card-blob tl" />
-            <h5 className="text-2xl font-bold mb-4 text-red-600">Talentwok Solution</h5>
+        <div className="flex gap-10 flex-wrap justify-center items-start mb-20">
+          <div className="
+    bg-[#0d0d0f]/75 
+    border border-white/10 
+    backdrop-blur-xl 
+    mx-auto 
+    rounded-2xl 
+    p-8 
+    max-w-md
+    shadow-[0_0_45px_rgba(255,0,0,0.18)]
+    relative 
+    overflow-hidden
+  ">
+            {/* glow blob */}
+            <div className="card-blob tl opacity-60" />
 
-            <p className="text-gray-300 mb-3">
-              Your Talent Partner from the House of Tecnowok Solution
+            <h5 className="text-2xl font-bold mb-2 text-red-600">
+              Talentwok Solution
+            </h5>
+
+            <p className="text-sm text-red-500/80 mb-4">
+              Recruitment & Placement Division of Tecnowok Solution
             </p>
 
-            <p className="text-gray-300 mb-2">
-              <strong>Email:</strong>{" "}
-              <a className="text-red-600" href="mailto:recruitment@tecnowok.com">
-                recruitment@tecnowok.com
-              </a>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Your career partner focused on transforming skilled learners into
+              industry-ready professionals through structured training,
+              real-time projects, and dedicated placement support.
             </p>
 
-            <div className="space-y-5 mt-6">
-              <div>
-                <p className="text-gray-200 font-semibold text-lg">Santhosh — Head Of Recruitment</p>
-                <p className="text-gray-300">Email: <a className="text-red-600" href="mailto:Santhosh@tecnowok.com">Santhosh@tecnowok.com</a></p>
-                <p className="text-gray-300">Phone: +91-6382303056</p>
-              </div>
+            <ul className="text-gray-300 text-sm space-y-2 mb-5">
+              <li>• Internship & Job Placement Assistance</li>
+              <li>• Resume Building & LinkedIn Optimization</li>
+              <li>• HR Mock Interviews & Career Mentorship</li>
+              <li>• Company Connections across South India</li>
+            </ul>
 
-              <div>
-                <p className="text-gray-200 font-semibold text-lg">Harini Lakshmanan — Talent Acquisition Specialist</p>
-                <p className="text-gray-300">Email: <a className="text-red-600" href="mailto:Harini@tecnowok.com">Harini@tecnowok.com</a></p>
-                <p className="text-gray-300">Phone: +91-6369550242</p>
-              </div>
+            <div className="border-t border-white/10 pt-4">
+              <p className="text-gray-300 mb-1 text-sm">
+                For course admissions & placement coordination
+              </p>
 
-              <div>
-                <p className="text-gray-200 font-semibold text-lg">Ashwin N — Founder & COO</p>
-                <p className="text-gray-300">Email: <a className="text-red-600" href="mailto:Ashwin@tecnowok.com">Ashwin@tecnowok.com</a></p>
-                <p className="text-gray-300">Phone: +91-8939787678</p>
-              </div>
+              <p className="text-gray-300">
+                <strong>Email:</strong>{" "}
+                <a
+                  className="text-red-600 hover:text-red-500 transition"
+                  href="mailto:apply@tecnowok.com"
+                >
+                  apply@tecnowok.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
+
       </div>
 
 

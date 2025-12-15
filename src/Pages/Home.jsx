@@ -12,6 +12,7 @@ import FAQSection from "../Landing/FAQSection";
 import HorizontalScroll from "../Landing/HorizontalScroll";
 import PartnersCarousel from "../Components/PartnersCarousel";
 import ModernStack from "../Landing/ModernStack";
+import FlashOfferCard from "../Components/FlashOfferCard";
 
 gsap.registerPlugin(ScrollTrigger);   // ✅ REQUIRED FIX
 
@@ -30,6 +31,7 @@ const Home = ({ revealDone, setTransitionTrigger }) => {
   return (
     <div>
       <HeroCinematic revealDone={revealDone} freeze={freezeParticles} setTransitionTrigger={setTransitionTrigger} />
+      <FlashOfferCard />
       <PartnersCarousel />
       <About />
       <OurServices />
