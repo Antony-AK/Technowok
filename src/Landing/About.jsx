@@ -11,43 +11,43 @@ export default function About() {
   const textElements = useRef([]);
 
   useEffect(() => {
-  const ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
 
-    gsap.from(textElements.current, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: "power3.out",
-      stagger: 0.15,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-      }
-    });
+      gsap.from(textElements.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        }
+      });
 
-    gsap.from(boardRef.current, {
-      opacity: 0,
-      scale: 0.92,
-      y: 40,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-      }
-    });
+      gsap.from(boardRef.current, {
+        opacity: 0,
+        scale: 0.92,
+        y: 40,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        }
+      });
 
-    gsap.to(codeRef.current, {
-      y: "-100%",
-      duration: 10,
-      ease: "none",
-      repeat: -1,
-    });
+      gsap.to(codeRef.current, {
+        y: "-100%",
+        duration: 10,
+        ease: "none",
+        repeat: -1,
+      });
 
-  }, sectionRef);  // bind animations to this component
+    }, sectionRef);  // bind animations to this component
 
-  return () => ctx.revert();
-}, []);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
@@ -76,23 +76,21 @@ export default function About() {
             ref={(el) => textElements.current[2] = el}
             className="text-4xl md:text-5xl -mt-3 font-bold  text-white"
           >
-            Turning Ideas into <span className="text-red-700">Digital</span> Success
+            Turning Ideas into Scalable <span className="text-red-700">Digital</span> Success
           </p>
 
           <p
             ref={(el) => textElements.current[3] = el}
             className="text-gray-300 text-lg "
           >
-            We build high-performance digital products - apps, websites,
-            enterprise platforms, automations and branding that scale globally.
+            Tecnowok Solution is a full-stack IT and digital transformation company delivering custom software development, website & mobile app development, IT automation, ecommerce solutions, branding and performance-driven digital marketing.
           </p>
 
           <p
             ref={(el) => textElements.current[4] = el}
             className="text-gray-300 text-lg "
           >
-            With 120+ clients across the world, we deliver clean, modern and
-            future-ready technology solutions.
+            With 120+ clients worldwide, we design technology systems that improve efficiency, visibility and long-term business growth across industries.
           </p>
         </div>
 

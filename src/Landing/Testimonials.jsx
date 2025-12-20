@@ -1,113 +1,110 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
-import per1 from "../assets/review1.jpg";
-import per2 from "../assets/review2.jpg";
-import per3 from "../assets/review3.jpg";
-import per4 from "../assets/review4.jpg";
-import per5 from "../assets/review5.jpg";
-import per6 from "../assets/review6.jpg";
-
-const testimonials = [
-    { type: "vertical", img: per1, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
-    { type: "horizontal", img: per2, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
-    { type: "vertical", img: per3, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
-    { type: "horizontal", img: per4, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
-    { type: "vertical", img: per5, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
-    { type: "horizontal", img: per6, text: "After being scammed by a web design company I was recommended Tecnowok", name: "Stephen Rogers" },
+const TESTIMONIALS = [
+  {
+    text: "Tecnowok Solution completely transformed our digital presence. From strategy to execution, everything was handled with clarity, speed, and professionalism. Their technical depth really stands out.",
+    name: "Arun Prakash",
+    role: "Founder, Startup Venture"
+  },
+  {
+    text: "We partnered with Tecnowok for a custom software solution and the results exceeded expectations. Clean architecture, timely delivery, and excellent communication throughout the project.",
+    name: "Sivakumar R",
+    role: "Operations Head, Enterprise Client"
+  },
+  {
+    text: "What impressed us most was their understanding of business goals, not just technology. Tecnowok delivered a scalable solution that actually improved our workflows.",
+    name: "Meenakshi Narayanan",
+    role: "Product Manager"
+  },
+  {
+    text: "Reliable, transparent, and highly skilled. Tecnowok Solution is a long-term technology partner you can trust for serious digital growth.",
+    name: "Rahul Dev",
+    role: "CTO, Digital Brand"
+  }
 ];
 
-const CardVertical = ({ img, text, name }) => (
-    <motion.div
-    
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        whileHover={{ y: -10, scale: 1.03 }}
-        className="
-            w-[180px] h-[260px]         /* mobile */
-            md:w-[240px] md:h-[330px]   /* desktop */
-            bg-black rounded-3xl overflow-hidden shadow-xl cursor-pointer will-change-transform
-        "
-    >
-        <img
-            src={img}
-            loading="lazy"
-            className="w-full h-[55%] md:h-[60%] object-cover opacity-0 transition-opacity duration-700"
-            onLoad={(e) => (e.target.style.opacity = 1)} />
-        <div className="bg-red-600 h-[45%] md:h-[40%] p-3 md:p-4 text-white text-xs md:text-sm flex flex-col justify-between">
-            <p>{text}</p>
-            <span className="text-[11px] md:text-[13px] opacity-80">– {name}</span>
-        </div>
-    </motion.div>
-);
-
-const CardHorizontal = ({ img, text, name }) => (
-    <motion.div
-    
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        whileHover={{ y: -10, scale: 1.03 }}
-        className="
-            w-[280px] h-[150px]         /* mobile */
-            md:w-[360px] md:h-[180px]   /* desktop */
-            bg-black rounded-3xl overflow-hidden shadow-xl flex cursor-pointer will-change-transform
-        "
-    >
-        <img
-            src={img}
-            loading="lazy"
-            className="w-[45%] h-full object-cover opacity-0 transition-opacity duration-700"
-            onLoad={(e) => (e.target.style.opacity = 1)} />
-        <div className="bg-red-600 w-[55%] p-3 md:p-4 text-white text-xs md:text-sm flex flex-col justify-between">
-            <p>{text}</p>
-            <span className="text-[11px] md:text-[13px] opacity-80">– {name}</span>
-        </div>
-    </motion.div>
-);
-
-
 export default function Testimonials() {
-    return (
-        <div className="w-full bg-black py-24 relative flex justify-center">
-            <div className="relative w-full max-w-7xl">
+  return (
+    <section className="relative w-full bg-black py-36 overflow-hidden">
 
-                {/* ⭐ TITLE (Visible on both desktop & mobile) */}
-                <div className="md:hidden text-center mb-12 md:mb-0">
-                    <p className="text-red-500 text-sm">Trusted By</p>
-                    <h2 className="text-white text-4xl font-semibold">Thought Leaders</h2>
-                </div>
+      {/* ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] 
+          -translate-x-1/2 -translate-y-1/2 
+          bg-red-600/10 blur-[200px] rounded-full" />
+      </div>
 
-                <div className="hidden md:block absolute top-72 left-[38%] text-center  z-10">
-                    <p className="text-red-500 text-sm">Trusted By</p>
-                    <h2 className="text-white text-4xl font-semibold">Thought Leaders</h2>
-                </div>
+      <div className="relative max-w-6xl mx-auto px-6">
 
-                {/* ⭐ DESKTOP / LAPTOP VERSION (unchanged) */}
-                <div className="hidden md:block">
-                    <div className="grid grid-cols-3 place-items-center gap-10 mb-20">
-                        <CardVertical {...testimonials[0]} />
-                        <CardHorizontal {...testimonials[1]} />
-                        <CardVertical {...testimonials[2]} />
-                    </div>
-
-                    <div className="grid grid-cols-3 place-items-center gap-10">
-                        <CardHorizontal {...testimonials[3]} />
-                        <CardVertical {...testimonials[4]} />
-                        <CardHorizontal {...testimonials[5]} />
-                    </div>
-
-                </div>
-
-                {/* ⭐ MOBILE VERSION (Brand-new clean stacked layout) */}
-                <div className="flex flex-col items-center gap-10 md:hidden mt-10">
-                    {testimonials.map((item, i) =>
-                        item.type === "vertical" ? (
-                            <CardVertical key={i} {...item} />
-                        ) : (
-                            <CardHorizontal key={i} {...item} />
-                        )
-                    )}
-                </div>
-
-            </div>
+        {/* HEADER */}
+        <div className="text-center mb-24">
+          <p className="text-red-500 text-sm uppercase tracking-widest mb-3">
+            Testimonials
+          </p>
+          <h2 className="text-white text-4xl md:text-5xl font-semibold">
+            Words From Our Clients
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+            Honest feedback from founders, leaders, and teams we’ve worked with
+          </p>
         </div>
-    );
+
+        {/* TESTIMONIAL FLOW */}
+        <div className="grid md:grid-cols-2 gap-16">
+          {TESTIMONIALS.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50, rotate: -1.5 }}
+              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.12 }}
+              whileHover={{ y: -8 }}
+              className="
+                relative px-8 pt-10 pb-8 rounded-[32px]
+                bg-white/[0.035] backdrop-blur-xl
+                border border-white/10
+                shadow-[0_0_45px_rgba(255,0,0,0.18)]
+                hover:shadow-[0_0_65px_rgba(255,0,0,0.28)]
+                transition-all
+              "
+            >
+              {/* big quote */}
+              <div className="absolute -top-6 left-6 text-red-600 text-7xl font-serif opacity-70">
+                “
+              </div>
+
+              {/* stars */}
+              <div className="flex justify-center gap-1 mb-5 text-red-500">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+
+              {/* text */}
+              <p className="text-gray-200 text-lg leading-relaxed text-center mb-8">
+                {item.text}
+              </p>
+
+              {/* divider */}
+              <div className="w-10 h-[2px] bg-red-600/60 mx-auto mb-6 rounded-full" />
+
+              {/* name */}
+              <div className="text-center">
+                <p className="text-white font-semibold text-lg">
+                  {item.name}
+                </p>
+                <p className="text-gray-400 text-sm mt-1">
+                  {item.role}
+                </p>
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
 }

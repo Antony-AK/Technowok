@@ -9,32 +9,29 @@ gsap.registerPlugin(ScrollTrigger);
 export default function TalentWokWhyUs() {
   const containerRef = useRef(null);
 
-  const POINTS = [
-    {
-      title: "Faster Hiring Cycles",
-      desc: "We close positions faster through rapid sourcing, automated screening and optimized workflows.",
-    },
-    {
-      title: "Skill Gap Expertise",
-      desc: "Deep talent access across Tier-2 & Tier-3 cities ensures industry-ready candidates.",
-    },
-    {
-      title: "Retention Strategies",
-      desc: "We focus on long-term workforce stability and improved employee engagement.",
-    },
-    {
-      title: "Cost-Optimized Hiring",
-      desc: "Scalable recruitment models that reduce operational hiring expenses.",
-    },
-    {
-      title: "Complete Recruitment Ownership",
-      desc: "Sourcing → Interviews → Onboarding → Payroll → Compliance — fully handled.",
-    },
-    {
-      title: "Pan-India Coverage",
-      desc: "National reach with strong micro-market understanding for local hiring needs.",
-    },
-  ];
+const POINTS = [
+  {
+    title: "Faster Hiring Cycles",
+    desc: "Accelerated recruitment processes that reduce time-to-hire through structured sourcing and screening."
+  },
+  {
+    title: "Access to Tier-2 & Tier-3 Talent",
+    desc: "Deep talent networks across Tier-2 and Tier-3 cities, delivering skilled and job-ready candidates."
+  },
+  {
+    title: "Cost-Optimized Recruitment Models",
+    desc: "Flexible and scalable hiring models designed to minimize recruitment costs without compromising quality."
+  },
+  {
+    title: "End-to-End Recruitment Ownership",
+    desc: "Complete hiring ownership from sourcing and screening to interviews, offers, and onboarding."
+  },
+  {
+    title: "Pan-India Hiring Capability",
+    desc: "Nationwide recruitment reach with strong local market expertise across major and emerging regions."
+  }
+];
+
 
   useEffect(() => {
     const el = containerRef.current;
@@ -53,7 +50,7 @@ export default function TalentWokWhyUs() {
   }, []);
 
   return (
-    <section className="relative w-full bg-black text-white py-32 overflow-hidden">
+    <section className="relative w-full bg-black text-white py-32  overflow-hidden">
 
       {/* ===== BACKGROUND BLOBS ===== */}
       <motion.div
@@ -75,7 +72,7 @@ export default function TalentWokWhyUs() {
       {/* ===== STRUCTURED STORY SECTION (Inspired by your reference template) ===== */}
       <div
         ref={containerRef}
-        className="max-w-8xl mx-auto grid md:grid-cols-[120px_1fr] gap-16 px-6 md:px-16"
+        className="max-w-8xl mx-auto grid md:grid-cols-[120px_1fr] gap-16  px-6 md:px-16"
       >
         {/* Vertical Label Bar */}
         <div className="hidden md:flex flex-col items-center justify-center gap-4">
@@ -114,7 +111,7 @@ export default function TalentWokWhyUs() {
           </h2>
 
           {/* WHY US ITEMS (NOT GRID – elegant vertical list) */}
-          <div className="space-y-8">
+          <div className="space-y-8 mb-5">
             {POINTS.map((item, i) => (
               <motion.div
                 key={i}
@@ -122,7 +119,7 @@ export default function TalentWokWhyUs() {
               >
                 <div className="w-3 h-3 bg-red-600 rounded-full shadow-[0_0_12px_rgba(255,0,0,0.7)] mt-2" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
+                  <h3 className="text-xl font-semibold  mb-1">{item.title}</h3>
                   <p className="text-white/80 text-[16px] leading-relaxed">
                     {item.desc}
                   </p>

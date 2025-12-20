@@ -28,10 +28,10 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-full overflow-hidden bg-black">
 
-            {/* 🌈 Gradient Glow */}
+            {/*  Gradient Glow */}
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(37,99,235,0.25),transparent_60%)] hero-vignette" />
 
-            {/* 🧊 Perspective Grid */}
+            {/*  Perspective Grid */}
             <div className="hero-perspective">
                 <div
                     ref={gridRef}
@@ -40,7 +40,7 @@ export default function Hero() {
             </div>
 
 
-            {/* ✨ Content */}
+            {/*  Content */}
             <div className="relative z-10 flex h-full flex-col mt-14 items-center justify-center text-center px-6 gap-5">
 
                 {/* Title */}

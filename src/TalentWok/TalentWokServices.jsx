@@ -6,13 +6,32 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const SERVICES = [
-  { title: "Permanent Hiring", desc: "Full-time employees sourced for long-term organizational growth." },
-  { title: "Contract Staffing", desc: "Flexible workforce for short-term or specialized requirements." },
-  { title: "Payroll & Compliance", desc: "End-to-end statutory compliance + workforce management." },
-  { title: "Training Support", desc: "Upskilling programs designed for job-ready talent." },
-  { title: "Campus Hiring & Drives", desc: "Bulk hiring for freshers through managed recruitment events." },
-  { title: "End-to-End Recruitment", desc: "Sourcing → Screening → L1 → L2/L3 Coordination → Offer → Onboarding." },
+  {
+    title: "Permanent Hiring",
+    desc: "Full-time hiring solutions designed to support long-term organizational growth."
+  },
+  {
+    title: "Contract Staffing",
+    desc: "Flexible workforce solutions for short-term projects or niche skill requirements."
+  },
+  {
+    title: "Payroll & Compliance",
+    desc: "End-to-end statutory compliance, payroll processing, and workforce management."
+  },
+  {
+    title: "Campus Hiring & Drives",
+    desc: "Bulk fresher hiring through structured campus recruitment programs and hiring drives."
+  },
+  {
+    title: "Training & Upskilling",
+    desc: "Job-ready training and upskilling programs aligned with real industry requirements."
+  },
+  {
+    title: "End-to-End Recruitment",
+    desc: "Sourcing → Screening → L1 → L2/L3 Coordination → Offer → Onboarding."
+  }
 ];
+
 
 export default function TalentWokServices() {
   const cards = useRef([]);

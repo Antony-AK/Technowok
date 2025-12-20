@@ -9,6 +9,8 @@ import insight2 from "../assets/hosting.webp"
 import insight3 from "../assets/techstack.png"
 import insight4 from "../assets/transformation.webp"
 import insight5 from "../assets/trends.jpg"
+import { INSIGHTS_SEO } from "../data/SEOContent";
+import SEO from "../Components/SEO";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -98,7 +100,16 @@ export default function Insights() {
 
   return (
     <main ref={pageRef} className="w-full bg-black text-white min-h-screen">
-      {/* HERO */}
+     
+
+         {INSIGHTS_SEO && (
+        <SEO
+          title={INSIGHTS_SEO.title}
+          description={INSIGHTS_SEO.description}
+        />
+      )}
+
+
       <section
         ref={heroRef}
         className="relative overflow-hidden pt-28 pb-10 md:pt-36 md:pb-24"
@@ -110,12 +121,11 @@ export default function Insights() {
             <p className="uppercase text-sm text-red-500 font-medium mb-4"> Insights - TechnoWok</p>
 
             <h1 id="insights-hero-title" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight hero-line">
-              Insights That Power the Future of Software & Digital Innovation
+              Insights That Power the Future of Technology
             </h1>
 
             <p className="text-gray-300 mt-6 text-lg md:text-xl max-w-2xl ">
-              Practical engineering knowledge, product thinking and real-world strategies - written by the engineers who build, ship, and scale.
-              Designed for startups, CTOs, enterprises and builders in Tuticorin, Tamil Nadu, and beyond.
+             Practical engineering insights, product strategies and real-world lessons - written by teams who build, ship and scale digital systems.
             </p>
 
             <div className="mt-8 flex gap-3 items-center">
@@ -153,7 +163,7 @@ export default function Insights() {
             {/* stacked tiles mockup */}
             <div className="relative z-10 grid grid-cols-2 gap-4">
               <div className="rounded-2xl bg-[#0d0d0f] border border-white/6 p-4 shadow-[0_10px_40px_rgba(255,0,0,0.06)] glow-title glow-pulse transform -translate-y-6 hover:-translate-y-3 transition">
-                <h4 className="text-red-500 font-semibold">Product Strategy</h4>
+                <h4 className="text-red-500 font-semibold">Product  Strategy </h4>
                 <p className="text-gray-300 text-sm mt-2">MVP vs scale decisions</p>
               </div>
               <div className="rounded-2xl bg-[#0d0d0f] border border-white/6 p-4 shadow-[0_10px_40px_rgba(255,0,0,0.06)] glow-title glow-pulse transform translate-y-6 hover:-translate-y-3 transition">
@@ -192,19 +202,19 @@ export default function Insights() {
               <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <li className="flex gap-3 items-start">
                   <span className="text-red-500 font-bold">•</span>
-                  <span className="text-gray-300">Right tech decisions reduce rework & cost</span>
+                  <span className="text-gray-300">Better tech decisions reduce cost</span>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="text-red-500 font-bold">•</span>
-                  <span className="text-gray-300">Clearer roadmaps speed product-market fit</span>
+                  <span className="text-gray-300">Scalable architecture prevents failures</span>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="text-red-500 font-bold">•</span>
-                  <span className="text-gray-300">Cloud-native & secure deployments prevent outages</span>
+                  <span className="text-gray-300">AI & automation improve efficiency</span>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="text-red-500 font-bold">•</span>
-                  <span className="text-gray-300">AI & automation unlock operational efficiency</span>
+                  <span className="text-gray-300">Cloud-native systems ensure uptime</span>
                 </li>
               </ul>
             </div>
@@ -230,11 +240,11 @@ export default function Insights() {
           <h3 className="text-3xl font-bold mb-6">Core Insight Categories</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Product & Startup", desc: "MVP, stacks, go-to-market for builders." },
-              { title: "Web & Mobile", desc: "Performance, React patterns, mobile-first." },
+              { title: "Product & Startup Strategy", desc: "MVP, stacks, go-to-market for builders." },
+              { title: "Web & Mobile Development", desc: "Performance, React patterns, mobile-first." },
               { title: "Cloud & DevOps", desc: "AWS, Hostinger, CI/CD & cost ops." },
               { title: "AI & Automation", desc: "Real use-cases vs hype." },
-              { title: "Business + Tech", desc: "Roadmaps, vendor choices, audits." },
+              { title: "Business + Technology", desc: "Roadmaps, vendor choices, audits." },
               { title: "Case Studies", desc: "What worked & what failed — learn fast." },
             ].map((cat, i) => (
               <article key={i} className="glow-box p-6 bg-[#0d0d0f] rounded-2xl border border-white/6 shadow-[0_10px_40px_rgba(255,0,0,0.04)]">
@@ -246,7 +256,8 @@ export default function Insights() {
         </section>
 
         {/* FEATURED INSIGHTS (detailed) */}
-        <section className="space-y-20 mb-24">
+        <section className="space-y-20 mb-24 ">
+          <h1 className="text-center w-full text-3xl mt-30 font-bold ">Explore Insights from <span classname="text-red-600">Tecnowok</span> Engineers</h1>
           {/* Insight 1 */}
           <article ref={(el) => setArticleRef(el, 0)} className="grid md:grid-cols-2 gap-10 items-center">
             <div className="article-left">

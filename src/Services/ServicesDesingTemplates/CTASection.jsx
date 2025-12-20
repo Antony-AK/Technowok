@@ -2,42 +2,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {Link} from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 export default function CtaSection({ data }) {
+  const navigate = useNavigate();
   return (
-    <section className="relative w-full py-40 bg-black text-white overflow-hidden">
+    <section className="relative md:w-[60%] mx-auto py-40 bg-black text-white overflow-hidden">
       
-      {/* GRID BACKDROP */}
-      <div
-        className="absolute inset-0 opacity-[0.12]"
-        style={{
-          background: `
-            linear-gradient(to bottom, rgba(255,0,0,0.15) 1px, transparent 1px),
-            linear-gradient(to right, rgba(255,0,0,0.15) 1px, transparent 1px),
-            #000
-          `,
-          backgroundSize: "80px 80px",
-        }}
-      />
-
-      {/* CENTER ENERGY GLOW */}
-      <motion.div
-        className="absolute left-1/2 top-[40%] -translate-x-1/2 
-        w-[600px] h-[600px] rounded-full 
-        bg-[radial-gradient(circle,rgba(255,0,0,0.45),transparent_70%)]
-        blur-[90px]"
-        animate={{ opacity: [0.25, 0.45, 0.25], scale: [1, 1.1, 1] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-
+      
       {/* TITLE */}
     {/* TITLE with dynamic highlights */}
 <motion.h2
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.7 }}
-  className="text-center text-3xl md:text-5xl font-bold mb-6"
+  className="text-center text-3xl md:text-5xl  font-bold mb-6"
 >
   {data.heading.split(" ").map((word, i) => {
     const highlightWords = ["Android", "iOS", "Hybrid", "Windows", "Native", "Ionic", "Process", "CMS", "Ecommerce", "Digital"];
@@ -72,34 +51,27 @@ export default function CtaSection({ data }) {
       </motion.p>
 
       {/* CTA BUTTON */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex justify-center items-center w-60 mx-auto"
+      <div
+        
+        className="flex justify-center items-center w-60 md:w-[400px]  mx-auto"
       >
-        <Link href={data.ctaLink}>
-          <motion.button
-            whileHover={{
-              scale: 1.08,
-              boxShadow: "0 0 45px rgba(255,0,0,0.6)",
-              backgroundColor: "rgba(255,0,0,0.9)",
-            }}
-            whileTap={{ scale: 0.97 }}
+        <Link to="/contact">
+          <button
+
             className="
-              px-8 py-5 text-sm md:text-xl font-semibold uppercase tracking-wider
+              px-8 py-5 text-sm md:text-base  cursor-pointer  font-semibold
               bg-red-600 rounded-full shadow-[0_0_25px_rgba(255,0,0,0.4)]
               hover:shadow-[0_0_45px_rgba(255,0,0,0.6)]
               transition-all duration-300
             "
           >
-            {data.ctaText}
-          </motion.button>
+            Get a Free Consultation
+          </button>
         </Link>
-      </motion.div>
+      </div>
 
       {/* HOVER SWEEP LIGHT */}
-      <motion.div
+      {/* <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
           background: [
@@ -109,10 +81,10 @@ export default function CtaSection({ data }) {
           ],
         }}
         transition={{ duration: 8, repeat: Infinity }}
-      />
+      /> */}
 
       {/* FLOATING PARTICLES */}
-      {Array.from({ length: 25 }).map((_, i) => (
+      {/* {Array.from({ length: 25 }).map((_, i) => (
         <motion.div
           key={i}
           className="absolute bg-red-600/40 rounded-full"
@@ -125,7 +97,7 @@ export default function CtaSection({ data }) {
           animate={{ opacity: [0.2, 0.7, 0.2], y: [-10, 10, -10] }}
           transition={{ duration: 4 + Math.random() * 2, repeat: Infinity }}
         />
-      ))}
+      ))} */}
     </section>
   );
 }

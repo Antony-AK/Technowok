@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import SEO from "../Components/SEO";
+import { SERVICE_SEO } from "../data/Services/ServiceSEO";
 
 import {
   ANDROID_APP_DATA,
@@ -80,6 +82,38 @@ export default function ServicePage() {
     "it-outsourcing-services": IT_OUTSOURCING_DATA,
   };
 
+  const MASTER_SLUG_MAP = {
+ 
+    "android-mobile-application": "mobile-app-development",
+    "ios-mobile-application": "mobile-app-development",
+    "ionic-mobile-application": "mobile-app-development",
+    "native-mobile-application": "mobile-app-development",
+    "hybrid-mobile-application": "mobile-app-development",
+    "windows-application": "mobile-app-development",
+
+    
+    "cms-website-development": "website-development",
+    "website-design": "website-development",
+    "dynamic-website-design": "website-development",
+    "ecommerce-website-development": "website-development",
+    "custom-applications-development": "website-development",
+    "wordpress-website-design": "website-development",
+
+   
+    "hospital-management-software": "it-automation",
+    "paying-guest-management-software": "it-automation",
+    "school-management-system": "it-automation",
+    "web-hosting-solutions": "it-automation",
+
+    
+    "support-maintenance": "it-outsourcing",
+    "it-outsourcing-services": "it-outsourcing",
+  };
+
+  const masterKey = MASTER_SLUG_MAP[serviceSlug];
+  const seoData = SERVICE_SEO[masterKey];
+
+
   const CURRENT_DATA =
     MOBILE_MAP[serviceSlug] || WEB_MAP[serviceSlug] || SOFTWARE_MAP[serviceSlug] || SUPPORT_MAP[serviceSlug];
 
@@ -101,6 +135,14 @@ export default function ServicePage() {
 
   return (
     <div className="w-full overflow-x-hidden">
+
+      {seoData && (
+        <SEO
+          title={seoData.title}
+          description={seoData.description}
+        />
+      )}
+
       <VerticalBar serviceName={SERVICE_NAME} />
 
       <HeroSection data={hero} slug={serviceSlug} />

@@ -13,6 +13,7 @@ import HorizontalScroll from "../Landing/HorizontalScroll";
 import PartnersCarousel from "../Components/PartnersCarousel";
 import ModernStack from "../Landing/ModernStack";
 import FlashOfferCard from "../Components/FlashOfferCard";
+import SEO from "../Components/SEO";
 
 gsap.registerPlugin(ScrollTrigger);   // ✅ REQUIRED FIX
 
@@ -30,6 +31,10 @@ const Home = ({ revealDone, setTransitionTrigger }) => {
 
   return (
     <div>
+      <SEO
+        title="IT & Digital Solutions Company in Tuticorin, Chennai & Bangalore | Tecnowok Solution"
+        description="Tecnowok Solution is a leading IT, software development & digital marketing company in Tuticorin, Chennai & Bangalore, delivering scalable apps, websites, automation, ecommerce & branding solutions."
+      />
       <HeroCinematic revealDone={revealDone} freeze={freezeParticles} setTransitionTrigger={setTransitionTrigger} />
       <FlashOfferCard />
       <PartnersCarousel />

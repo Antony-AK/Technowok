@@ -64,12 +64,12 @@ export default function TalentWokContact() {
         {/* LEFT — TEXT SECTION */}
         <div
           ref={leftRef}
-          className="w-full md:w-1/2 text-center md:text-left"
+          className="w-full md:w-3/4 text-center md:text-left"
         >
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            Let’s Build
+           Build Your Winning Team with 
             <br />
-            <span className="text-red-500">Your Winning Team</span>
+            <span className="text-red-500">TalentWok</span>
           </h1>
 
           <p className="

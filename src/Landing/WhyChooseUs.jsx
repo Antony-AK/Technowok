@@ -7,27 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 const FEATURES = [
   {
     title: "Tailor-Made Solutions",
-    desc: "Custom digital products engineered with precision for your business.",
+    desc: "Tailor-made digital solutions aligned with business goals",
   },
   {
     title: "Expert Development Team",
-    desc: "Clean, scalable, future-proof engineering with modern tech stacks.",
+    desc: "Expert engineering team using modern tech stacks",
   },
   {
     title: "End-to-End Technical Support",
-    desc: "From brainstorming to deployment — we handle every detail.",
+    desc: "End-to-end execution from idea to deployment",
   },
   {
     title: "User-Driven Product Strategy",
-    desc: "We build experiences designed to engage, convert, and retain users.",
+    desc: "User-focused design and conversion-driven strategy",
   },
   {
     title: "High Standards & Timely Delivery",
-    desc: "Quality-focused workflows ensuring reliability and fast execution.",
+    desc: "Timely delivery with enterprise-grade quality standards",
   },
   {
     title: "Global Collaboration",
-    desc: "Helping clients across India and worldwide with smooth communication.",
+    desc: "Global collaboration with strong local presence",
   },
 ];
 

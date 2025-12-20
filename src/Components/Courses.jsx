@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
+import { COURSES_SEO } from "../data/SEOContent";
+
+import SEO from "../Components/SEO"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -124,6 +127,14 @@ export default function Courses() {
   return (
     <section className="relative w-full min-h-screen bg-black text-white py-24 px-6 md:px-16 overflow-hidden">
 
+
+      {COURSES_SEO && (
+        <SEO
+          title={COURSES_SEO.title}
+          description={COURSES_SEO.description}
+        />
+      )}
+
       {/* GLOBAL SOFT AMBIENT BLOBS (behind everything) */}
       <div className="pointer-events-none absolute inset-0  z-0">
         <div className="ambient-blob blob-a"></div>
@@ -131,7 +142,7 @@ export default function Courses() {
       </div>
 
       {/* ========== HERO / ABOUT (split: left content + right decorations) ========== */}
-      <div className="relative max-w-7xl mx-auto mt-10 mb-20 z-10">
+      <div className="relative max-w-7xl mx-auto  mb-20 z-10">
         <div className="md:flex md:items-center md:gap-8">
           {/* LEFT CONTENT */}
           <div className="relative z-20 md:w-2/3">
@@ -143,50 +154,47 @@ export default function Courses() {
               </h3>
 
               <p className="text-gray-300 text-lg leading-relaxed max-w-3xl">
-                Innovative IT Solutions • Digital Marketing • Creative Branding
-                <br />
-                Helping Businesses Scale, Engage & Grow with Modern Technology.
+                Industry-Ready Courses. Real Skills. Real Careers.
               </p>
 
               <div className="w-full h-[1px] bg-white/10 my-8"></div>
 
               <p className="text-gray-200 text-xl font-semibold max-w-2xl leading-relaxed">
-                “Where Skills Become Careers. Where Training Meets Real Opportunities.”
-              </p>
+                Tecnowok Solution delivers practical, project-based training programs designed to make students job-ready, not just certified.              </p>
 
               <p className="mt-4 text-gray-400 text-lg">
-                <span className="font-semibold text-red-500">Powered by Talentwok Solution</span>
-                {" "}— Our Dedicated Recruitment & Placement Division.
+                <span className="font-semibold text-gray-500">All programs are supported by TalentWok Solution for internships, placements and career guidance.</span>
+
               </p>
 
               <div className="w-full h-[1px] bg-white/10 my-8"></div>
 
               <div className="flex flex-col gap-4">
-                <div>
+                {/* <div>
                   <h4 className="text-red-500 text-xl font-semibold">Our Mission</h4>
                   <p className="text-gray-300 text-lg">Train. Transform. Place.</p>
-                </div>
+                </div> */}
 
                 <div>
                   <h4 className="text-red-500 text-xl font-semibold mb-4">Why Students Choose Us</h4>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 text-left max-w-3xl">
                     {[
-                      "Hands-on, Practical Training",
-                      "Tamil-friendly Mentorship",
-                      "Real-time Projects + Portfolio Building",
-                      "HR Interview Practice",
-                      "Internship & Placement via Talentwok Solution",
-                      "Career Support until First Job"
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-red-500 text-xl leading-none">•</span>
-                        <span className="text-gray-300">{item}</span>
-                      </li>
-                    ))}
+                      "Hands-on real-time projects",
+                      "Tamil-friendly mentorship",
+                      "Internship & placement support",
+                      "HR interview preparation",
+                      "Career support until first job"
+                    ]
+                      .map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="text-red-500 text-xl leading-none">•</span>
+                          <span className="text-gray-300">{item}</span>
+                        </li>
+                      ))}
                   </ul>
                 </div>
 
-                <p className="mt-6 text-gray-400 text-lg italic">We don’t just teach — <span className="text-red-400 font-semibold">we make you job-ready.</span></p>
+                <p className="mt-6 text-gray-400 text-lg italic">We don’t just teach - <span className="text-red-400 font-semibold">we make you job-ready.</span></p>
               </div>
             </div>
           </div>
@@ -450,7 +458,7 @@ export default function Courses() {
 
             <div className="border-t border-white/10 pt-4">
               <p className="text-gray-300 mb-1 text-sm">
-                For course admissions & placement coordination
+                Start Your Learning Journey with Tecnowok
               </p>
 
               <p className="text-gray-300">
@@ -459,7 +467,7 @@ export default function Courses() {
                   className="text-red-600 hover:text-red-500 transition"
                   href="mailto:apply@tecnowok.com"
                 >
-                  apply@tecnowok.com
+                  learn@tecnowok.com
                 </a>
               </p>
             </div>

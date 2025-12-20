@@ -71,7 +71,7 @@ export default function ImpactSection() {
           {/* ROW 1 — COL 3 SMALL RED BOX */}
           <div className="bg-red-600 h-[280px] p-8 flex flex-col justify-between will-change-transform">
             <h3 className="text-4xl md:text-5xl font-bold">
-              10+ years
+              5+ years
             </h3>
 
             <div>
@@ -85,11 +85,12 @@ export default function ImpactSection() {
           {/* ROW 2 — COL 2 WHITE BOX */}
           <div className="bg-white text-black h-[280px] p-8 flex flex-col justify-between will-change-transform">
             <h3 className="text-4xl md:text-5xl font-bold text-red-600">
-              100+
+              200+ 
             </h3>
+            <p className="-mt-14 text-red-600 font-bold">Projects Delivered</p>
 
             <div>
-              <p className="font-semibold text-red-600">Global Presence</p>
+              <p className="font-semibold text-red-600">Global Client Presence</p>
               <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                 Global technology solutions for diverse <br /> business needs
               </p>

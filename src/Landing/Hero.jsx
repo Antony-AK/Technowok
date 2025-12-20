@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const SLIDES = [
   {
-    id: 0,
+    id: 2,
     title: "Empowering Brands. Accelerating Growth. Delivering Excellence.",
     highlight: ["Brands", "Growth"],
     subtitle:
@@ -22,11 +22,11 @@ const SLIDES = [
       "We specialize in custom software, mobile apps, enterprise platforms, and smart digital solutions built for global scale.",
   },
   {
-    id: 2,
+    id: 0,
     title: "Your Vision, Our Technology Let’s Build the Future.",
     highlight: ["Technology", "Future"],
     subtitle:
-      "Helping startups, founders, and enterprises grow with powerful digital experiences crafted for performance and reliability.",
+      "Tecnowok Solution helps startups, SMEs and enterprises build secure, scalable and high-performance digital products  from software and mobile apps to ecommerce platforms, automation, branding and digital marketing.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   const navigate = useNavigate();
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
-  
+
 
 
   /* Auto-slide */
@@ -49,36 +49,36 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   }, []);
 
   /* Parallax */
- useEffect(() => {
-  if (isMobile) return; // ❌ no parallax on mobile
+  useEffect(() => {
+    if (isMobile) return; // ❌ no parallax on mobile
 
-  const el = imgRef.current;
-  if (!el) return;
+    const el = imgRef.current;
+    if (!el) return;
 
-  const setX = gsap.quickSetter(el, "x", "px");
-  const setY = gsap.quickSetter(el, "y", "px");
+    const setX = gsap.quickSetter(el, "x", "px");
+    const setY = gsap.quickSetter(el, "y", "px");
 
-  function onMove(e) {
-    const rect = el.getBoundingClientRect();
-    const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
-    const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
+    function onMove(e) {
+      const rect = el.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
 
-    setX(dx * 12);
-    setY(dy * 10);
-  }
+      setX(dx * 12);
+      setY(dy * 10);
+    }
 
-  function onLeave() {
-    gsap.to(el, { x: 0, y: 0, duration: 0.6 });
-  }
+    function onLeave() {
+      gsap.to(el, { x: 0, y: 0, duration: 0.6 });
+    }
 
-  window.addEventListener("pointermove", onMove);
-  window.addEventListener("pointerleave", onLeave);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerleave", onLeave);
 
-  return () => {
-    window.removeEventListener("pointermove", onMove);
-    window.removeEventListener("pointerleave", onLeave);
-  };
-}, [isMobile]);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
+    };
+  }, [isMobile]);
 
   /* 🎬 Main Hero Animation */
   useEffect(() => {
@@ -86,6 +86,8 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
     const ctx = gsap.context(() => {
       const label1 = document.getElementById("hero-label-1");
+      const label2 = document.getElementById("hero-label-2");
+      const label3 = document.getElementById("hero-label-3");
       const subtitle = document.getElementById("hero-sub");
       const cta = document.getElementById("hero-cta");
 
@@ -97,25 +99,45 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
       tl.call(() => setPulse((p) => p + 1), null, 0);
 
       if (label1)
-        tl.fromTo(label1, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 1 }, 0.08);
+        tl.fromTo(label1, { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.9 });
 
       if (letters.length)
         tl.fromTo(
           letters,
           { opacity: 0, y: 36, rotateX: -50 },
           { opacity: 1, y: 0, rotateX: 0, duration: 1.2, stagger: 0.02 },
-          "-=0.6"
+          "-=0.3"
         );
 
       if (subtitle)
-        tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.6");
+        tl.fromTo(subtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 }, "-=0.4");
+
+      // 4️⃣ Location label (AFTER title + subtitle)
+      if (label2) {
+        tl.fromTo(
+          label2,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.8 }
+        );
+      }
+
+      // 5️⃣ Tagline
+      if (label3) {
+        tl.fromTo(
+          label3,
+          { opacity: 0, y: 14 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          "-=0.3"
+        );
+      }
+
 
       if (cta)
         tl.fromTo(
           cta,
           { opacity: 0, scale: 0.85, y: 18 },
           { opacity: 1, scale: 1, y: 0, duration: 1.1, ease: "elastic.out(1,0.45)" },
-          "-=0.7"
+          "-=0.3"
         );
     });
 
@@ -137,7 +159,9 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
     });
 
   return (
+
     <section className="relative min-h-screen bg-black text-white overflow-hidden">
+
 
       {/* 3D Background */}
       <div className="absolute inset-0 z-10">
@@ -166,12 +190,23 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
           Tecnowok Solution
         </p>
 
+
+
         <h1 id="hero-title" className="text-4xl md:text-6xl font-bold max-w-4xl mt-2 leading-tight">
           {splitTitle(SLIDES[current].title, SLIDES[current].highlight)}
         </h1>
 
         <p id="hero-sub" className="opacity-0 text-gray-300 mt-6 text-lg md:text-xl max-w-2xl">
           {SLIDES[current].subtitle}
+        </p>
+
+        <p id="hero-label-2" className="opacity-0 mt-5  text-gray-200 font-medium text-sm">
+          Tuticorin · Chennai · Bangalore · Tamil Nadu
+          Serving clients globally
+
+        </p>
+        <p id="hero-label-3" className="opacity-0 text-red-500 mt-5 uppercase font-bold text-xs">
+          Build smarter. Scale faster. Grow digitally.
         </p>
 
         <div id="hero-cta" className="opacity-0 mt-8">

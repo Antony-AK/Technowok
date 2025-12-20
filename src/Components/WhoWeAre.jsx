@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SEO from "./SEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,6 +70,12 @@ export default function WhoWeAre() {
   return (
     <section className="w-full min-h-screen bg-black text-white py-28 px-6 md:px-16">
 
+
+      <SEO
+        title="About Tecnowok Solution | IT & Digital Transformation Company in Tamil Nadu"
+        description="Learn about Tecnowok Solution, a trusted IT, software development and digital marketing company serving Tuticorin, Chennai, Bangalore and global clients."
+      />
+
       {/* HERO */}
       <div
         ref={heroRef}
@@ -79,9 +86,7 @@ export default function WhoWeAre() {
         </h1>
 
         <p className="mt-5 text-gray-400 text-lg md:text-xl leading-relaxed">
-          We are a global technology studio focused on engineering, automation,
-          branding and digital innovation — crafted for businesses that want
-          reliability, clarity and world-class execution.
+          Tecnowok Solution is a global technology studio focused on engineering, automation, branding and digital innovation  built for businesses that value clarity, reliability and long-term scalability.
         </p>
       </div>
 
@@ -124,14 +129,12 @@ export default function WhoWeAre() {
         </h2>
 
         <p className="text-gray-400 text-lg leading-relaxed">
-          At Tecnowok Solution, we address the biggest challenges businesses face in today's digital economy —
-          inconsistent online presence, outdated or slow technology, inefficient internal processes, and the struggle
-          to attract, engage and convert customers.
+          At Tecnowok Solution, we address the biggest challenges that Businesses struggle with outdated systems, inconsistent digital presence, inefficient operations and low customer engagement.
           <br /><br />
-          We solve this with end-to-end automation, scalable digital systems, powerful branding, and data-driven
-          marketing — all under one roof.
+          We solve this with Scalable software & automation, High-performance websites & apps, Strong branding & digital visibility, and Data-driven marketing systems
+          marketing - all under one roof.
           <br /><br />
-          Our mission is simple: help businesses work smarter, grow faster, and stay future-ready.
+          Our mission is simple: help businesses work smarter, grow faster, stay future-ready and All delivered under one integrated ecosystem..
         </p>
       </div>
 
@@ -175,15 +178,14 @@ export default function WhoWeAre() {
         <div className="border-l-4 border-red-600 pl-6">
           <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Vision</h3>
           <p className="text-gray-300 text-lg leading-relaxed">
-            To become the most trusted technology partner for businesses globally — delivering innovation
-            that drives real, measurable transformation.
+            To become the most trusted global technology partner delivering innovation with measurable business impact.
           </p>
         </div>
 
         <div className="border-l-4 border-red-600 pl-6">
           <h3 className="text-3xl md:text-4xl font-bold mb-4">Our Mission</h3>
           <p className="text-gray-300 text-lg leading-relaxed">
-            To craft scalable digital ecosystems with clarity, speed, creativity, and engineering excellence.
+            To craft scalable digital ecosystems with speed, clarity, creativity and engineering excellence.
           </p>
         </div>
       </div>

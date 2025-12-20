@@ -10,21 +10,23 @@ const slideContent = [
     text: "We build high-performance e-commerce platforms, online stores, POS systems, and inventory management solutions that enhance customer experience and boost online sales. Our digital solutions help retail brands scale effortlessly with secure payments, real-time analytics, and seamless automation.",
   },
   {
-    title: "News & Media",
-    text: "We deliver fast, secure, and scalable news portals, content management systems, streaming platforms, and digital publishing solutions designed for high traffic environments. Our technology helps media companies distribute content efficiently and engage audiences across all devices.",
+    title: "Healthcare & Hospital Systems",
+    text: "We build robust healthcare management systems, appointment platforms, telemedicine apps, EHR systems, and patient engagement tools tailored to medical standards. Our solutions improve operational efficiency and enhance patient care with secure data handling.",
+  },
+  {
+    title: "Banking & Fintech",
+    text: "We create secure, compliant, and intelligent fintech applications, digital banking platforms, payment gateways, and financial management systems. With strong encryption and automation, we help financial institutions deliver seamless and trusted digital services.",
+  },
+  {
+    title: "Education & Institutions",
+    text: "We build secure and scalable digital platforms for educational institutions, including LMS, student portals, online admissions, and virtual classrooms-designed to streamline operations and enhance learning experiences across all devices.",
   },
   {
     title: "Social Networking",
     text: "We develop modern social platforms, community apps, messaging systems, and engagement tools that promote user interaction and scale to millions. Our solutions focus on performance, security, user privacy, and real-time communication features.",
   },
-  {
-    title: "Banking & Finance",
-    text: "We create secure, compliant, and intelligent fintech applications, digital banking platforms, payment gateways, and financial management systems. With strong encryption and automation, we help financial institutions deliver seamless and trusted digital services.",
-  },
-  {
-    title: "Healthcare",
-    text: "We build robust healthcare management systems, appointment platforms, telemedicine apps, EHR systems, and patient engagement tools tailored to medical standards. Our solutions improve operational efficiency and enhance patient care with secure data handling.",
-  },
+
+
   {
     title: "Logistics & GPS-Based Solutions",
     text: "We offer advanced logistics management systems, GPS tracking apps, fleet management platforms, delivery route optimization, and real-time monitoring solutions. Our technology helps logistics companies improve accuracy, reduce costs, and increase operational efficiency.",

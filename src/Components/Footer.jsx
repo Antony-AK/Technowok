@@ -7,8 +7,6 @@ export const ROUTE_MAP = {
   "Courses": "/courses",
   "Careers": "/careers",
   "Partners": "/partners",
-  "Our Team": "/ourteam",
-  "What We've Built": "/whatwebuild",
   "TalentWok": "/talentwok",
 };
 
@@ -16,17 +14,17 @@ const SERVICE_CATEGORIES = [
   "Website Development",
   "Mobile App Development",
   "Software Development",
-  "Support & Maintenance & Outsourcing",
+  "IT Outsourcing & Support",
 ];
 
 const DIGITAL_MENU = [
-  "Branding & Identity",
+  "Branding",
   "Graphic Design",
-  "Social Media Marketing",
+  "Digital Marketing",
   "Content Marketing",
   "Search Engine Optimization (SEO)",
-  "Search Engine Copywriting",
 ];
+
 
 const slugify = (text) =>
   text
@@ -52,7 +50,7 @@ export default function Footer() {
                 Empowering brands. Accelerating growth. Delivering excellence.
               </p>
               <p className="text-xs text-red-400 mt-3 font-medium">
-                Innovative IT & Digital Solutions Worldwide
+               Innovative IT & Digital Solutions Worldwide
               </p>
             </div>
           </div>
@@ -152,7 +150,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between text-sm text-gray-400">
           <div>
-            © {new Date().getFullYear()} Tecnowok Solution
+            © {new Date().getFullYear()} Tecnowok Solution.
           </div>
           <div>All Rights Reserved</div>
         </div>

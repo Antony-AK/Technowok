@@ -7,6 +7,7 @@ import Laptop3D from "../../AnimationObjects/Laptop3D";
 import Tablet3D from "../../AnimationObjects/Tablet3D";
 import Globe3D from "../../AnimationObjects/Globe3D";
 import SupportMaintenanceServer3D from "../../AnimationObjects/SupportMaintenanceServer3D";
+import { SERVICE_SEO } from "../../data/Services/ServiceSEO";
 
 export default function HeroSection({ data, slug }) {
 
@@ -122,7 +123,7 @@ export default function HeroSection({ data, slug }) {
                                         ? "text-red-600 drop-shadow-[0_0_12px_rgba(255,0,0,0.5)]"
                                         : ""}
                                 >
-                                    {word + " "}
+                                    {word + " "} 
                                 </span>
                             );
                         })}
@@ -147,8 +148,20 @@ export default function HeroSection({ data, slug }) {
                         transition={{ delay: 0.5, duration: 0.6 }}
                         className="mt-6 text-lg text-white/70"
                     >
-                        {data.subtitle}
+                        {data.subtitle} 
                     </motion.p>
+                )}
+
+                  {/* DESCRIPTION */}
+                {start && (
+                    <motion.h1
+                        initial={{ y: 15, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.7, duration: 0.6 }}
+                        className="mt-6 text-white/50 max-w-4xl mx-auto leading-relaxed"
+                    >
+                        {data.h1} Tecnowok builds secure, scalable and performance-driven software systems that automate workflows, reduce costs and improve decision-making.
+                    </motion.h1>
                 )}
 
                 {/* DESCRIPTION */}
@@ -157,9 +170,9 @@ export default function HeroSection({ data, slug }) {
                         initial={{ y: 15, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.6 }}
-                        className="mt-6 text-white/50 max-w-2xl mx-auto leading-relaxed"
+                        className="mt-6 text-white/50 max-w-4xl mx-auto leading-relaxed"
                     >
-                        {data.description}
+                        {data.description} Tecnowok builds secure, scalable and performance-driven software systems that automate workflows, reduce costs and improve decision-making.
                     </motion.p>
                 )}
 

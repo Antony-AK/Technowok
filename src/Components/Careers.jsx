@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
+import { CAREERS_SEO } from "../data/SEOContent";
+import SEO from "./SEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,6 +64,14 @@ export default function Careers() {
     return (
         <section className="w-full min-h-screen bg-black text-white py-24 px-6 md:px-20 relative overflow-hidden">
 
+
+            {CAREERS_SEO && (
+                <SEO
+                    title={CAREERS_SEO.title}
+                    description={CAREERS_SEO.description}
+                />
+            )}
+
             {/* Background Gradients */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-red-600/20 blur-[150px] rounded-full"></div>
             <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-red-500/10 blur-[140px] rounded-full"></div>
@@ -89,14 +99,13 @@ export default function Careers() {
                 <div className="w-[60%]">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
                         Grow Your Career
-                        <span className="text-red-600"> With Us</span>
+                        <span className="text-red-600"> Tecnowok Solution</span>
                     </h2>
 
                     <p className="text-gray-400 text-lg leading-relaxed">
-                        At TecnoWok, you don’t just work - you grow, innovate, and help shape the
-                        future of technology.
-                        Our environment encourages curiosity, continuous learning, and hands-on experience
-                        with modern tools and real client projects.
+                        At Tecnowok, you don’t just work - you build, innovate and grow.
+                        We offer a collaborative environment with exposure to real client projects, modern tools and global standards.
+
                     </p>
 
                     <p className="text-gray-400 text-lg mt-4 leading-relaxed">
@@ -131,28 +140,24 @@ export default function Careers() {
                     <ul className="space-y-4 text-gray-300 text-lg">
                         <li className="flex items-start gap-3">
                             <span className="text-red-500 text-xl">•</span>
-                            <span>Exposure to Fortune-level clients</span>
+                            <span>High-impact real-world projects</span>
                         </li>
 
                         <li className="flex items-start gap-3">
                             <span className="text-red-500 text-xl">•</span>
-                            <span>Work on high-impact applications</span>
+                            <span>Modern tech stacks & DevOps workflows</span>
                         </li>
 
                         <li className="flex items-start gap-3">
                             <span className="text-red-500 text-xl">•</span>
-                            <span>Modern DevOps, Frontend & Mobile workflows</span>
+                            <span>Strong mentorship & growth culture</span>
                         </li>
 
                         <li className="flex items-start gap-3">
                             <span className="text-red-500 text-xl">•</span>
-                            <span>Opportunity to lead, own, and innovate</span>
+                            <span>Opportunities to lead and innovate</span>
                         </li>
 
-                        <li className="flex items-start gap-3">
-                            <span className="text-red-500 text-xl">•</span>
-                            <span>Healthy, positive, career-driven workplace</span>
-                        </li>
                     </ul>
                 </div>
 
@@ -229,7 +234,7 @@ export default function Careers() {
                                     <p><span className="text-red-400 font-medium">Skills:</span> {job.skills}</p>
                                 </div>
 
-                             
+
                             </div>
                         </div>
                     ))}
@@ -257,7 +262,7 @@ rounded-3xl backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.25)]">
                 <div className="space-y-3 text-gray-300 text-lg">
 
                     <p>
-                        <span className="text-red-400 font-medium">Email:</span> career@tecnowok.com
+                        <span className="text-red-400 font-medium">      Send Your Resume to: </span> career@tecnowok.com
                     </p>
 
                     <p>

@@ -8,17 +8,18 @@ gsap.registerPlugin(ScrollTrigger);
 const MODELS = [
   {
     title: "Per Placement Model",
-    desc: "Pay only when a candidate joins. Perfect for occasional hiring needs.",
+    desc: "Pay only on successful candidate joining. Ideal for companies with occasional or role-specific hiring needs."
   },
   {
     title: "Retainer Model",
-    desc: "A fixed monthly engagement for long-term hiring + dedicated recruiter.",
+    desc: "Dedicated recruiter working continuously on your hiring requirements with a fixed monthly engagement."
   },
   {
     title: "Hybrid Model",
-    desc: "Best of both worlds — partial retainer + reduced per-hire fee.",
-  },
+    desc: "A balanced approach combining a retainer with a reduced success fee for cost-efficient scaling."
+  }
 ];
+
 
 export default function TalentWokModels() {
   const circlesRef = useRef([]);

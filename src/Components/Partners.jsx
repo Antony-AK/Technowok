@@ -5,6 +5,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import hostinger from "../assets/hostinger.png"
 import aws from "../assets/aws2.png"
 import contobo from "../assets/contobo.jpg"
+import { PARTNERS_SEO } from "../data/SEOContent";
+import SEO from "./SEO";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,11 +18,11 @@ export default function Partners() {
 
   const cloudPartners = [
     { name: "AWS", logo: aws },
-    { name: "Hostinger", logo: hostinger},
+    { name: "Hostinger", logo: hostinger },
     { name: "DigitalOcean", logo: contobo },
   ];
 
-  const integrations = ["Razorpay", "Twilio", "Google Maps API", "Firebase", "Stripe"];
+  const integrations = ["Razorpay", "Twilio", "Google Maps API", "Firebase", "Stripe", "Google Cloud"];
 
   const strategic = [
     "Startup Technology Partner",
@@ -60,18 +62,25 @@ export default function Partners() {
   return (
     <section className="min-h-screen bg-black text-white py-24 px-6 md:px-20 relative overflow-hidden">
 
+
+      {PARTNERS_SEO && (
+        <SEO
+          title={PARTNERS_SEO.title}
+          description={PARTNERS_SEO.description}
+        />
+      )}
+
       {/* BG Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,0,0,0.25),transparent)]"></div>
 
       {/* HERO */}
       <div ref={heroRef} className="text-center my-20 relative z-20">
-        <h1 className="text-6xl md:text-7xl font-bold tracking-tight">
-          Our <span className="text-red-600">Partners</span>
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+          Our Technology & Platform  <span className="text-red-600">Partners</span>
         </h1>
 
         <div className="mt-5 text-gray-400 max-w-3xl mx-auto text-xl">
-          We collaborate with global cloud providers, payment gateways, and
-          technology platforms to deliver world-class engineering.
+         We collaborate with leading cloud providers, APIs and technology platforms to deliver enterprise-grade solutions.
         </div>
 
         {/* Glowing Line */}

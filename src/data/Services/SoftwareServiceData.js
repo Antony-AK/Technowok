@@ -7,7 +7,7 @@ export const HOSPITAL_MANAGEMENT_DATA = [
     title: "Smart, Secure & Modern Hospital Management Software",
     subtitle: "All-in-One EMR • Billing Automation • Clinical Workflow Management",
     description:
-      "Tecnowok builds advanced Hospital Management Software designed to streamline clinical operations, digitize patient records, and enhance healthcare efficiency. From OPD to IPD — experience a unified digital ecosystem built for modern hospitals.",
+      "Tecnowok builds advanced Hospital Management Software designed to streamline clinical operations, digitize patient records, and enhance healthcare efficiency. From OPD to IPD - experience a unified digital ecosystem built for modern hospitals.",
     image: ""
   },
 
@@ -18,7 +18,7 @@ export const HOSPITAL_MANAGEMENT_DATA = [
     title: "Best Hospital Management Software for Healthcare Organizations",
     content: [
       "Tecnowok delivers next-generation Hospital Management Software engineered to simplify daily operations, improve patient care, and eliminate manual record-keeping errors.",
-      "Our system integrates EMR, billing, diagnostics, pharmacy management, scheduling, and administrative workflows — all inside a secure, centralized platform.",
+      "Our system integrates EMR, billing, diagnostics, pharmacy management, scheduling, and administrative workflows - all inside a secure, centralized platform.",
       "Hospitals of every size trust Tecnowok for automation, accuracy, and seamless collaboration across doctors, nurses, receptionists, and administrators."
     ],
     featuredPoints: [
@@ -26,7 +26,9 @@ export const HOSPITAL_MANAGEMENT_DATA = [
       "HIPAA-Level Data Security",
       "Automated Billing & Claims",
       "Real-Time Workflow Visibility",
-      "Multi-Department Integration"
+      "Multi-Department Integration",
+       "Workflow Automation",
+      "Cloud-Ready Architecture",
     ]
   },
 
@@ -130,7 +132,6 @@ export const HOSPITAL_MANAGEMENT_DATA = [
     type: "whyChoose",
     title: "Why Choose Tecnowok for Hospital Management Software?",
     points: [
-      "8+ Years of Healthcare Tech Expertise",
       "Secure, Scalable & Compliant Software",
       "Custom Modules for Hospitals of All Sizes",
       "Zero-Error Digital Record System",
@@ -180,7 +181,9 @@ export const PG_MANAGEMENT_DATA = [
       "Centralized Multi-PG Dashboard",
       "Smart Rent Collection",
       "Performance Analytics",
-      "Tenant History Tracking"
+      "Tenant History Tracking",
+       "Workflow Automation",
+      "Cloud-Ready Architecture",
     ]
   },
 
@@ -334,7 +337,9 @@ export const WEB_HOSTING_DATA = [
       "Ultra-Fast Server Performance",
       "24/7 Infrastructure Monitoring",
       "Global Data Centers",
-      "Secure & Scalable Hosting"
+      "Secure & Scalable Hosting",
+        "Workflow Automation",
+      "Cloud-Ready Architecture"
     ]
   },
 
@@ -491,7 +496,9 @@ export const SCHOOL_MANAGEMENT_DATA = [
       "100% Cloud-Based",
       "Multi-Device Access",
       "Secure Data Management",
-      "Customizable Modules"
+      "Customizable Modules",
+      "Workflow Automation",
+      "Cloud-Ready Architecture",
     ]
   },
 

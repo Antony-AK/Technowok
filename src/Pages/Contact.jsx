@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import DottedGlobe from "../AnimationObjects/DottedGlobe";
+import { CONTACT_SEO } from "../data/SEOContent";
+import SEO from "../Components/SEO"
 
 export default function ContactPage() {
   const [start, setStart] = useState(false);
@@ -66,6 +68,14 @@ export default function ContactPage() {
   return (
     <section className="relative min-h-screen w-full bg-black text-white py-24 flex flex-col items-center justify-center">
 
+
+      {CONTACT_SEO && (
+        <SEO
+          title={CONTACT_SEO.title}
+          description={CONTACT_SEO.description}
+        />
+      )}
+
       {start && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -93,8 +103,8 @@ export default function ContactPage() {
             className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-60"
           />
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-center md:text-left">
-            Let’s <span className="text-red-600">Talk</span>
+          <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center md:text-left">
+            Let’s Build Your Digital  <span className="text-red-600">Future</span>
           </h1>
 
           <p className="text-white/60 mb-8 text-sm md:text-base leading-relaxed text-center md:text-left">
@@ -174,8 +184,89 @@ export default function ContactPage() {
         </motion.div>
       </div>
 
+      {/* CONTACT INFO STRIP */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={start ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="relative z-20 max-w-6xl mx-auto mt-20 px-6"
+>
+  <div
+    className="
+      bg-[#0d0d0f]/70 
+      border border-white/10 
+      backdrop-blur-xl 
+      rounded-3xl 
+      p-8 md:p-20
+      shadow-[0_0_50px_rgba(255,0,0,0.18)]
+      relative overflow-hidden
+    "
+  >
+    {/* glow accent */}
+    <div className="absolute -top-24 -right-24 w-72 h-72 bg-red-600/20 blur-[120px] rounded-full" />
+
+    <h2 className="text-3xl md:text-4xl font-bold mb-20 text-center">
+      Let’s Build Your <span className="text-red-600">Digital Future</span>
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
+
+      {/* EMAILS */}
+      <div>
+        <h4 className="text-red-500 font-semibold mb-3">Email Us</h4>
+        <p className="text-gray-300">
+          <a
+            href="mailto:info@tecnowok.com"
+            className="hover:text-red-500 transition"
+          >
+            info@tecnowok.com
+          </a>
+        </p>
+        <p className="text-gray-300 mt-1">
+          <a
+            href="mailto:recruitment@tecnowok.com"
+            className="hover:text-red-500 transition"
+          >
+            recruitment@tecnowok.com
+          </a>
+        </p>
+      </div>
+
+      {/* PHONES */}
+      <div>
+        <h4 className="text-red-500 font-semibold mb-3">Call Us</h4>
+        <p className="text-gray-300">
+          <a href="tel:+918939787678" className="hover:text-red-500 transition">
+            +91 89397 87678
+          </a>
+        </p>
+        <p className="text-gray-300 mt-1">
+          <a href="tel:+916382303056" className="hover:text-red-500 transition">
+            +91 63823 03056
+          </a>
+        </p>
+      </div>
+
+      {/* LOCATIONS */}
+      <div>
+        <h4 className="text-red-500 font-semibold mb-3">Our Presence</h4>
+        <p className="text-gray-300">
+          Tuticorin · Chennai · Bangalore
+        </p>
+        <p className="text-gray-400 mt-1">
+          Serving Clients <span className="text-red-400">Globally</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</motion.div>
+
+
+      
+
       {/* MAP */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={start ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -188,7 +279,7 @@ export default function ContactPage() {
           loading="lazy"
         ></iframe>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[0.1px] pointer-events-none"></div>
-      </motion.div>
+      </motion.div> */}
 
     </section>
   );

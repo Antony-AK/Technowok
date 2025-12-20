@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function TalentWokHero() {
+export default function TalentWokHero({h1}) {
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const glowRef1 = useRef(null);
@@ -136,9 +136,7 @@ export default function TalentWokHero() {
           </h1>
 
           <p className="tw-hero-line text-gray-300 max-w-xl text-base md:text-lg">
-            TalentWok connects companies, colleges, and candidates in a unified
-            ecosystem – offering vetted talent, curated projects, and plug & play
-            hiring models across tech, business, and creative roles.
+            TalentWok is the dedicated recruitment and staffing arm of Tecnowok Solution, designed to help startups, SMBs and enterprises hire faster, smarter and more cost-effectively.<br/> <br/> We connect companies, campuses and candidates into one ecosystem - delivering pre-vetted talent, project-based hiring and scalable workforce solutions across India.
           </p>
 
           <div className="flex flex-wrap gap-3">
