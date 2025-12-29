@@ -86,7 +86,7 @@ export default function OurTeam() {
         <section className="min-h-screen bg-black text-white py-32 px-6 md:px-20 space-y-24">
 
             {/* HERO TITLE */}
-            <div className="text-center mb-2">
+            <div className="text-center mb-10">
                 <h1 className="text-5xl md:text-6xl font-bold">
                     Meet Our <span className="text-red-600">Team</span>
                 </h1>
