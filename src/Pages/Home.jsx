@@ -12,8 +12,8 @@ import FAQSection from "../Landing/FAQSection";
 import HorizontalScroll from "../Landing/HorizontalScroll";
 import PartnersCarousel from "../Components/PartnersCarousel";
 import ModernStack from "../Landing/ModernStack";
-import FlashOfferCard from "../Components/FlashOfferCard";
 import SEO from "../Components/SEO";
+import DelayedFlipOffer from "../Components/FlashOfferCard";
 
 gsap.registerPlugin(ScrollTrigger);   // ✅ REQUIRED FIX
 
@@ -35,8 +35,9 @@ const Home = ({ revealDone, setTransitionTrigger }) => {
         title="IT & Digital Solutions Company in Tuticorin, Chennai & Bangalore | Tecnowok Solution"
         description="Tecnowok Solution is a leading IT, software development & digital marketing company in Tuticorin, Chennai & Bangalore, delivering scalable apps, websites, automation, ecommerce & branding solutions."
       />
+
       <HeroCinematic revealDone={revealDone} freeze={freezeParticles} setTransitionTrigger={setTransitionTrigger} />
-      <FlashOfferCard />
+      <DelayedFlipOffer />
       <PartnersCarousel />
       <About />
       <OurServices />

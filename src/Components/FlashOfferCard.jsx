@@ -1,199 +1,175 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-
+/* ⏰ End of Day Timer */
 function getEndOfDay() {
   const end = new Date();
   end.setHours(23, 59, 59, 999);
   return end.getTime();
 }
 
-/* ⏱ Daily Countdown */
 function getTimeLeft(endTime) {
-    const now = Date.now();
-    const diff = endTime - now;
+  const diff = endTime - Date.now();
+  if (diff <= 0) return { h: "00", m: "00", s: "00" };
 
-    if (diff <= 0) {
-        return { h: "00", m: "00", s: "00" };
-    }
+  const h = Math.floor(diff / (1000 * 60 * 60));
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
 
-    const h = Math.floor(diff / (1000 * 60 * 60));
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    return {
-        h: String(h).padStart(2, "0"),
-        m: String(m).padStart(2, "0"),
-        s: String(s).padStart(2, "0"),
-    };
+  return {
+    h: String(h).padStart(2, "0"),
+    m: String(m).padStart(2, "0"),
+    s: String(s).padStart(2, "0"),
+  };
 }
 
+export default function DelayedFlipOffer({ heroVisible = true }) {
+  const [visible, setVisible] = useState(false);
+  const [flipped, setFlipped] = useState(false);
+  const [minimized, setMinimized] = useState(false);
 
+  const [endTime] = useState(() => getEndOfDay());
+  const [time, setTime] = useState(() => getTimeLeft(getEndOfDay()));
 
-export default function DelayedFlipOffer() {
-    const [visible, setVisible] = useState(false);
-    const [flipped, setFlipped] = useState(false);
-    const [endTime] = useState(() => getEndOfDay());
-const [time, setTime] = useState(() => getTimeLeft(getEndOfDay()));
+  /* ⏳ Show after hero */
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 4500);
+    return () => clearTimeout(t);
+  }, []);
 
+  /* ⏱ Countdown */
+  useEffect(() => {
+    const i = setInterval(() => {
+      setTime(getTimeLeft(endTime));
+    }, 1000);
+    return () => clearInterval(i);
+  }, [endTime]);
 
-    /* ⏳ show AFTER hero */
-    useEffect(() => {
-        const t = setTimeout(() => setVisible(true), 4500);
-        return () => clearTimeout(t);
-    }, []);
+  if (!visible || !heroVisible) return null;
 
-    useEffect(() => {
-        const i = setInterval(() => {
-            setTime(getTimeLeft(endTime));
-        }, 1000);
+  return (
+    <AnimatePresence mode="wait">
+      {/* ================= EXPANDED CARD ================= */}
+      {!minimized ? (
+        <motion.div
+          key="expanded-wrapper"
+          className="fixed bottom-20 right-0 z-[999] hidden lg:block pr-6"
+          initial={{ x: 420, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: 420, opacity: 0 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
+        >
+  <button
+                onClick={() => setMinimized(true)}
+                className="absolute top-3 right-10 z-50 text-gray-400 text-xl hover:text-white transition"
+              >
+                ✕
+              </button>
 
-        return () => clearInterval(i);
-    }, [endTime]);
-
-
-    if (!visible) return null;
-
-    return (
-        <div className="fixed bottom-20 right-0 z-[999] hidden lg:block">
-            <motion.div
-                initial={{ x: 420, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="pr-6"
+          <motion.div
+            onHoverStart={() => setFlipped(true)}
+            onHoverEnd={() => setFlipped(false)}
+            animate={{ rotateY: flipped ? 180 : 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{ transformStyle: "preserve-3d" }}
+            className="relative w-[360px] h-[380px]"
+          >
+            {/* FRONT */}
+            <div
+              style={{ backfaceVisibility: "hidden" }}
+              className="absolute inset-0 bg-[#0c0c0f]/95 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-7 shadow-[0_0_60px_rgba(255,0,0,0.18)] flex flex-col"
             >
-                <motion.div
-                    onHoverStart={() => setFlipped(true)}
-                    onHoverEnd={() => setFlipped(false)}
-                    animate={{ rotateY: flipped ? 180 : 0 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                    style={{ transformStyle: "preserve-3d" }}
-                    className="relative w-[360px] h-[380px]"
+              {/* close */}
+            
+
+              <span className="text-[11px] tracking-widest uppercase text-red-500 font-semibold">
+                For New Founders
+              </span>
+
+              <h3 className="text-2xl font-bold mt-2">Starting a Business?</h3>
+              <p className="text-sm text-gray-400 mt-1">
+                Founders don’t need agencies. They need partners.
+              </p>
+
+              <div className="h-px bg-white/10 my-4" />
+
+              <p className="text-sm text-gray-300 leading-relaxed mb-4">
+                Tecnowok builds <span className="text-white font-semibold">businesses</span>, not just designs.
+                Launch right — without paying first.
+              </p>
+
+              <ul className="text-sm text-gray-300 space-y-2">
+                <li>• Logo, Letterhead & Visiting Card</li>
+                <li>• Professional Brand Identity</li>
+                <li>• Digital Growth Strategy</li>
+              </ul>
+
+              <div className="flex items-center justify-between mt-auto pt-4">
+                <div className="flex gap-2 items-center">
+                  <span className="relative text-sm text-gray-400">
+                    ₹15,000
+                    <span className="absolute inset-x-0 top-1/2 h-[1.5px] bg-red-500 rotate-[-8deg]" />
+                  </span>
+                  <span className="text-red-600 font-semibold text-sm">FREE</span>
+                </div>
+
+                <span className="font-mono text-sm text-gray-300">
+                  {time.h}:{time.m}
+                  <span className="text-red-500 animate-pulse">:{time.s}</span>
+                </span>
+              </div>
+            </div>
+
+            {/* BACK */}
+            <div
+              style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+              className="absolute inset-0 bg-black border border-red-500/30 rounded-2xl px-6 py-7 shadow-[0_0_70px_rgba(255,0,0,0.28)] flex flex-col justify-between"
+            >
+              <div>
+                <h4 className="text-xl font-bold mb-3">
+                  Launch without paying first.
+                </h4>
+                <p className="text-sm text-gray-300">
+                  Built for serious founders who want clarity, structure, and growth direction.
+                </p>
+                <p className="text-red-500 font-semibold mt-3 text-sm">
+                  Limited founders only.
+                </p>
+              </div>
+
+              <div>
+                <a
+                  href="mailto:info@tecnowok.com"
+                  className="block w-full text-center py-3 rounded-xl bg-red-600 hover:bg-red-700 transition font-semibold"
                 >
-                    {/* FRONT */}
-                    <div
-                        style={{ backfaceVisibility: "hidden" }}
-                        className="
-          absolute inset-0
-          bg-[#0c0c0f]/95 backdrop-blur-xl
-          border border-white/10
-          rounded-2xl
-          px-6 py-7
-          shadow-[0_0_60px_rgba(255,0,0,0.18)]
-          flex flex-col
-        "
-                    >
-                        {/* header */}
-                        <div className="mb-4">
-                            <span className="text-[11px] tracking-widest uppercase text-red-500 font-semibold">
-                                Limited Offer
-                            </span>
-
-                            <h3 className="text-2xl font-bold mt-2 leading-tight">
-                                FREE Starter Kit
-                            </h3>
-
-                            <p className="text-sm text-gray-400 mt-1">
-                                For first-generation entrepreneurs
-                            </p>
-                        </div>
-
-                        {/* divider */}
-                        <div className="h-px bg-white/10 mb-4" />
-
-                        {/* features */}
-                        <ul className="text-sm text-gray-300 space-y-2">
-                            <li>•  4-Page Business Website</li>
-                            <li>•  Custom Logo Design</li>
-                            <li>•  Letterhead & Visiting Card</li>
-                            <li>•  Digital Growth Strategy</li>
-                        </ul>
-
-                        {/* value + timer */}
-                        <div className="mt-auto">
-                            <div className="flex items-center justify-between mb-4">
-                                {/* price */}
-                                <div className="flex items-center gap-2">
-                                    <span className="relative text-sm text-gray-400 font-medium">
-                                        ₹15,000
-                                        <span className="absolute left-0 top-1/2 w-full h-[1.5px] bg-red-500 rotate-[-8deg]" />
-                                    </span>
-                                    
-                                    <span className="
-      text-sm py-1 rounded-full
-      text-red-600  font-semibold
-    ">
-                                        FREE
-                                    </span>
-                                </div>
-
-                                {/* timer */}
-                                <span className="text-sm font-mono tabular-nums text-gray-300">
-                                    {time.h}:{time.m}
-                                    <span
-                                        key={time.s}
-                                        className="text-red-500 inline-block min-w-[22px] animate-pulse"
-                                    >
-                                        :{time.s}
-                                    </span>
-                                    <span className="text-xs text-gray-500 ml-0.5">left</span>
-
-                                </span>
-                            </div>
-
-
-                            <div className="h-px bg-white/10 mb-4" />
-                        </div>
-                    </div>
-
-                    {/* BACK */}
-                    <div
-                        style={{
-                            backfaceVisibility: "hidden",
-                            transform: "rotateY(180deg)",
-                        }}
-                        className="
-          absolute inset-0
-          bg-black
-          border border-red-500/30
-          rounded-2xl
-          px-6 py-7
-          shadow-[0_0_70px_rgba(255,0,0,0.28)]
-          flex flex-col justify-between
-        "
-                    >
-                        <div>
-                            <h4 className="text-xl font-bold mb-3">
-                                Ready to launch?
-                            </h4>
-
-                            <p className="text-sm text-gray-300 leading-relaxed">
-                                Build your brand with a professional digital foundation -
-                                without paying anything upfront.
-                            </p>
-                        </div>
-
-                        <div>
-                            <a
-                                href="mailto:apply@tecnowok.com"
-                                className="
-              block w-full text-center py-3 rounded-xl
-              bg-red-600 hover:bg-red-700
-              transition font-semibold
-            "
-                            >
-                                Apply Now →
-                            </a>
-
-                            <p className="text-xs text-gray-500 text-center mt-3">
-                                *T&C Apply
-                            </p>
-                        </div>
-                    </div>
-                </motion.div>
-            </motion.div>
-        </div>
-
-    );
+                  Apply for Free Starter Kit →
+                </a>
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  *T&C Apply
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      ) : (
+        /* ================= MINIMIZED PILL ================= */
+        <motion.div
+          key="minimized"
+          className="fixed -right-15 top-1/2 -translate-y-1/2  z-[999] hidden lg:flex justify-end items-end"
+          initial={{ scale: 0.6, opacity: 0, x: 120 }}
+          animate={{ scale: 1, opacity: 1, x: 0 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <div
+            onClick={() => setMinimized(false)}
+            className="cursor-pointer w-[170px] h-[56px] bg-red-600 rotate-90 flex items-center justify-center shadow-[0_0_30px_rgba(255,0,0,0.5)] font-semibold"
+          >
+            FREE Starter Kit →
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 }

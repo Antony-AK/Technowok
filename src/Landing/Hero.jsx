@@ -5,7 +5,6 @@ import gsap from "gsap";
 import ParticleField from "../AnimationObjects/ParticleField";
 import { useNavigate } from "react-router-dom";
 
-
 const SLIDES = [
   {
     id: 2,
@@ -35,7 +34,10 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   const [pulse, setPulse] = useState(0);
   const imgRef = useRef();
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const [heroVisible, setHeroVisible] = useState(true);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
 
 
 
@@ -47,6 +49,24 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
     }, 6000);
     return () => clearInterval(t);
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHeroVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.35, // hero still counts as visible until 65% scrolled
+      }
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
 
   /* Parallax */
   useEffect(() => {
@@ -160,7 +180,7 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
   return (
 
-    <section className="relative min-h-screen bg-black text-white overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen bg-black text-white overflow-hidden">
 
 
       {/* 3D Background */}
@@ -228,6 +248,8 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
           <div key={i} className={`h-2 rounded-full transition-all duration-400 ${current === i ? "w-8 bg-red-600" : "w-3 bg-red-600/40"}`} />
         ))}
       </div>
+
+
     </section>
   );
 }
