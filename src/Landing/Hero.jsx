@@ -192,11 +192,11 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
 
 
-        <h1 id="hero-title" className="text-4xl md:text-6xl font-bold max-w-4xl mt-2 leading-tight">
+        <h1 id="hero-title" className="text-4xl md:text-6xl font-bold max-w-5xl mt-2 leading-tight">
           {splitTitle(SLIDES[current].title, SLIDES[current].highlight)}
         </h1>
 
-        <p id="hero-sub" className="opacity-0 text-gray-300 mt-6 text-lg md:text-xl max-w-2xl">
+        <p id="hero-sub" className="opacity-0 text-gray-300 mt-6 text-lg md:text-xl max-w-3xl">
           {SLIDES[current].subtitle}
         </p>
 

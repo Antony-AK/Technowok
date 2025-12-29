@@ -31,6 +31,7 @@ export default function Navbar({ setTransitionTrigger }) {
     "Digital",
     "Insights",
     "TalentWok",
+    "Careers",
     "Contact us",
   ];
 
@@ -181,12 +182,12 @@ export default function Navbar({ setTransitionTrigger }) {
             }}
           >
             <nav className="ms-5">
-              <ul className="flex gap-10">
+              <ul className="flex gap-8">
                 {MENU.map((item, i) => (
                   <li key={i} className="group relative">
 
                     <span
-                      className="text-white text-[16px] font-medium hover:text-red-500 cursor-pointer transition"
+                      className="text-white text-[17px] font-medium hover:text-red-500 cursor-pointer transition"
                       onMouseEnter={() => {
                         if (item === "Services") {
                           setShowServices(true);
@@ -217,6 +218,9 @@ export default function Navbar({ setTransitionTrigger }) {
                         }
                         if (item === "TalentWok") {
                           setTransitionTrigger({ onMid: () => navigate("/talentwok") });
+                        }
+                         if (item === "Careers") {
+                          setTransitionTrigger({ onMid: () => navigate("/careers") });
                         }
                         if (item === "Contact us") {
                           setTransitionTrigger({ onMid: () => navigate("/contact") });
