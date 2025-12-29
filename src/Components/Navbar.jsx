@@ -31,7 +31,7 @@ export default function Navbar({ setTransitionTrigger }) {
     "Digital",
     "Insights",
     "TalentWok",
-    "Careers",
+    "Courses",
     "Contact us",
   ];
 
@@ -162,7 +162,7 @@ export default function Navbar({ setTransitionTrigger }) {
 
           {/* LOGO */}
           <div
-            className="w-20 h-20 flex items-center cursor-pointer"
+            className="w-22 h-22 flex items-center cursor-pointer"
             onClick={() => {
               setShowServices(false);
               setShowDigital(false);
@@ -219,8 +219,8 @@ export default function Navbar({ setTransitionTrigger }) {
                         if (item === "TalentWok") {
                           setTransitionTrigger({ onMid: () => navigate("/talentwok") });
                         }
-                         if (item === "Careers") {
-                          setTransitionTrigger({ onMid: () => navigate("/careers") });
+                         if (item === "Courses") {
+                          setTransitionTrigger({ onMid: () => navigate("/courses") });
                         }
                         if (item === "Contact us") {
                           setTransitionTrigger({ onMid: () => navigate("/contact") });
