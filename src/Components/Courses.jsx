@@ -194,11 +194,11 @@ export default function Courses() {
         <div className="ambient-blob blob-a"></div>
         <div className="ambient-blob blob-b"></div>
       </div>
-      <div className="relative max-w-7xl mx-auto mb-20 z-10">
-        <div className="md:flex md:items-center md:gap-8">
+      <div className="relative max-w-7xl mx-auto mb-20 mt-5 z-10">
+        <div className="md:flex md:items-center md:gap-6">
           {/* LEFT CONTENT */} <div className="relative z-20 md:w-2/3">
             <div className="p-10 rounded-3xl bg-[#0d0d0f]/60 backdrop-blur-2xl shadow-[0_0_60px_rgba(255,0,0,0.12)]">
-              <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-red-600 to-red-400 text-transparent bg-clip-text"> Learn <span className="text-white">•</span> Build <span className="text-white">•</span> Get Hired </h3>
+              <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-red-600 to-red-900 text-transparent bg-clip-text"> Learn <span className="text-white">•</span> Build <span className="text-white">•</span> Get Hired </h3>
               <p className="text-gray-300 text-lg leading-relaxed max-w-3xl"> Industry-Ready Courses. Real Skills. Real Careers. </p>
               <div className="w-full h-[1px] bg-white/10 my-8"></div>
               <p className="text-gray-200 text-xl font-semibold max-w-2xl leading-relaxed">LearnWok is the training & upskilling vertical powered by Tecnowok Solution (Industry Projects) and Talentwok Solution (Placements). </p>
@@ -213,7 +213,7 @@ export default function Courses() {
                         <li key={i} className="flex items-start gap-3">
                           <span className="text-red-500 text-xl leading-none">•</span>
                           <span className="text-gray-300">{item}</span> </li>))} </ul>
-                </div> <p className="mt-6 text-gray-400 text-lg italic">We don’t just teach courses, <span className="text-red-400 font-semibold">we build careers.</span></p> </div>
+                </div> <p className="mt-6 text-gray-400 text-lg italic">We don’t just teach courses, <span className="text-red-600 font-semibold">we build careers.</span></p> </div>
             </div>
           </div>
           <div className="hidden md:block absolute right-10 top-20 w-[320px] h-[380px] pointer-events-none">
