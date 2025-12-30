@@ -57,7 +57,7 @@ export default function Footer() {
 
           <div className="text-sm text-gray-300 md:text-right">
             <div>📧 info@tecnowok.com</div>
-            <div>📞 +91-89397 87678</div>
+            <div>📞 +91-99528 67396</div>
             <div className="text-xs text-gray-400 mt-1">
               Tuticorin · Chennai · Bangalore · Global 
             </div>

@@ -73,7 +73,7 @@ export default function ContactWidget() {
 
               {/* WhatsApp Button */}
               <a
-                href="https://wa.me/918939787678"
+                href="https://wa.me/919952867396"
                 target="_blank"
                 className="
     w-full block text-center py-3 mt-2

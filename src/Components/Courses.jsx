@@ -509,6 +509,16 @@ export default function Courses() {
                   learn@tecnowok.com
                 </a>
               </p>
+                 <p className="text-gray-300">
+                <strong>WhatsApp:</strong>{" "}
+                <a
+                  className="text-red-600 hover:text-red-500 transition"
+                  href="https://wa.me/918939787678"
+                  target="_blank"
+                >
+                  +91 8939787678
+                </a>
+              </p>
             </div>
           </div>
         </div>
