@@ -31,7 +31,7 @@ export default function Navbar({ setTransitionTrigger }) {
     "Digital",
     "Insights",
     "TalentWok",
-    "Courses",
+    "LearnWok",
     "Contact us",
   ];
 
@@ -93,7 +93,7 @@ export default function Navbar({ setTransitionTrigger }) {
 
   const ROUTE_MAP = {
     "Who We Are": "/whoweare",
-    "Courses": "/courses",
+    "LearnWok": "/courses",
     "Careers": "/careers",
     "Partners": "/partners",
     "Our Team": "/ourteam",
@@ -219,7 +219,7 @@ export default function Navbar({ setTransitionTrigger }) {
                         if (item === "TalentWok") {
                           setTransitionTrigger({ onMid: () => navigate("/talentwok") });
                         }
-                         if (item === "Courses") {
+                         if (item === "LearnWok") {
                           setTransitionTrigger({ onMid: () => navigate("/courses") });
                         }
                         if (item === "Contact us") {
@@ -423,7 +423,7 @@ export default function Navbar({ setTransitionTrigger }) {
                 "Who We Are",
                 "Careers",
                 "Partners",
-                "Courses",
+                "LearnWok",
                 "Our Team",
               ].map((item, idx) => (
                 <p
