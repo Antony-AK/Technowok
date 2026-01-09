@@ -120,6 +120,8 @@ function PixelCubeParticles({ freeze, trigger, pulse }) {
 
   /** ROTATION LOOP (MOBILE FRIENDLY + FASTER) */
   useFrame(({ clock }) => {
+        if (isMobile) return;
+
     if (freeze) return;
     const t = clock.getElapsedTime();
 
