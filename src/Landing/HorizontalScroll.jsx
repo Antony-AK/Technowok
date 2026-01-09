@@ -101,12 +101,11 @@ const HorizontalScroll = () => {
       id="horizontal-scroll-section"
       ref={imageContainerRef}
       className="
-        min-h-screen flex flex-nowrap items-center space-x-20 px-20
+        md:min-h-screen flex flex-nowrap items-center space-x-20 px-20
 
         /* 🔥 MOBILE BEHAVIOR */
         max-md:overflow-x-auto
-        max-md:overflow-y-hidden
-        max-md:touch-pan-x
+        max-md:touch-pan-y
         max-md:scrollbar-hide
         max-md:snap-x
         max-md:snap-mandatory
