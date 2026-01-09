@@ -105,10 +105,11 @@ const HorizontalScroll = () => {
 
         /* 🔥 MOBILE BEHAVIOR */
         max-md:overflow-x-auto
-        max-md:touch-pan-y
         max-md:scrollbar-hide
         max-md:snap-x
-        max-md:snap-mandatory
+        max-md:touch-pan-x touch-pan-y
+        max-md:snap-proximity
+
       "
       style={{
         width: isMobile ? "100%" : `calc(150vw * ${slideContent.length})`,

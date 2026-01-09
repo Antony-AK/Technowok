@@ -104,7 +104,7 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
   /* 🎬 Main Hero Animation */
   useEffect(() => {
-    if (!revealDone ) return;
+    if (!revealDone) return;
 
     const ctx = gsap.context(() => {
       const label1 = document.getElementById("hero-label-1");
@@ -189,38 +189,26 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
       {/* 3D Background */}
       <div className="absolute inset-0 z-10">
-        {!isMobile && (
-          <ParticleField trigger={current} pulse={pulse} freeze={freeze} />
-        )}
+
+        <ParticleField trigger={current} pulse={pulse} freeze={freeze} />
+
       </div>
 
       {/* Background slide */}
-{!isMobile ? (
-  <AnimatePresence mode="wait">
-    <motion.div
-      key={current}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-      ref={imgRef}
-      className="absolute inset-0 bg-center bg-cover will-change-transform"
-      style={{
-        backgroundImage:
-          "url('/mnt/data/ee2ebcff-6b32-4ddf-8ab1-7345cf6ff14a.png')",
-      }}
-    />
-  </AnimatePresence>
-) : (
-  <div
-    className="absolute inset-0 z-10 w-[200px] h-[200px] opacity-40 top-66 left-24  bg-center bg-cover"
-    style={{
-      backgroundImage:
-        "url('/img/logo.png')",
-    }}
-  />
-)}
-
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          ref={imgRef}
+          className="absolute inset-0 bg-center bg-cover will-change-transform"
+          style={{
+            backgroundImage: "url('/mnt/data/ee2ebcff-6b32-4ddf-8ab1-7345cf6ff14a.png')"
+          }}
+        />
+      </AnimatePresence>
 
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 pt-40">
 
