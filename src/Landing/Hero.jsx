@@ -36,7 +36,9 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
   const navigate = useNavigate();
   const heroRef = useRef(null);
   const [heroVisible, setHeroVisible] = useState(true);
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 767px)").matches;
 
 
 
@@ -102,7 +104,7 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
   /* 🎬 Main Hero Animation */
   useEffect(() => {
-    if (!revealDone) return;
+    if (!revealDone ) return;
 
     const ctx = gsap.context(() => {
       const label1 = document.getElementById("hero-label-1");
@@ -178,6 +180,8 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
       );
     });
 
+
+
   return (
 
     <section ref={heroRef} className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -185,24 +189,38 @@ export default function HeroCinematic({ revealDone, freeze, setTransitionTrigger
 
       {/* 3D Background */}
       <div className="absolute inset-0 z-10">
-        <ParticleField trigger={current} pulse={pulse} freeze={freeze} />
+        {!isMobile && (
+          <ParticleField trigger={current} pulse={pulse} freeze={freeze} />
+        )}
       </div>
 
       {/* Background slide */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          ref={imgRef}
-          className="absolute inset-0 bg-center bg-cover will-change-transform"
-          style={{
-            backgroundImage: "url('/mnt/data/ee2ebcff-6b32-4ddf-8ab1-7345cf6ff14a.png')"
-          }}
-        />
-      </AnimatePresence>
+{!isMobile ? (
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={current}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      ref={imgRef}
+      className="absolute inset-0 bg-center bg-cover will-change-transform"
+      style={{
+        backgroundImage:
+          "url('/mnt/data/ee2ebcff-6b32-4ddf-8ab1-7345cf6ff14a.png')",
+      }}
+    />
+  </AnimatePresence>
+) : (
+  <div
+    className="absolute inset-0 z-10 w-[200px] h-[200px] opacity-40 top-66 left-24  bg-center bg-cover"
+    style={{
+      backgroundImage:
+        "url('/img/logo.png')",
+    }}
+  />
+)}
+
 
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 pt-40">
 

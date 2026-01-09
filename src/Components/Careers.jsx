@@ -96,7 +96,7 @@ export default function Careers() {
                 <div className="hidden md:block absolute left-0 top-10 h-[120px] w-[4px] bg-red-600 rounded-full shadow-[0_0_20px_red]"></div>
 
                 {/* LEFT CONTENT */}
-                <div className="w-[60%]">
+                <div className="md:w-[60%]">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
                         Grow Your Career
                         <span className="text-red-600"> Tecnowok Solution</span>

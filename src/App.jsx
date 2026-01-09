@@ -29,12 +29,8 @@ function App() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-
-
   const [revealDone, setRevealDone] = useState(false);
   const [transitionTrigger, setTransitionTrigger] = useState(null);
-
-
 
   useEffect(() => {
     if (!isHomePage) {

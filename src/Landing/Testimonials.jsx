@@ -56,7 +56,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50, rotate: -1.5 }}
+              // initial={{ opacity: 0, y: 50, rotate: -1.5 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.12 }}

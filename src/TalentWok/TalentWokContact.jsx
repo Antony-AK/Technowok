@@ -2,6 +2,14 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  Mail,
+  Phone,
+  Linkedin,
+  Instagram,
+  Globe
+} from "lucide-react";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,7 +75,7 @@ export default function TalentWokContact() {
           className="w-full md:w-3/4 text-center md:text-left"
         >
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-           Build Your Winning Team with 
+            Build Your Winning Team with
             <br />
             <span className="text-red-500">TalentWok</span>
           </h1>
@@ -99,35 +107,93 @@ export default function TalentWokContact() {
         <div
           ref={cardRef}
           className="
-          w-full md:w-1/2
-          bg-white/5 backdrop-blur-xl 
-          border border-white/10 
-          rounded-3xl 
-          shadow-[0_0_50px_rgba(255,0,0,0.25)]
-          p-6 md:p-12 
-          flex flex-col gap-6
-          text-center md:text-left
-        "
+    w-full md:w-1/2
+    bg-white/5 backdrop-blur-xl 
+    border border-white/10 
+    rounded-3xl 
+    shadow-[0_0_50px_rgba(255,0,0,0.25)]
+    p-6 md:p-12 
+    flex flex-col gap-6
+    text-center md:text-left
+  "
         >
           <h3 className="text-xl md:text-2xl font-semibold text-red-400">
             Get in touch
           </h3>
 
-          <div className="space-y-2 text-gray-300 text-base md:text-lg">
-            <p className="hover:text-white transition cursor-pointer">📧 recruitment@tecnowok.com</p>
-            <p className="hover:text-white transition cursor-pointer">📧 info@tecnowok.com</p>
+          {/* EMAIL */}
+          <div className="space-y-3 text-gray-300 text-base md:text-lg">
+            <a
+              href="mailto:recruitment@tecnowok.com"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Mail size={20} className="text-red-500" />
+              recruitment@tecnowok.com
+            </a>
+
+            <a
+              href="mailto:info@tecnowok.com"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Mail size={20} className="text-red-500" />
+              info@tecnowok.com
+            </a>
           </div>
 
-          <div className="space-y-2 text-gray-300 text-base md:text-lg">
-            <p className="hover:text-white transition cursor-pointer">📞 +91-63823 03056</p>
-            <p className="hover:text-white transition cursor-pointer">📞 +91-89397 87678</p>
+          {/* PHONE */}
+          <div className="space-y-3 text-gray-300 text-base md:text-lg">
+            <a
+              href="tel:+916382303056"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Phone size={20} className="text-red-500" />
+              +91-63823-03056
+            </a>
+
+            <a
+              href="tel:+918939787678"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Phone size={20} className="text-red-500" />
+              +91-89397-87678
+            </a>
           </div>
 
-          <div className="space-y-2 text-gray-300 text-base md:text-lg">
-            <p className="hover:text-white transition cursor-pointer">🔗 linkedin.com/company/tecnowok</p>
-            <p className="hover:text-white transition cursor-pointer">🌍 www.tecnowok.com</p>
+          {/* SOCIAL / LINKS */}
+          <div className="space-y-3 text-gray-300 text-base md:text-lg">
+            <a
+              href="https://www.linkedin.com/showcase/talentwok-solution/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Linkedin size={20} className="text-red-500" />
+              LinkedIn / TalentWok
+            </a>
+
+            <a
+              href="https://www.instagram.com/talent.wok/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Instagram size={20} className="text-red-500" />
+              Instagram / TalentWok
+            </a>
+
+            <a
+              href="https://www.tecnowok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 hover:text-white transition"
+            >
+              <Globe size={20} className="text-red-500" />
+              www.tecnowok.com
+            </a>
           </div>
         </div>
+
+
 
       </div>
     </section>

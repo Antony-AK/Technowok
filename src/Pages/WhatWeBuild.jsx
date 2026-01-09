@@ -60,7 +60,7 @@ const CLIENT_LOGOS = [
     c21, c22,
 ];
 
-const ROW_1 = CLIENT_LOGOS.slice( 0, 7);
+const ROW_1 = CLIENT_LOGOS.slice(0, 7);
 const ROW_2 = CLIENT_LOGOS.slice(7, 14);
 const ROW_3 = CLIENT_LOGOS.slice(15, 22);
 
@@ -249,7 +249,7 @@ export default function WhatWeBuild() {
         });
     }, []);
 
-    
+
 
     return (
         <div className="w-full bg-black text-white overflow-x-hidden">
@@ -371,9 +371,14 @@ function ShowcaseItem({ flipped, project }) {
             >
                 <img
                     src={project.image1}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="450"
+                    height="300"
                     className="w-full h-full object-cover rounded-2xl"
-                    alt=""
                 />
+
             </motion.div>
 
             {/* TEXT SECTION */}
@@ -452,13 +457,16 @@ function MiniCarousel() {
 
                     return (
                         <motion.img
-                            key={i}
                             src={img}
+                            loading={i === index ? "eager" : "lazy"}
+                            fetchpriority={i === index ? "high" : "low"}
+                            decoding="async"
                             className="absolute rounded-2xl shadow-xl object-cover opacity-90"
                             style={{ width: "100%", height: "100%" }}
                             animate={style}
                             transition={{ duration: 0.8, ease: "easeInOut" }}
                         />
+
                     );
                 })}
             </div>
@@ -470,32 +478,32 @@ function LogoMarqueeRow({ logos, reverse = false, size = "normal", speed = 60 })
     const trackRef = useRef(null);
 
     useEffect(() => {
-  const track = trackRef.current;
-  const totalWidth = track.scrollWidth / 2;
+        const track = trackRef.current;
+        const totalWidth = track.scrollWidth / 2;
 
-  const ctx = gsap.context(() => {
-    gsap.to(track, {
-      x: reverse ? totalWidth : -totalWidth,
-      duration: speed,
-      ease: "none",
-      repeat: -1,
-      modifiers: {
-        x: (x) => {
-          const val = parseFloat(x);
+        const ctx = gsap.context(() => {
+            gsap.to(track, {
+                x: reverse ? totalWidth : -totalWidth,
+                duration: speed,
+                ease: "none",
+                repeat: -1,
+                modifiers: {
+                    x: (x) => {
+                        const val = parseFloat(x);
 
-          // ✅ KEY FIX
-          if (reverse) {
-            return `${((val % totalWidth) + totalWidth) % totalWidth}px`;
-          }
+                        // ✅ KEY FIX
+                        if (reverse) {
+                            return `${((val % totalWidth) + totalWidth) % totalWidth}px`;
+                        }
 
-          return `${val % totalWidth}px`;
-        },
-      },
-    });
-  });
+                        return `${val % totalWidth}px`;
+                    },
+                },
+            });
+        });
 
-  return () => ctx.revert();
-}, [reverse, speed]);
+        return () => ctx.revert();
+    }, [reverse, speed]);
 
 
     return (
@@ -518,9 +526,14 @@ function LogoMarqueeRow({ logos, reverse = false, size = "normal", speed = 60 })
                     >
                         <img
                             src={logo}
-                            alt="client"
+                            alt="client logo"
+                            loading="lazy"
+                            decoding="async"
+                            width="200"
+                            height="100"
                             className="max-h-full max-w-full object-contain"
                         />
+
                     </div>
                 ))}
             </div>
@@ -556,12 +569,12 @@ function ClientLogos() {
             <div className="h-20" />
 
             {/* ROW 2 (reverse) */}
-            <LogoMarqueeRow logos={ROW_2} reverse speed={50} />
+            <LogoMarqueeRow logos={ROW_2} size="medium"  speed={50} />
 
             <div className="h-20" />
 
             {/* ROW 3 (bigger, slower) */}
-            <LogoMarqueeRow logos={ROW_3} size="big" speed={75} />
+            <LogoMarqueeRow logos={ROW_3} size="big" speed={50} />
 
 
             {/* Disclaimer */}

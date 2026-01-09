@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa";
 export const ROUTE_MAP = {
   "Who We Are": "/whoweare",
   "Courses": "/courses",
@@ -50,7 +50,7 @@ export default function Footer() {
                 Empowering brands. Accelerating growth. Delivering excellence.
               </p>
               <p className="text-xs text-red-400 mt-3 font-medium">
-               Innovative IT & Digital Solutions Worldwide
+                Innovative IT & Digital Solutions Worldwide
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Footer() {
             <div>📧 info@tecnowok.com</div>
             <div>📞 +91-99528 67396</div>
             <div className="text-xs text-gray-400 mt-1">
-              Tuticorin · Chennai · Bangalore · Global 
+              Tuticorin · Chennai · Bangalore · Global
             </div>
           </div>
         </div>
@@ -107,9 +107,8 @@ export default function Footer() {
                 <li
                   key={label}
                   onClick={() => navigate(path)}
-                  className={`footer-link ${
-                    label === "" ? "text-red-400 font-medium" : ""
-                  }`}
+                  className={`footer-link ${label === "" ? "text-red-400 font-medium" : ""
+                    }`}
                 >
                   {label}
                 </li>
@@ -121,9 +120,10 @@ export default function Footer() {
           <div>
             <h4 className="text-red-500 text-sm font-semibold mb-4">Connect</h4>
             <div className="flex gap-4 mb-4 text-gray-300">
-              <a href="#" className="hover:text-white"><FaLinkedin size={22} /></a>
-              <a href="#" className="hover:text-white"><FaInstagram size={22} /></a>
-              <a href="https://wa.me/918939787678"
+              <a href="https://www.linkedin.com/company/tecnowok/" target="_blank" className="hover:text-white"><FaLinkedin size={22} /></a>
+              <a href="https://www.facebook.com/share/1CtuN46xNJ/" target="_blank" className="hover:text-white"><FaFacebook size={22} /></a>
+              <a href="https://www.instagram.com/tecnowoksolution/" target="_blank" className="hover:text-white"><FaInstagram size={22} /></a>
+              <a href="https://wa.me/919952867396"
                 target="_blank" className="hover:text-white"><FaWhatsapp size={22} /></a>
             </div>
 
