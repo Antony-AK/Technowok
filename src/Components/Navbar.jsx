@@ -178,7 +178,7 @@ export default function Navbar({ setTransitionTrigger }) {
             onMouseLeave={() => {
               setShowServices(false);
               setShowDigital(false);
-               setShowTalent(false);
+              setShowTalent(false);
             }}
           >
             <nav className="ms-5">
@@ -219,7 +219,7 @@ export default function Navbar({ setTransitionTrigger }) {
                         if (item === "TalentWok") {
                           setTransitionTrigger({ onMid: () => navigate("/talentwok") });
                         }
-                         if (item === "LearnWok") {
+                        if (item === "LearnWok") {
                           setTransitionTrigger({ onMid: () => navigate("/courses") });
                         }
                         if (item === "Contact us") {
@@ -351,15 +351,15 @@ export default function Navbar({ setTransitionTrigger }) {
                 {/* DESCRIPTION + BUTTON */}
                 <div className="flex flex-col items-center mt-40 justify-center">
 
-<p className="text-lg max-w-sm text-center mb-6 leading-relaxed text-gray-300">
-  A modern <span className="text-red-500 font-medium">talent ecosystem</span> connecting 
-  <span className="text-white font-medium"> companies</span>, 
-  <span className="text-white font-medium"> campuses</span>, and 
-  <span className="text-white font-medium"> candidates</span>
-  through <span className="text-red-500 font-medium">real projects</span>, 
-  <span className="text-red-500 font-medium"> industry-backed learning</span>, 
-  and <span className="text-white font-medium">ready-to-deploy talent pods</span>.
-</p>
+                  <p className="text-lg max-w-sm text-center mb-6 leading-relaxed text-gray-300">
+                    A modern <span className="text-red-500 font-medium">talent ecosystem</span> connecting
+                    <span className="text-white font-medium"> companies</span>,
+                    <span className="text-white font-medium"> campuses</span>, and
+                    <span className="text-white font-medium"> candidates</span>
+                    through <span className="text-red-500 font-medium">real projects</span>,
+                    <span className="text-red-500 font-medium"> industry-backed learning</span>,
+                    and <span className="text-white font-medium">ready-to-deploy talent pods</span>.
+                  </p>
 
 
 
@@ -423,7 +423,7 @@ export default function Navbar({ setTransitionTrigger }) {
                 "Who We Are",
                 "Careers",
                 "Partners",
-                "LearnWok",
+               
                 "Our Team",
               ].map((item, idx) => (
                 <p
@@ -481,8 +481,14 @@ export default function Navbar({ setTransitionTrigger }) {
                       if (item === "What we've built") {
                         setTransitionTrigger({ onMid: () => navigate("/whatwebuild") });
                       }
+                      if (item === "Insights") {
+                        setTransitionTrigger({ onMid: () => navigate("/insights") });
+                      }
                       if (item === "TalentWok") {
                         setTransitionTrigger({ onMid: () => navigate("/talentwok") });
+                      }
+                      if (item === "LearnWok") {
+                        setTransitionTrigger({ onMid: () => navigate("/courses") });
                       }
                       if (item === "Contact us") {
                         setTransitionTrigger({ onMid: () => navigate("/contact") });
@@ -599,7 +605,6 @@ export default function Navbar({ setTransitionTrigger }) {
                 "Who We Are",
                 "Careers",
                 "Partners",
-                "Courses",
                 "Our Team",
               ].map((item, idx) => (
                 <p

@@ -134,7 +134,7 @@ const HorizontalScroll = () => {
             <h2 className="text-2xl md:text-4xl font-bold text-red-600">
               {item.title}
             </h2>
-            <p className="text-gray-300 mt-3 text-sm md:text-md max-w-lg">
+            <p className="text-gray-300 mt-3  max-w-lg">
               {item.text}
             </p>
           </div>

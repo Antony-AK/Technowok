@@ -79,7 +79,7 @@ export default function ModernStack() {
 
         {/* Tabs */}
         <div className="
-          flex overflow-x-auto scrollbar-hide 
+          flex overflow-x-auto hide-scrollbar 
           md:justify-between gap-3 
           bg-[#e74a4a]/40 
           p-2 rounded-full mb-10
